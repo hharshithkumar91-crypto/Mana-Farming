@@ -953,6 +953,14 @@ export default function App() {
     return () => { cancelled = true; };
   }, [selState, selDistrict, selMandal]);
 
+  // Promo carousel auto-advance every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPromoSlide(prev => (prev + 1) % 4);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   /* ══ HELPER FUNCTIONS ════════════════════════════ */
 
   const getWeather = (state) => {
@@ -4531,12 +4539,20 @@ export default function App() {
           ) : (
             cart.map(item => (
               <div key={item.id} style={{ display: 'flex', gap: '0.75rem', background: '#1c1c1c', border: '1px solid #222', borderRadius: '10px', padding: '0.75rem' }}>
-                <div style={{ width: '45px', height: '45px', background: '#121212', borderRadius: '8px', display: 'flex', alignItems: 'center', justify: 'center', fontSize: '1.4rem' }}>
-                  {item.image === 'seeds' ? '🌾' :
-                   item.image === 'fertilizer' ? '🧪' :
-                   item.image === 'pesticide' ? '🌿' :
-                   item.image === 'tools' ? '🛠️' : '📦'}
+                <div style={{ width: '52px', height: '52px', background: '#121212', borderRadius: '8px', overflow: 'hidden', flexShrink: 0 }}>
+                  {item.image && item.image.startsWith('http') ? (
+                    <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem' }}>
+                      {(item.title || '').toLowerCase().includes('seed') ? '🌾' :
+                       (item.title || '').toLowerCase().includes('fertilizer') ? '🧪' :
+                       (item.title || '').toLowerCase().includes('vegetable') || (item.title || '').toLowerCase().includes('spinach') ? '🥬' :
+                       (item.title || '').toLowerCase().includes('fruit') ? '🍎' :
+                       (item.title || '').toLowerCase().includes('tool') ? '🛠️' : '📦'}
+                    </div>
+                  )}
                 </div>
+
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {item.title}
