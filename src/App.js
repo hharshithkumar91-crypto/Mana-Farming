@@ -44,601 +44,625 @@ const STARTER_LISTINGS = [
   // 🥬 Vegetables
   {
     id: "veg_spinach",
-    title: "Fresh Organic Spinach (Palak)",
+    title: "Fresh Farm Organic Spinach (Palak / Paalak)",
     category: "🥬 Vegetables",
     price: 18, mrp: 25,
     quantity: 150, unit: "kg",
-    description: "Freshly harvested organic spinach leaves. 100% chemical spray free.",
+    description: "Tender, iron-rich organic palak leaves. Harvested at sunrise, 100% natural.",
     sellerId: "green_farm_1", sellerName: "Ramesh Organic Farms", sellerPhone: "9876543210",
     sellerLocation: { state: "Telangana", district: "Hyderabad", mandal: "Secunderabad" },
-    rating: 4.9, ratingCount: 24,
-    image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 124,
+    image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_tomato",
-    title: "Red Hybrid Farm-Fresh Tomatoes",
+    title: "Red Hybrid Farm-Fresh Tomatoes (Tamatar)",
     category: "🥬 Vegetables",
-    price: 22, mrp: 30,
+    price: 22, mrp: 32,
     quantity: 500, unit: "kg",
-    description: "Juicy, firm red tomatoes suitable for kitchen cooking and salads.",
+    description: "Firm, glossy red tomatoes with balanced sweetness and acidity. Ideal for curries and salads.",
     sellerId: "kisan_agro_2", sellerName: "Venkateswara Agri Farms", sellerPhone: "9440123456",
     sellerLocation: { state: "Andhra Pradesh", district: "Guntur", mandal: "Tenali" },
-    rating: 4.8, ratingCount: 38,
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 186,
+    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_onion",
-    title: "Premium Red Nasik Onions",
+    title: "Premium Red Nasik Onions (Pyaaz / Ullipaya)",
     category: "🥬 Vegetables",
-    price: 28, mrp: 38,
-    quantity: 1000, unit: "kg",
-    description: "High-grade dry red onions with long shelf life and rich flavor.",
+    price: 28, mrp: 40,
+    quantity: 1200, unit: "kg",
+    description: "Grade-A dry red Nasik onions with pungent aroma, thin dry skin, and extended shelf life.",
     sellerId: "nashik_farms", sellerName: "Patil Farmer Producer Co.", sellerPhone: "9822012345",
     sellerLocation: { state: "Maharashtra", district: "Nashik", mandal: "Malegaon" },
-    rating: 4.7, ratingCount: 42,
-    image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cf?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 240,
+    image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cf?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_potato",
-    title: "Fresh Harvest Potato (Jyoti Grade A)",
+    title: "Fresh Harvest Jyoti Potatoes (Aloo / Bangaladumpa)",
     category: "🥬 Vegetables",
     price: 20, mrp: 28,
-    quantity: 800, unit: "kg",
-    description: "Clean, dirt-free large potatoes ideal for cooking and frying.",
+    quantity: 900, unit: "kg",
+    description: "Clean, unblemished large table potatoes from UP cold-store farms. Low sugar, great for fries.",
     sellerId: "up_potatoes", sellerName: "Agra Wholesale Farmers", sellerPhone: "9711098765",
     sellerLocation: { state: "Uttar Pradesh", district: "Agra", mandal: "Etmadpur" },
-    rating: 4.6, ratingCount: 19,
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&auto=format&fit=crop&q=80"
+    rating: 4.6, ratingCount: 95,
+    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_carrot",
-    title: "Organic Red Carrots (Gajar)",
+    title: "Crunchy Red Nantes Carrots (Gajar)",
     category: "🥬 Vegetables",
-    price: 28, mrp: 40,
-    quantity: 300, unit: "kg",
-    description: "Sweet, crunchy carrots rich in Vitamin A. Perfect for salads and juices.",
+    price: 30, mrp: 45,
+    quantity: 350, unit: "kg",
+    description: "Sweet, crunchy high-carotene mountain carrots. Excellent for halwa, salads, and juicing.",
     sellerId: "carrot_hp", sellerName: "Himachal Valley Growers", sellerPhone: "9816012345",
     sellerLocation: { state: "Himachal Pradesh", district: "Shimla", mandal: "Rohru" },
-    rating: 4.8, ratingCount: 26,
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 110,
+    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_cauliflower",
-    title: "White Snowball Cauliflower (Gobi)",
+    title: "Snowball White Cauliflower (Phool Gobi)",
     category: "🥬 Vegetables",
-    price: 25, mrp: 35,
+    price: 26, mrp: 38,
     quantity: 400, unit: "kg",
-    description: "Firm, crisp white cauliflower heads straight from farm fields.",
+    description: "Dense, compact white curds shielded by natural green jacket leaves. Freshly cut.",
     sellerId: "pb_gobi", sellerName: "Ludhiana Vegetable Growers", sellerPhone: "9815012345",
     sellerLocation: { state: "Punjab", district: "Ludhiana", mandal: "Jagraon" },
-    rating: 4.6, ratingCount: 17,
-    image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=500&auto=format&fit=crop&q=80"
+    rating: 4.6, ratingCount: 78,
+    image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_okra",
-    title: "Tender Green Okra / Lady Finger (Bhindi)",
+    title: "Tender Green Okra (Bhindi / Bhendi)",
     category: "🥬 Vegetables",
-    price: 32, mrp: 45,
-    quantity: 250, unit: "kg",
-    description: "Young, non-fibrous okra pods suitable for daily frying and curries.",
+    price: 32, mrp: 48,
+    quantity: 300, unit: "kg",
+    description: "Young, slender, fiber-free lady finger pods for crispy fry and spicy sambar.",
     sellerId: "bhindi_tn", sellerName: "Coimbatore Agri Farms", sellerPhone: "9843012345",
     sellerLocation: { state: "Tamil Nadu", district: "Coimbatore", mandal: "Pollachi" },
-    rating: 4.7, ratingCount: 29,
-    image: "https://images.unsplash.com/photo-1627735483748-bc5bfd1f0e68?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 132,
+    image: "https://images.unsplash.com/photo-1627735483748-bc5bfd1f0e68?w=600&auto=format&fit=crop&q=80"
   },
   {
-    id: "veg_garlic",
-    title: "Desi Whole Garlic Bulbs (Lahsun)",
+    id: "veg_brinjal",
+    title: "Glossy Purple Brinjal (Baingan / Vankaya)",
     category: "🥬 Vegetables",
-    price: 120, mrp: 160,
-    quantity: 500, unit: "kg",
-    description: "Pungent, aromatic desi garlic bulbs with tight cloves and long shelf life.",
-    sellerId: "garlic_mp", sellerName: "Madhya Pradesh Spice Growers", sellerPhone: "9827012345",
-    sellerLocation: { state: "Madhya Pradesh", district: "Mandsaur", mandal: "Sitamau" },
-    rating: 4.8, ratingCount: 35,
-    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?w=500&auto=format&fit=crop&q=80"
-  },
-  {
-    id: "veg_ginger",
-    title: "Fresh Spicy Ginger Root (Adrak)",
-    category: "🥬 Vegetables",
-    price: 80, mrp: 110,
-    quantity: 300, unit: "kg",
-    description: "Fresh washed ginger with bold heat and rich gingerol oils.",
-    sellerId: "ginger_ker", sellerName: "Kerala Spice Growers", sellerPhone: "9447112345",
-    sellerLocation: { state: "Kerala", district: "Idukki", mandal: "Thodupuzha" },
-    rating: 4.9, ratingCount: 44,
-    image: "https://images.unsplash.com/photo-1573401015249-000df68ff7ca?w=500&auto=format&fit=crop&q=80"
+    price: 22, mrp: 32,
+    quantity: 280, unit: "kg",
+    description: "Tender, shiny eggplants perfect for roasting, bharta, and stuffed gutti vankaya.",
+    sellerId: "baingan_ap", sellerName: "Krishna Basin Vegetables", sellerPhone: "9440987654",
+    sellerLocation: { state: "Andhra Pradesh", district: "Krishna", mandal: "Vuyyuru" },
+    rating: 4.6, ratingCount: 88,
+    image: "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "veg_capsicum",
-    title: "Green Crisp Capsicum (Shimla Mirch)",
+    title: "Crisp Green Bell Peppers (Capsicum / Shimla Mirch)",
     category: "🥬 Vegetables",
-    price: 45, mrp: 60,
-    quantity: 200, unit: "kg",
-    description: "Glossy bell peppers for stir fries, curries, and daily kitchen use.",
+    price: 48, mrp: 70,
+    quantity: 220, unit: "kg",
+    description: "Thick-walled crunchy green bell peppers directly from climate-controlled polyhouses.",
     sellerId: "bell_pepper_tn", sellerName: "Ooty Hillfresh Produce", sellerPhone: "9842112345",
     sellerLocation: { state: "Tamil Nadu", district: "Nilgiris", mandal: "Ooty" },
-    rating: 4.7, ratingCount: 22,
-    image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 145,
+    image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "veg_garlic",
+    title: "Desi Pungent Garlic Bulbs (Lahsun / Vellulli)",
+    category: "🥬 Vegetables",
+    price: 130, mrp: 180,
+    quantity: 450, unit: "kg",
+    description: "Naturally dried aromatic garlic cloves with high allicin content. Boosts heart health.",
+    sellerId: "garlic_mp", sellerName: "Madhya Pradesh Spice Growers", sellerPhone: "9827012345",
+    sellerLocation: { state: "Madhya Pradesh", district: "Mandsaur", mandal: "Sitamau" },
+    rating: 4.9, ratingCount: 160,
+    image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "veg_ginger",
+    title: "Spicy Fresh Ginger Root (Adrak / Allam)",
+    category: "🥬 Vegetables",
+    price: 85, mrp: 120,
+    quantity: 350, unit: "kg",
+    description: "Juicy, fiber-light fresh ginger harvested from organic mountain soil in Idukki.",
+    sellerId: "ginger_ker", sellerName: "Kerala Spice Growers", sellerPhone: "9447112345",
+    sellerLocation: { state: "Kerala", district: "Idukki", mandal: "Thodupuzha" },
+    rating: 4.9, ratingCount: 198,
+    image: "https://images.unsplash.com/photo-1573401015249-000df68ff7ca?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🍎 Fruits
   {
     id: "fruit_mango",
-    title: "Sweet Alphonso Mangoes (Ratnagiri)",
+    title: "GI-Certified Ratnagiri Alphonso Mangoes (Hapus)",
     category: "🍎 Fruits",
-    price: 120, mrp: 160,
-    quantity: 200, unit: "kg",
-    description: "Naturally ripened GI-tagged Ratnagiri Alphonso mangoes with rich aroma.",
+    price: 130, mrp: 180,
+    quantity: 250, unit: "kg",
+    description: "Tree-ripened, golden-saffron Alphonso mangoes with royal aroma and buttery texture.",
     sellerId: "mango_king", sellerName: "Kokan Agro Orchards", sellerPhone: "9823456789",
     sellerLocation: { state: "Maharashtra", district: "Ratnagiri", mandal: "Dapoli" },
-    rating: 5.0, ratingCount: 56,
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 312,
+    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fruit_banana",
-    title: "Organic Robusta Bananas (Kela)",
+    title: "Natural Robusta Bananas (Kela / Aratipandu)",
     category: "🍎 Fruits",
     price: 28, mrp: 40,
-    quantity: 350, unit: "kg",
-    description: "Sweet, potassium-dense naturally ripened robusta bananas.",
+    quantity: 450, unit: "kg",
+    description: "Ethylene-free naturally ripened sweet bananas packed with energy and dietary potassium.",
     sellerId: "kerala_fruits", sellerName: "Malabar Fruit Producers", sellerPhone: "9447012345",
     sellerLocation: { state: "Kerala", district: "Palakkad", mandal: "Ottappalam" },
-    rating: 4.8, ratingCount: 31,
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 175,
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fruit_grapes",
-    title: "Export Seedless Green Grapes (Angoor)",
+    title: "Sweet Seedless Thomson Green Grapes (Angoor)",
     category: "🍎 Fruits",
-    price: 80, mrp: 110,
-    quantity: 250, unit: "kg",
-    description: "Crisp, sweet Thomson seedless green grapes from Nashik vineyards.",
+    price: 85, mrp: 120,
+    quantity: 300, unit: "kg",
+    description: "Crisp, thin-skinned export quality green grapes from Sahyadri mountain vineyards.",
     sellerId: "grapes_nashik", sellerName: "Sahyadri Farmers Producer Co.", sellerPhone: "9822334455",
     sellerLocation: { state: "Maharashtra", district: "Nashik", mandal: "Dindori" },
-    rating: 4.9, ratingCount: 29,
-    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 164,
+    image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fruit_apple",
-    title: "Royal Delicious Kashmiri Apples (Seb)",
+    title: "Kashmiri Royal Delicious Apples (Seb)",
     category: "🍎 Fruits",
-    price: 150, mrp: 200,
-    quantity: 200, unit: "kg",
-    description: "Crisp, sweet-tangy Kashmiri mountain apples picked at peak maturity.",
+    price: 155, mrp: 210,
+    quantity: 260, unit: "kg",
+    description: "Handpicked crisp red mountain apples. High juice content with balanced sweetness.",
     sellerId: "apple_kash", sellerName: "J&K Horticulture Board", sellerPhone: "9906312345",
     sellerLocation: { state: "Jammu & Kashmir", district: "Shopian", mandal: "Keller" },
-    rating: 4.9, ratingCount: 52,
-    image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 280,
+    image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fruit_pomegranate",
-    title: "Ruby Red Bhagwa Pomegranate (Anar)",
+    title: "Ruby Red Bhagwa Pomegranate (Anar / Danimma)",
     category: "🍎 Fruits",
-    price: 90, mrp: 130,
-    quantity: 300, unit: "kg",
-    description: "Sweet juicy arils with soft seeds, high antioxidant content.",
+    price: 95, mrp: 140,
+    quantity: 320, unit: "kg",
+    description: "Deep red juicy pearls with soft edible seeds. Rich in polyphenols and antioxidants.",
     sellerId: "anar_solapur", sellerName: "Solapur Pomegranate Growers", sellerPhone: "9822556677",
     sellerLocation: { state: "Maharashtra", district: "Solapur", mandal: "Mangalvedhe" },
-    rating: 4.9, ratingCount: 37,
-    image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 195,
+    image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fruit_lemon",
-    title: "Juicy Kagzi Lemons (Nimbu Pack)",
+    title: "Juicy Thin-Skinned Kagzi Lemons (Nimbu Pack)",
     category: "🍎 Fruits",
-    price: 60, mrp: 80,
-    quantity: 350, unit: "kg",
-    description: "Thin-skinned acidic juicy lemons essential for everyday cooking and drinks.",
+    price: 65, mrp: 90,
+    quantity: 400, unit: "kg",
+    description: "High juice yield organic Kagzi lemons. Loaded with natural Vitamin C and bioflavonoids.",
     sellerId: "lemon_ap", sellerName: "Coastal Citrus Farms", sellerPhone: "9440712345",
     sellerLocation: { state: "Andhra Pradesh", district: "Nellore", mandal: "Kavali" },
-    rating: 4.7, ratingCount: 31,
-    image: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 142,
+    image: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🌾 Grains & Flour
   {
     id: "grain_basmati",
-    title: "1121 Premium Long-Grain Basmati Rice",
+    title: "1121 Extra Long-Grain Aged Basmati Rice",
     category: "🌾 Grains & Flour",
-    price: 95, mrp: 130,
-    quantity: 500, unit: "kg",
-    description: "Aromatic extra-long grain basmati rice, aged 12 months for fluffiness.",
+    price: 98, mrp: 145,
+    quantity: 600, unit: "kg",
+    description: "Aged for 18 months. Fluffy, non-sticky grains expanding to over 20mm after cooking.",
     sellerId: "punjab_rice", sellerName: "Golden Field Millers", sellerPhone: "9814012345",
     sellerLocation: { state: "Punjab", district: "Amritsar", mandal: "Ajnala" },
-    rating: 5.0, ratingCount: 47,
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 320,
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "grain_sona_masuri",
-    title: "Sona Masuri Raw Rice (Everyday Rice)",
+    title: "Sona Masuri Steam Raw Rice (Godavari Heritage)",
     category: "🌾 Grains & Flour",
-    price: 55, mrp: 70,
-    quantity: 1000, unit: "kg",
-    description: "Lightweight, aromatic daily staple rice from the Godavari basin.",
+    price: 56, mrp: 75,
+    quantity: 1200, unit: "kg",
+    description: "Lightweight, easy-to-digest daily staple rice. Low glycemic index, unpolished natural goodness.",
     sellerId: "ap_rice", sellerName: "Godavari Rice Mills", sellerPhone: "9441234567",
     sellerLocation: { state: "Andhra Pradesh", district: "West Godavari", mandal: "Tanuku" },
-    rating: 4.8, ratingCount: 63,
-    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 410,
+    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "grain_atta",
-    title: "Stone-Ground Whole Wheat Chakki Atta",
+    title: "Sharbati Whole Wheat Chakki Fresh Atta",
     category: "🌾 Grains & Flour",
-    price: 42, mrp: 55,
-    quantity: 800, unit: "kg",
-    description: "100% whole wheat chakki-fresh flour retaining all natural fibre and bran.",
+    price: 44, mrp: 60,
+    quantity: 900, unit: "kg",
+    description: "Stone-milled 100% whole Sharbati wheat flour retaining fiber, germ, and bran. Makes soft rotis.",
     sellerId: "chakki_atta", sellerName: "Organic Chakki Mills", sellerPhone: "9812012345",
     sellerLocation: { state: "Haryana", district: "Rohtak", mandal: "Kalanaur" },
-    rating: 4.9, ratingCount: 58,
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 380,
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "grain_poha",
-    title: "Thick Flattened Rice (Poha / Aval)",
+    title: "Thick Hand-Pounded Flattened Rice (Poha / Atukulu)",
     category: "🌾 Grains & Flour",
-    price: 65, mrp: 85,
-    quantity: 300, unit: "kg",
-    description: "Traditional thick beaten rice flakes. Quick and healthy breakfast cereal.",
+    price: 68, mrp: 90,
+    quantity: 350, unit: "kg",
+    description: "Nutritious roasted thick beaten rice flakes. Quick healthy breakfast rich in plant iron.",
     sellerId: "poha_mp", sellerName: "Nimar Valley Rice Mills", sellerPhone: "9827312345",
     sellerLocation: { state: "Madhya Pradesh", district: "Khandwa", mandal: "Punasa" },
-    rating: 4.7, ratingCount: 27,
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 165,
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "grain_besan",
-    title: "Pure Chana Dal Besan (Gram Flour)",
+    title: "100% Pure Desi Chana Dal Besan (Gram Flour)",
     category: "🌾 Grains & Flour",
-    price: 75, mrp: 95,
-    quantity: 400, unit: "kg",
-    description: "Finely milled yellow gram flour for snacks, kadhi, sweets, and rotis.",
+    price: 78, mrp: 105,
+    quantity: 450, unit: "kg",
+    description: "Stone-ground unadulterated chickpea flour for pakodas, dhokla, sweets, and savoury snacks.",
     sellerId: "besan_raj", sellerName: "Rajasthan Gram Processors", sellerPhone: "9828112345",
     sellerLocation: { state: "Rajasthan", district: "Bikaner", mandal: "Nokha" },
-    rating: 4.8, ratingCount: 33,
-    image: "https://images.unsplash.com/photo-1627735483748-bc5bfd1f0e68?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 220,
+    image: "https://images.unsplash.com/photo-1627735483748-bc5bfd1f0e68?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🫘 Pulses & Dal
   {
     id: "pulse_toor",
-    title: "Unpolished Organic Toor Dal (Arhar)",
+    title: "Unpolished Desi Toor Dal (Arhar / Kandipappu)",
     category: "🫘 Pulses & Dal",
-    price: 140, mrp: 180,
-    quantity: 400, unit: "kg",
-    description: "Protein-rich desi toor dal without oil or synthetic dye polishing.",
+    price: 145, mrp: 190,
+    quantity: 500, unit: "kg",
+    description: "GI-famed Gulbarga toor dal. High natural protein, no artificial oil or water polishing.",
     sellerId: "gulbarga_dal", sellerName: "Deccan Pulses Co.", sellerPhone: "9845012345",
     sellerLocation: { state: "Karnataka", district: "Kalaburagi", mandal: "Kalaburagi City" },
-    rating: 4.9, ratingCount: 22,
-    image: "https://images.unsplash.com/photo-1585994191611-72ec0b73c41e?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 245,
+    image: "https://images.unsplash.com/photo-1585994191611-72ec0b73c41e?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "pulse_moong",
-    title: "Split Yellow Moong Dal",
+    title: "Yellow Split Moong Dal (Pesara Pappu)",
     category: "🫘 Pulses & Dal",
-    price: 120, mrp: 155,
-    quantity: 350, unit: "kg",
-    description: "Light and easily digestible yellow split lentils for khichdi and dal tadka.",
+    price: 125, mrp: 165,
+    quantity: 400, unit: "kg",
+    description: "Easily digestible premium yellow moong dal. Perfect for khichdi, dal tadka, and daily meals.",
     sellerId: "moong_raj", sellerName: "Barmer Pulse Growers", sellerPhone: "9829012345",
     sellerLocation: { state: "Rajasthan", district: "Barmer", mandal: "Balotra" },
-    rating: 4.8, ratingCount: 31,
-    image: "https://images.unsplash.com/photo-1599579776378-5aa72f1a0c8c?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 190,
+    image: "https://images.unsplash.com/photo-1599579776378-5aa72f1a0c8c?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "pulse_chana",
-    title: "Desi Brown Chana (Kala Chana)",
+    title: "Desi Organic Kala Chana (Brown Chickpeas)",
     category: "🫘 Pulses & Dal",
-    price: 90, mrp: 120,
-    quantity: 600, unit: "kg",
-    description: "High-protein unpolished desi chickpeas for curries, boiling, and sprouting.",
+    price: 92, mrp: 125,
+    quantity: 650, unit: "kg",
+    description: "Nutrient-packed desi kala chana with earthy taste. High fiber for sprouts and spicy curries.",
     sellerId: "chana_up", sellerName: "Kanpur Agricultural Co-op", sellerPhone: "9839012345",
     sellerLocation: { state: "Uttar Pradesh", district: "Kanpur", mandal: "Bilhaur" },
-    rating: 4.6, ratingCount: 16,
-    image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 178,
+    image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "pulse_rajma",
-    title: "Chitra Red Kidney Beans (Rajma)",
+    title: "Kashmiri Chitra Red Kidney Beans (Rajma)",
     category: "🫘 Pulses & Dal",
-    price: 160, mrp: 200,
-    quantity: 200, unit: "kg",
-    description: "Creamy-cooking Himalayan Chitra rajma beans, rich in plant protein.",
+    price: 165, mrp: 215,
+    quantity: 280, unit: "kg",
+    description: "Authentic speckled Chitra beans from Jammu hills. Cooks soft and creamy with rich gravy.",
     sellerId: "rajma_jk", sellerName: "J&K Valley Beans Growers", sellerPhone: "9906412345",
     sellerLocation: { state: "Jammu & Kashmir", district: "Jammu", mandal: "Akhnoor" },
-    rating: 4.9, ratingCount: 43,
-    image: "https://images.unsplash.com/photo-1551360934-39d45c0eda44?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 260,
+    image: "https://images.unsplash.com/photo-1551360934-39d45c0eda44?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🌶 Spices & Masala
   {
     id: "spice_turmeric",
-    title: "Salem Golden Turmeric Powder (5% Curcumin)",
+    title: "Salem Golden Turmeric Powder (5% Natural Curcumin)",
     category: "🌶 Spices & Masala",
-    price: 160, mrp: 210,
-    quantity: 300, unit: "kg",
-    description: "High-potency aromatic natural turmeric with therapeutic curcumin.",
+    price: 165, mrp: 220,
+    quantity: 350, unit: "kg",
+    description: "Pure GI Salem turmeric with deep yellow hue and 5%+ active curcumin. Potent immunity booster.",
     sellerId: "salem_spices", sellerName: "Kongu Spices & Herbs", sellerPhone: "9842012345",
     sellerLocation: { state: "Tamil Nadu", district: "Salem", mandal: "Attur" },
-    rating: 5.0, ratingCount: 40,
-    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 310,
+    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "spice_chilli",
-    title: "Guntur Stemless Red Chilli (Mirchi)",
+    title: "Guntur Stemless Hot Red Chilli (Mirchi / Mirapakaya)",
     category: "🌶 Spices & Masala",
-    price: 200, mrp: 260,
-    quantity: 250, unit: "kg",
-    description: "Intense color and spicy heat. Famous hot variety from Guntur markets.",
+    price: 205, mrp: 275,
+    quantity: 320, unit: "kg",
+    description: "Sun-dried whole Guntur chillies known for vibrant natural red color and fiery pungent heat.",
     sellerId: "chilli_ap", sellerName: "Guntur Chilli Traders", sellerPhone: "9440812345",
     sellerLocation: { state: "Andhra Pradesh", district: "Guntur", mandal: "Ongole" },
-    rating: 4.9, ratingCount: 48,
-    image: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 295,
+    image: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "spice_cumin",
-    title: "Whole Cumin Seeds (Jeera)",
+    title: "Whole Aromatic Cumin Seeds (Jeera / Jeelakarra)",
     category: "🌶 Spices & Masala",
-    price: 320, mrp: 420,
-    quantity: 200, unit: "kg",
-    description: "Aromatic bold whole cumin seeds, cleaned and sorted for everyday tadka.",
+    price: 325, mrp: 430,
+    quantity: 240, unit: "kg",
+    description: "Bold Rajasthani cumin seeds sorted and cleaned. Fragrant essential spice for daily tempering.",
     sellerId: "jeera_raj", sellerName: "Jodhpur Spice Farmers", sellerPhone: "9829112345",
     sellerLocation: { state: "Rajasthan", district: "Jodhpur", mandal: "Tinwari" },
-    rating: 4.9, ratingCount: 36,
-    image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 215,
+    image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "spice_pepper",
-    title: "Wayanad Black Pepper (Kali Mirch)",
+    title: "Wayanad Bold Whole Black Pepper (Kali Mirch / Miriyalu)",
     category: "🌶 Spices & Masala",
-    price: 650, mrp: 850,
-    quantity: 100, unit: "kg",
-    description: "Single-origin whole black peppercorns with sharp fragrance and pungency.",
+    price: 660, mrp: 880,
+    quantity: 120, unit: "kg",
+    description: "The King of Spices. Handpicked large Malabar black peppercorns with intense piperine pungency.",
     sellerId: "pepper_ker", sellerName: "Wayanad Spice Planters", sellerPhone: "9447212345",
     sellerLocation: { state: "Kerala", district: "Wayanad", mandal: "Mananthavady" },
-    rating: 5.0, ratingCount: 55,
-    image: "https://images.unsplash.com/photo-1594568284297-7c64464062b4?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 275,
+    image: "https://images.unsplash.com/photo-1594568284297-7c64464062b4?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🥜 Dry Fruits & Nuts
   {
     id: "dry_almond",
-    title: "Raw California Almonds (Badam)",
+    title: "Raw Premium California Almonds (Badam)",
     category: "🥜 Dry Fruits & Nuts",
-    price: 750, mrp: 950,
-    quantity: 150, unit: "kg",
-    description: "Crunchy sweet jumbo almonds rich in Vitamin E and brain nutrients.",
+    price: 760, mrp: 980,
+    quantity: 180, unit: "kg",
+    description: "Crunchy, sweet jumbo almonds loaded with natural Vitamin E, magnesium, and healthy fats.",
     sellerId: "kashmir_dry", sellerName: "Himalayan Dry Fruits", sellerPhone: "9906012345",
     sellerLocation: { state: "Uttarakhand", district: "Dehradun", mandal: "Rishikesh" },
-    rating: 4.9, ratingCount: 33,
-    image: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 310,
+    image: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "dry_cashew",
-    title: "Whole W240 Jumbo Cashews (Kaju)",
+    title: "Whole W240 Jumbo Cashews (Kaju / Jeedipappu)",
     category: "🥜 Dry Fruits & Nuts",
-    price: 900, mrp: 1150,
-    quantity: 100, unit: "kg",
-    description: "Export grade unblemished whole cashew nuts from Mangaluru coastal farms.",
+    price: 920, mrp: 1200,
+    quantity: 140, unit: "kg",
+    description: "First-grade export quality coastal cashews. Creamy, buttery bite with zero broken pieces.",
     sellerId: "cashew_coast", sellerName: "Mangalore Cashew Exports", sellerPhone: "9845912345",
     sellerLocation: { state: "Karnataka", district: "Mangaluru", mandal: "Puttur" },
-    rating: 5.0, ratingCount: 45,
-    image: "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 285,
+    image: "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "dry_foxnuts",
-    title: "Bihar Phool Makhana (Fox Nuts)",
+    title: "Bihar Jumbo Phool Makhana (Fox Nuts / Lotus Seeds)",
     category: "🥜 Dry Fruits & Nuts",
-    price: 700, mrp: 900,
-    quantity: 100, unit: "kg",
-    description: "Jumbo popped lotus seeds, roasted superfood with zero cholesterol.",
+    price: 720, mrp: 950,
+    quantity: 150, unit: "kg",
+    description: "GI-graded Darbhanga 4-Suta makhana. Low sodium, zero cholesterol roasted superfood.",
     sellerId: "makhana_bihar", sellerName: "Darbhanga Makhana Co.", sellerPhone: "9835012345",
     sellerLocation: { state: "Bihar", district: "Darbhanga", mandal: "Singhwara" },
-    rating: 4.9, ratingCount: 46,
-    image: "https://images.unsplash.com/photo-1621447504864-d8686e12698c?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 240,
+    image: "https://images.unsplash.com/photo-1621447504864-d8686e12698c?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🥛 Dairy & Oils
   {
     id: "dairy_ghee",
-    title: "A2 Desi Cow Bilona Ghee (Gir Cow)",
+    title: "Pure A2 Gir Cow Vedic Bilona Ghee (Natu Neyyi)",
     category: "🥛 Dairy & Oils",
-    price: 1100, mrp: 1400,
-    quantity: 80, unit: "litre",
-    description: "Traditional hand-churned Vedic Bilona method ghee from grass-fed cows.",
+    price: 1150, mrp: 1500,
+    quantity: 90, unit: "litre",
+    description: "Traditional hand-churned cultured curd bilona ghee from free-grazing Gir cows. Golden & aromatic.",
     sellerId: "gir_dairy", sellerName: "Krishna Gaushala Organics", sellerPhone: "9825012345",
     sellerLocation: { state: "Gujarat", district: "Junagadh", mandal: "Sanand" },
-    rating: 5.0, ratingCount: 62,
-    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 420,
+    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "dairy_honey",
-    title: "Raw Multifloral Forest Honey",
+    title: "Raw Multifloral Wild Forest Honey (Tein / Shahad)",
     category: "🥛 Dairy & Oils",
-    price: 450, mrp: 600,
-    quantity: 150, unit: "kg",
-    description: "Unfiltered natural honey containing pollen, enzymes, and antioxidants.",
+    price: 460, mrp: 620,
+    quantity: 180, unit: "kg",
+    description: "Unfiltered, unpasteurized natural honey gathered by Himalayan beekeepers. Contains bee pollen.",
     sellerId: "honey_uttara", sellerName: "Kumaon Forest Beekeepers", sellerPhone: "9917012345",
     sellerLocation: { state: "Uttarakhand", district: "Nainital", mandal: "Ramnagar" },
-    rating: 5.0, ratingCount: 71,
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 360,
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "dairy_mustard_oil",
-    title: "Cold-Pressed Kachi Ghani Mustard Oil",
+    title: "Cold-Pressed Kachi Ghani Mustard Oil (Sarson Tel)",
     category: "🥛 Dairy & Oils",
-    price: 180, mrp: 230,
-    quantity: 300, unit: "litre",
-    description: "Pungent traditional cold-press oil for cooking, pickles, and massage.",
+    price: 185, mrp: 240,
+    quantity: 350, unit: "litre",
+    description: "First-press wooden expeller oil. Natural pungent kick, great for pickling and Ayurvedic massage.",
     sellerId: "mustard_hr", sellerName: "Haryana Oilseed Mills", sellerPhone: "9812112345",
     sellerLocation: { state: "Haryana", district: "Rewari", mandal: "Kosli" },
-    rating: 4.8, ratingCount: 39,
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 220,
+    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🧴 Daily Routine
   {
     id: "daily_jaggery",
-    title: "Organic Sugarcane Jaggery (Gud Cubes)",
+    title: "Chemical-Free Organic Sugarcane Jaggery Cubes (Gud)",
     category: "🧴 Daily Routine",
-    price: 60, mrp: 80,
-    quantity: 500, unit: "kg",
-    description: "Chemical-free unrefined natural jaggery rich in iron and minerals.",
+    price: 62, mrp: 85,
+    quantity: 550, unit: "kg",
+    description: "Naturally clarified solid jaggery blocks. Rich in natural plant iron and digestive enzymes.",
     sellerId: "jaggery_maha", sellerName: "Kolhapur Jaggery Farmers", sellerPhone: "9822712345",
     sellerLocation: { state: "Maharashtra", district: "Kolhapur", mandal: "Shirol" },
-    rating: 4.9, ratingCount: 52,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 270,
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "daily_tea",
-    title: "Assam CTC Kadak Chai Leaves",
+    title: "Premium Assam CTC Kadak Granule Tea (Chai)",
     category: "🧴 Daily Routine",
-    price: 250, mrp: 320,
-    quantity: 300, unit: "kg",
-    description: "Strong malty CTC tea blend giving deep liquor and rich tea aroma.",
+    price: 260, mrp: 340,
+    quantity: 320, unit: "kg",
+    description: "Malty, strong reddish-golden liquor tea from Dibrugarh tea estates. Perfect morning cup.",
     sellerId: "tea_assam", sellerName: "Dibrugarh Tea Gardens", sellerPhone: "9435012345",
     sellerLocation: { state: "Assam", district: "Dibrugarh", mandal: "Moran" },
-    rating: 4.9, ratingCount: 67,
-    image: "https://images.unsplash.com/photo-1564890369478-c89ca3d9cde4?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 310,
+    image: "https://images.unsplash.com/photo-1564890369478-c89ca3d9cde4?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "daily_salt",
     title: "Himalayan Pink Rock Salt (Sendha Namak)",
     category: "🧴 Daily Routine",
-    price: 35, mrp: 50,
-    quantity: 1000, unit: "kg",
-    description: "Unrefined pink crystal rock salt rich in 84 natural trace minerals.",
+    price: 36, mrp: 55,
+    quantity: 1100, unit: "kg",
+    description: "Pure unprocessed pink crystal salt containing 84 elemental trace minerals. Great for digestion.",
     sellerId: "salt_pk", sellerName: "Himalayan Mineral Works", sellerPhone: "9881012345",
     sellerLocation: { state: "Uttarakhand", district: "Haridwar", mandal: "Jwalapur" },
-    rating: 4.8, ratingCount: 45,
-    image: "https://images.unsplash.com/photo-1562547256-2c5ee93b60b7?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 230,
+    image: "https://images.unsplash.com/photo-1562547256-2c5ee93b60b7?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "daily_soap",
-    title: "Ayurvedic Neem & Tulsi Herbal Bath Soap",
+    title: "Handmade Neem & Holy Tulsi Herbal Bath Soap",
     category: "🧴 Daily Routine",
-    price: 45, mrp: 65,
-    quantity: 500, unit: "pcs",
-    description: "Gentle handmade cold-process soap with pure antibacterial neem extract.",
+    price: 48, mrp: 70,
+    quantity: 520, unit: "pcs",
+    description: "Cold-processed botanical bathing bar with fresh neem oil and wild tulsi. Antibacterial protection.",
     sellerId: "soap_goa", sellerName: "Goa Natural Organics", sellerPhone: "9821012345",
     sellerLocation: { state: "Goa", district: "North Goa", mandal: "Panaji" },
-    rating: 4.8, ratingCount: 38,
-    image: "https://images.unsplash.com/photo-1607006314597-9e76747b0a70?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 190,
+    image: "https://images.unsplash.com/photo-1607006314597-9e76747b0a70?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "daily_coffee",
-    title: "Coorg Pure Plantation Coffee Powder",
+    title: "Coorg Pure Arabica Plantation Coffee Powder",
     category: "🧴 Daily Routine",
-    price: 380, mrp: 480,
-    quantity: 150, unit: "kg",
-    description: "Slow roasted 80:20 Arabica blend for authentic South Indian filter coffee.",
+    price: 390, mrp: 500,
+    quantity: 160, unit: "kg",
+    description: "Medium-roasted shade-grown coffee with chocolatey notes and velvety crema. Pure South Indian filter aroma.",
     sellerId: "coffee_coorg", sellerName: "Kodagu Coffee Estates", sellerPhone: "9845312345",
     sellerLocation: { state: "Karnataka", district: "Kodagu", mandal: "Madikeri" },
-    rating: 5.0, ratingCount: 44,
-    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&auto=format&fit=crop&q=80"
+    rating: 5.0, ratingCount: 245,
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🌱 Seeds
   {
     id: "seed_tomato",
-    title: "Abhinav F1 Hybrid Tomato Seeds (10g)",
+    title: "Abhinav F1 Disease-Tolerant Hybrid Tomato Seeds (10g)",
     category: "🌱 Seeds",
-    price: 150, mrp: 200,
-    quantity: 50, unit: "pkt",
-    description: "High-yield, disease-resistant tomato hybrid seeds for Kharif and Rabi.",
+    price: 155, mrp: 210,
+    quantity: 80, unit: "pkt",
+    description: "High-yield hybrid seeds yielding 35-40 tons/acre. Tolerant to leaf curl virus and bacterial wilt.",
     sellerId: "seed_corp", sellerName: "Krishna Seed Biotech", sellerPhone: "9848022338",
     sellerLocation: { state: "Telangana", district: "Hyderabad", mandal: "Secunderabad" },
-    rating: 4.8, ratingCount: 12,
-    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 120,
+    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "seed_paddy",
-    title: "IR-64 Certified Paddy Hybrid Seeds (5kg)",
+    title: "Certified IR-64 High-Tillering Paddy Seeds (5kg Bag)",
     category: "🌱 Seeds",
-    price: 280, mrp: 360,
-    quantity: 200, unit: "bag",
-    description: "Short-duration certified seeds giving up to 55 quintals/acre yield.",
+    price: 285, mrp: 375,
+    quantity: 250, unit: "bag",
+    description: "Medium-duration certified paddy seeds for Kharif/Rabi. Produces strong tillers and heavy panicles.",
     sellerId: "paddy_seed_ap", sellerName: "Sri Rama Seed House", sellerPhone: "9441812345",
     sellerLocation: { state: "Andhra Pradesh", district: "West Godavari", mandal: "Bhimavaram" },
-    rating: 4.7, ratingCount: 22,
-    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 180,
+    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=600&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "seed_maize",
+    title: "DKC-9144 Drought-Resilient Hybrid Maize Seeds (4kg)",
+    category: "🌱 Seeds",
+    price: 920, mrp: 1200,
+    quantity: 110, unit: "bag",
+    description: "Top-rated Dekalb hybrid maize seeds with deep orange flint grains and strong lodging resistance.",
+    sellerId: "maize_seed_ts", sellerName: "Telangana Hybrid Seeds", sellerPhone: "9849012345",
+    sellerLocation: { state: "Telangana", district: "Warangal", mandal: "Narsampet" },
+    rating: 4.8, ratingCount: 95,
+    image: "https://images.unsplash.com/photo-1601593346740-925612772716?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🧪 Fertilizers & Agri
   {
     id: "fert_npk",
-    title: "Organic Balanced NPK 19-19-19 (50kg Bag)",
+    title: "Water-Soluble 100% Balanced NPK 19-19-19 (50kg Bag)",
     category: "🧪 Fertilizers & Agri",
-    price: 950, mrp: 1200,
-    quantity: 120, unit: "bag",
-    description: "Water-soluble balanced crop nutrient booster for rapid vegetative and fruit growth.",
+    price: 960, mrp: 1250,
+    quantity: 140, unit: "bag",
+    description: "Foliar and drip fertigation grade balanced nutrients. Promotes rapid vegetative growth and root mass.",
     sellerId: "agri_store", sellerName: "Balaji Agro Chemicals", sellerPhone: "9440123456",
     sellerLocation: { state: "Andhra Pradesh", district: "Guntur", mandal: "Tenali" },
-    rating: 4.5, ratingCount: 8,
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 190,
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "fert_urea",
-    title: "Neem-Coated Urea Fertilizer (50kg)",
+    title: "Neem-Coated Slow-Release Agricultural Urea (50kg)",
     category: "🧪 Fertilizers & Agri",
-    price: 280, mrp: 350,
-    quantity: 500, unit: "bag",
-    description: "Slow nitrogen release formulation reducing volatilization and soil acidification.",
+    price: 285, mrp: 360,
+    quantity: 550, unit: "bag",
+    description: "Government-subsidized neem coated urea. Reduces nitrogen loss, boosts nitrogen uptake efficiency.",
     sellerId: "urea_farmer", sellerName: "Krishak Agri Suppliers", sellerPhone: "9849112345",
     sellerLocation: { state: "Telangana", district: "Karimnagar", mandal: "Jammikunta" },
-    rating: 4.6, ratingCount: 14,
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&auto=format&fit=crop&q=80"
+    rating: 4.6, ratingCount: 160,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "pest_neemoil",
-    title: "Cold-Pressed Neem Bio-Pesticide (5L)",
+    title: "Pure Cold-Pressed Neem Oil Bio-Pesticide 10000 PPM (5L)",
     category: "🧪 Fertilizers & Agri",
-    price: 350, mrp: 450,
-    quantity: 80, unit: "can",
-    description: "Natural organic pest control against whiteflies, aphids, and bollworms.",
+    price: 360, mrp: 480,
+    quantity: 90, unit: "can",
+    description: "Natural organic botanical pesticide with azadirachtin. Controls bollworms, aphids, and leaf miners.",
     sellerId: "eco_grow", sellerName: "Green Earth Organics", sellerPhone: "9123456789",
     sellerLocation: { state: "Maharashtra", district: "Nagpur", mandal: "Katol" },
-    rating: 4.6, ratingCount: 15,
-    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 175,
+    image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=600&auto=format&fit=crop&q=80"
   },
 
   // 💧 Irrigation
   {
     id: "irr_drip",
-    title: "Inline 16mm Drip Irrigation Tape (100m Roll)",
+    title: "16mm Inline Drip Irrigation Tape with 20cm Spacing (100m)",
     category: "💧 Irrigation",
-    price: 650, mrp: 850,
-    quantity: 200, unit: "roll",
-    description: "20cm emitter spacing inline tape delivering 2-4 LPH water directly to crop roots.",
+    price: 660, mrp: 880,
+    quantity: 220, unit: "roll",
+    description: "High-grade UV-treated inline drip pipe with labyrinth drippers. Delivers 2-4 LPH water per plant.",
     sellerId: "drip_jain", sellerName: "Jain Irrigation Dealers", sellerPhone: "9825412345",
     sellerLocation: { state: "Maharashtra", district: "Jalgaon", mandal: "Jalgaon City" },
-    rating: 4.7, ratingCount: 17,
-    image: "https://images.unsplash.com/photo-1519003300449-424ad0405076?w=500&auto=format&fit=crop&q=80"
+    rating: 4.7, ratingCount: 110,
+    image: "https://images.unsplash.com/photo-1519003300449-424ad0405076?w=600&auto=format&fit=crop&q=80"
   },
 
   // 🛠️ Farming Tools
   {
     id: "tool_cultivator",
-    title: "Heavy-Duty Ergonomic Hand Cultivator",
+    title: "Heavy-Duty Ergonomic 5-Prong Hand Cultivator Weeder",
     category: "🛠️ Farming Tools",
-    price: 450, mrp: 580,
-    quantity: 25, unit: "pcs",
-    description: "Tough carbon steel prongs for weed removal, aerating soil, and preparing seed beds.",
+    price: 460, mrp: 600,
+    quantity: 35, unit: "pcs",
+    description: "Tough forged carbon steel tines with soft-grip anti-slip handle. Aerates hard soil and clears weeds.",
     sellerId: "tool_works", sellerName: "Kisan Steel & Tools", sellerPhone: "9876543210",
     sellerLocation: { state: "Karnataka", district: "Bengaluru", mandal: "Whitefield" },
-    rating: 4.7, ratingCount: 20,
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&auto=format&fit=crop&q=80"
+    rating: 4.8, ratingCount: 140,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&auto=format&fit=crop&q=80"
   },
   {
     id: "tool_sprayer",
-    title: "16L Rechargeable Battery Power Sprayer",
+    title: "16L Rechargeable Lithium Battery Backpack Knapsack Sprayer",
     category: "🛠️ Farming Tools",
-    price: 3200, mrp: 4200,
-    quantity: 30, unit: "pcs",
-    description: "Backpack electric sprayer with brass lance and pressure regulator for agrochemicals.",
+    price: 3250, mrp: 4300,
+    quantity: 40, unit: "pcs",
+    description: "Dual-motor high pressure electric pump with brass telescopic lance and speed controller. 4-hour runtime.",
     sellerId: "sprayer_ts", sellerName: "Kisan Machinery Stores", sellerPhone: "9440312345",
     sellerLocation: { state: "Telangana", district: "Hyderabad", mandal: "Uppal" },
-    rating: 4.8, ratingCount: 25,
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&auto=format&fit=crop&q=80"
+    rating: 4.9, ratingCount: 195,
+    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=80"
   }
 ];
 
@@ -749,6 +773,24 @@ export default function App() {
   const [cart, setCart]                           = useState([]);
   const [isCartOpen, setIsCartOpen]               = useState(false);
   const [wishlist, setWishlist]                   = useState([]);
+
+  /* ── E-Commerce Filters, Sorting & Hero Promo Carousel ── */
+  const [priceRangeFilter, setPriceRangeFilter]   = useState('all');
+  const [sortBy, setSortBy]                       = useState('featured');
+  const [inStockOnly, setInStockOnly]             = useState(false);
+  const [promoSlide, setPromoSlide]               = useState(0);
+
+  /* ── Universal Floating Kisan AI Chatbot ──────── */
+  const [isChatbotOpen, setIsChatbotOpen]         = useState(false);
+  const [chatbotInput, setChatbotInput]           = useState('');
+  const [chatbotMessages, setChatbotMessages]     = useState([
+    {
+      sender: 'bot',
+      text: '🌾 **Namaste! I am Kisan AI, your 24/7 Smart Agronomist & Farming Assistant.**\n\nAsk me about any crop cultivation, NPK fertilizer dosage, leaf diseases, today\'s mandi prices, government schemes, or how to buy and sell on this platform!',
+      time: 'Online'
+    }
+  ]);
+  const [chatbotSpeaking, setChatbotSpeaking]     = useState(false);
   const [newListing, setNewListing] = useState({
     title: '', category: '🥬 Vegetables', price: '', quantity: '',
     unit: 'kg', description: '', imageUrl: '',
@@ -1458,68 +1500,429 @@ export default function App() {
   return (
     <div style={{ display:'flex', flexDirection:'column', minHeight:'100vh', background:'#101010', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif", color:'#f1f1f1' }}>
 
-      {/* ═══ Global Styles ═══ */}
+      {/* ═══ Global Styles — Amazon/Flipkart/Myntra Theme ═══ */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
         * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Inter',sans-serif!important; background:#101010; color:#f1f1f1; }
-        ::-webkit-scrollbar { width:5px; height:5px; }
-        ::-webkit-scrollbar-track { background:#1a1a1a; }
-        ::-webkit-scrollbar-thumb { background:#333; border-radius:3px; }
-        @keyframes priceUp   { 0%{background:rgba(34,197,94,0.25)} 100%{background:transparent} }
-        @keyframes priceDown { 0%{background:rgba(239,68,68,0.25)} 100%{background:transparent} }
-        @keyframes pulse     { 0%,100%{opacity:1} 50%{opacity:.5} }
+        body { font-family:'Plus Jakarta Sans','Inter',sans-serif!important; background:#F1F5F9; color:#0F172A; }
+        ::-webkit-scrollbar { width:6px; height:6px; }
+        ::-webkit-scrollbar-track { background:#E2E8F0; }
+        ::-webkit-scrollbar-thumb { background:#94A3B8; border-radius:3px; }
+        ::-webkit-scrollbar-thumb:hover { background:#64748B; }
+
+        @keyframes priceUp   { 0%{background:rgba(34,197,94,0.3)} 100%{background:transparent} }
+        @keyframes priceDown { 0%{background:rgba(239,68,68,0.3)} 100%{background:transparent} }
+        @keyframes pulse     { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.85;transform:scale(1.03)} }
         @keyframes ticker    { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
         @keyframes fadeIn    { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes scanLine  { 0%{top:0} 100%{top:100%} }
+        @keyframes slideUp   { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes floatGlow { 0%,100%{box-shadow:0 8px 24px rgba(22,101,52,0.35)} 50%{box-shadow:0 12px 32px rgba(34,197,94,0.5)} }
 
-        .card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px; padding:1.5rem; animation:fadeIn .3s ease; transition:border-color .2s; }
-        .card:hover { border-color:#333; }
-        .stat-card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:12px; padding:1.25rem 1.5rem; display:flex; flex-direction:column; gap:.4rem; transition:border-color .2s; }
-        .stat-card:hover { border-color:#3a3a3a; }
-        .btn { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; padding:.6rem 1.2rem; border-radius:8px; border:none; cursor:pointer; font-weight:600; font-size:.875rem; transition:all .2s; font-family:'Inter',sans-serif; }
-        .btn-primary { background:#2563eb; color:#fff; }
-        .btn-primary:hover { background:#1d4ed8; }
-        .btn-outline { background:transparent; border:1px solid #333; color:#ccc; }
-        .btn-outline:hover { background:#222; border-color:#555; color:#fff; }
-        .input { width:100%; padding:.6rem .85rem; background:#1a1a1a; border:1px solid #333; border-radius:8px; color:#f1f1f1; font-size:.875rem; outline:none; font-family:'Inter',sans-serif; transition:border-color .2s; }
-        .input:focus { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15); }
-        select.input option { background:#1a1a1a; color:#f1f1f1; }
-        label.fld { display:block; font-size:.75rem; font-weight:600; color:#888; margin-bottom:.35rem; text-transform:uppercase; letter-spacing:.06em; }
-        .up { color:#22c55e; } .down { color:#ef4444; } .flat { color:#888; }
-        .nav-btn { display:flex; align-items:center; gap:.85rem; padding:.75rem 1rem; border-radius:10px; border:none; cursor:pointer; font-size:.9rem; font-weight:500; background:transparent; color:#888; transition:all .18s; width:100%; text-align:left; font-family:'Inter',sans-serif; }
-        .nav-btn:hover { background:#1f1f1f; color:#f1f1f1; }
-        .nav-btn.active { background:#1f1f1f; color:#f1f1f1; font-weight:700; }
+        .card { background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:1.5rem; animation:fadeIn .3s ease; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all .2s ease; }
+        .card:hover { border-color:#CBD5E1; box-shadow:0 6px 18px rgba(0,0,0,0.07); }
+        .stat-card { background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:1.25rem 1.5rem; display:flex; flex-direction:column; gap:.4rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:border-color .2s; }
+        .stat-card:hover { border-color:#22C55E; }
+        
+        .btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.55rem 1.15rem; border-radius:8px; border:none; cursor:pointer; font-weight:600; font-size:.875rem; transition:all .18s; font-family:'Plus Jakarta Sans',sans-serif; }
+        .btn-primary { background:#166534; color:#FFFFFF; }
+        .btn-primary:hover { background:#14532D; transform:translateY(-1px); box-shadow:0 4px 12px rgba(22,101,52,0.25); }
+        .btn-secondary { background:#2563EB; color:#FFFFFF; }
+        .btn-secondary:hover { background:#1D4ED8; }
+        .btn-warning { background:#F59E0B; color:#0F172A; }
+        .btn-warning:hover { background:#D97706; color:#fff; }
+        .btn-outline { background:#FFFFFF; border:1px solid #CBD5E1; color:#334155; }
+        .btn-outline:hover { background:#F8FAFC; border-color:#94A3B8; color:#0F172A; }
+        
+        .input { width:100%; padding:.6rem .85rem; background:#FFFFFF; border:1.5px solid #CBD5E1; border-radius:8px; color:#0F172A; font-size:.875rem; outline:none; font-family:'Plus Jakarta Sans',sans-serif; transition:all .2s; }
+        .input:focus { border-color:#166534; box-shadow:0 0 0 3px rgba(22,101,52,.12); }
+        select.input option { background:#FFFFFF; color:#0F172A; }
+        label.fld { display:block; font-size:.75rem; font-weight:700; color:#475569; margin-bottom:.35rem; text-transform:uppercase; letter-spacing:.05em; }
+        
+        .up { color:#15803D; font-weight:700; } .down { color:#DC2626; font-weight:700; } .flat { color:#64748B; }
+        
+        .nav-btn { display:flex; align-items:center; gap:.85rem; padding:.75rem 1rem; border-radius:10px; border:none; cursor:pointer; font-size:.9rem; font-weight:500; background:transparent; color:#94A3B8; transition:all .18s; width:100%; text-align:left; font-family:'Plus Jakarta Sans',sans-serif; }
+        .nav-btn:hover { background:#1E293B; color:#F8FAFC; }
+        .nav-btn.active { background:#166534; color:#FFFFFF; font-weight:700; box-shadow:0 4px 14px rgba(22,101,52,0.3); }
         .nav-icon { font-size:1.15rem; width:24px; text-align:center; }
+        
         .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
         .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
         .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
         @media(max-width:1100px){ .grid4{grid-template-columns:repeat(2,1fr)} }
         @media(max-width:900px) { .grid3{grid-template-columns:1fr 1fr} }
         @media(max-width:700px) { .grid2,.grid3,.grid4{grid-template-columns:1fr} }
+        
         .price-row { display:flex; justify-content:space-between; align-items:center; padding:.5rem .7rem; border-radius:7px; font-size:.82rem; transition:background .4s; }
         .price-row.flash-up   { animation:priceUp .8s ease; }
         .price-row.flash-down { animation:priceDown .8s ease; }
-        .scheme-card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; padding:1.1rem; display:flex; flex-direction:column; gap:.65rem; transition:border-color .2s; }
-        .scheme-card:hover { border-color:#3a3a3a; }
-        .chat-bubble { padding:.7rem 1rem; border-radius:12px; max-width:80%; font-size:.875rem; line-height:1.55; animation:fadeIn .3s ease; }
-        .chat-bubble.user { background:#1e3a5f; border:1px solid #1e4080; align-self:flex-end; }
-        .chat-bubble.bot  { background:#1f1f1f; border:1px solid #2a2a2a; align-self:flex-start; }
-        .scan-btn { border:1px solid #333; border-radius:8px; background:#1a1a1a; color:#ccc; padding:.5rem 1rem; cursor:pointer; font-size:.8rem; font-weight:500; transition:all .2s; font-family:'Inter',sans-serif; }
-        .scan-btn:hover { border-color:#555; color:#f1f1f1; }
-        .scan-btn.active { background:#1e3a5f; border-color:#2563eb; color:#fff; }
-        .ledger-item { display:flex; justify-content:space-between; align-items:center; padding:.65rem .9rem; border-radius:8px; font-size:.82rem; background:#1f1f1f; border:1px solid #2a2a2a; }
-        .section-title { font-size:.95rem; font-weight:700; color:#f1f1f1; display:flex; align-items:center; gap:.5rem; margin-bottom:1.1rem; }
-        .mcx-ticker-wrap { background:#151515; border-bottom:1px solid #222; padding:.45rem 0; overflow:hidden; flex-shrink:0; }
-        .mcx-ticker { display:inline-flex; gap:2rem; animation:ticker 80s linear infinite; white-space:nowrap; }
-        .mcx-item { display:inline-flex; align-items:center; gap:.4rem; font-size:.75rem; font-weight:600; font-family:'Inter',sans-serif; }
-        .tag { display:inline-flex; align-items:center; padding:.15rem .55rem; border-radius:5px; font-size:.7rem; font-weight:700; }
-        .badge { display:inline-flex; align-items:center; padding:.2rem .7rem; border-radius:20px; font-size:.75rem; font-weight:700; }
-        .tab-btn { display:flex; align-items:center; gap:.5rem; padding:.45rem .85rem; border-radius:7px; border:1px solid transparent; cursor:pointer; font-size:.78rem; font-weight:500; background:transparent; color:#888; transition:all .18s; white-space:nowrap; font-family:'Inter',sans-serif; }
-        .tab-btn.active { background:#1f1f1f; color:#f1f1f1; border-color:#333; font-weight:700; }
-        .tab-btn:hover:not(.active) { background:#1a1a1a; color:#ccc; }
+        
+        .scheme-card { background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:1.25rem; display:flex; flex-direction:column; gap:.65rem; transition:all .2s; box-shadow:0 2px 6px rgba(0,0,0,0.03); }
+        .scheme-card:hover { border-color:#CBD5E1; transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.06); }
+        
+        .chat-bubble { padding:.75rem 1rem; border-radius:12px; max-width:85%; font-size:.875rem; line-height:1.55; animation:fadeIn .3s ease; }
+        .chat-bubble.user { background:#166534; color:#FFFFFF; align-self:flex-end; border-bottom-right-radius:2px; }
+        .chat-bubble.bot  { background:#F1F5F9; color:#0F172A; border:1px solid #E2E8F0; align-self:flex-start; border-bottom-left-radius:2px; }
+        
+        .scan-btn { border:1.5px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#475569; padding:.5rem 1rem; cursor:pointer; font-size:.8rem; font-weight:600; transition:all .2s; font-family:'Plus Jakarta Sans',sans-serif; }
+        .scan-btn:hover { border-color:#94A3B8; color:#0F172A; }
+        .scan-btn.active { background:#EFF6FF; border-color:#2563EB; color:#2563EB; }
+        
+        .ledger-item { display:flex; justify-content:space-between; align-items:center; padding:.75rem 1rem; border-radius:10px; font-size:.85rem; background:#FFFFFF; border:1px solid #E2E8F0; box-shadow:0 1px 3px rgba(0,0,0,0.02); }
+        .section-title { font-size:1.05rem; font-weight:800; color:#0F172A; display:flex; align-items:center; gap:.5rem; margin-bottom:1.1rem; }
+        
+        .mcx-ticker-wrap { background:#0F172A; border-bottom:1px solid #1E293B; padding:.45rem 0; overflow:hidden; flex-shrink:0; }
+        .mcx-ticker { display:inline-flex; gap:2.5rem; animation:ticker 85s linear infinite; white-space:nowrap; }
+        .mcx-item { display:inline-flex; align-items:center; gap:.45rem; font-size:.76rem; font-weight:600; font-family:'Plus Jakarta Sans',sans-serif; }
+        
+        .tag { display:inline-flex; align-items:center; padding:.2rem .6rem; border-radius:6px; font-size:.72rem; font-weight:700; }
+        .badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:20px; font-size:.75rem; font-weight:700; }
+        
+        /* ═══ E-COMMERCE SPECIFIC STYLES (Flipkart / Amazon / Myntra format) ═══ */
+        
+        /* Circular Category Ribbon */
+        .category-ribbon {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          overflow-x: auto;
+          padding: 0.75rem 0.25rem;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .category-ribbon::-webkit-scrollbar { display: none; }
+        
+        .cat-circle-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.35rem;
+          cursor: pointer;
+          flex-shrink: 0;
+          padding: 0.35rem;
+          transition: all 0.2s ease;
+          border: none;
+          background: transparent;
+        }
+        .cat-circle-card:hover .cat-circle-icon {
+          transform: translateY(-3px) scale(1.06);
+          box-shadow: 0 8px 18px rgba(22,101,52,0.18);
+          border-color: #22C55E;
+        }
+        .cat-circle-icon {
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.65rem;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+          transition: all 0.2s ease;
+        }
+        .cat-circle-card.active .cat-circle-icon {
+          background: #F0FDF4;
+          border-color: #166534;
+          box-shadow: 0 0 0 3px rgba(22,101,52,0.2);
+        }
+        .cat-circle-label {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #334155;
+          text-align: center;
+          white-space: nowrap;
+        }
+        .cat-circle-card.active .cat-circle-label {
+          color: #166534;
+        }
 
-        /* Responsive Sidebar Drawer for Mobile */
+        /* Hero Promo Banner Slider */
+        .promo-banner {
+          border-radius: 16px;
+          padding: 2rem;
+          position: relative;
+          overflow: hidden;
+          color: #FFFFFF;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          min-height: 180px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+          transition: all 0.4s ease;
+        }
+        .promo-slide-0 { background: linear-gradient(135deg, #0f4c3a 0%, #166534 50%, #1e3a5f 100%); }
+        .promo-slide-1 { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0f766e 100%); }
+        .promo-slide-2 { background: linear-gradient(135deg, #831843 0%, #be123c 50%, #9a3412 100%); }
+        .promo-slide-3 { background: linear-gradient(135deg, #14532d 0%, #065f46 50%, #047857 100%); }
+
+        .promo-dots {
+          display: flex;
+          gap: 0.4rem;
+          position: absolute;
+          bottom: 12px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .promo-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.4);
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .promo-dot.active {
+          width: 24px;
+          border-radius: 10px;
+          background: #FFFFFF;
+        }
+
+        /* Amazon/Flipkart Product Cards */
+        .marketplace-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.25rem;
+        }
+        @media (max-width: 1240px) {
+          .marketplace-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        }
+        @media (max-width: 860px) {
+          .marketplace-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+        }
+        @media (max-width: 480px) {
+          .marketplace-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        }
+
+        .product-card {
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 14px;
+          overflow: hidden;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+          position: relative;
+        }
+        .product-card:hover {
+          border-color: #22C55E;
+          transform: translateY(-4px);
+          box-shadow: 0 12px 28px rgba(22,101,52,0.14);
+        }
+        
+        .product-img-container {
+          height: 185px;
+          position: relative;
+          background: #F8FAFC;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        @media (max-width: 480px) {
+          .product-img-container { height: 135px; }
+        }
+        .product-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.35s ease;
+        }
+        .product-card:hover .product-img {
+          transform: scale(1.06);
+        }
+        .product-img-fallback {
+          font-size: 3.5rem;
+        }
+
+        .discount-pill {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: #DC2626;
+          color: #FFFFFF;
+          font-size: 0.68rem;
+          font-weight: 800;
+          padding: 0.2rem 0.5rem;
+          border-radius: 6px;
+          z-index: 2;
+          box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+          letter-spacing: 0.02em;
+        }
+        .wishlist-icon-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(255, 255, 255, 0.92);
+          border: 1px solid rgba(0,0,0,0.08);
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 0.95rem;
+          z-index: 2;
+          transition: all 0.2s;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .wishlist-icon-btn:hover {
+          transform: scale(1.15);
+          background: #FFFFFF;
+        }
+
+        .product-details {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          background: #FFFFFF;
+        }
+        @media (max-width: 480px) {
+          .product-details { padding: 0.75rem; }
+        }
+
+        /* Quantity stepper */
+        .cart-qty-stepper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #F0FDF4;
+          border: 1.5px solid #166534;
+          border-radius: 8px;
+          padding: 0.25rem 0.5rem;
+        }
+        .qty-step-btn {
+          border: none;
+          background: transparent;
+          color: #166534;
+          font-weight: 800;
+          font-size: 1.1rem;
+          cursor: pointer;
+          padding: 0 0.4rem;
+        }
+
+        /* Universal Floating Kisan AI Chatbot */
+        .kisan-chatbot-fab {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          z-index: 5000;
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          background: linear-gradient(135deg, #0F5132 0%, #166534 100%);
+          color: #FFFFFF;
+          border: none;
+          border-radius: 50px;
+          padding: 0.75rem 1.25rem;
+          cursor: pointer;
+          font-weight: 700;
+          font-size: 0.9rem;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          box-shadow: 0 8px 24px rgba(15,81,50,0.4);
+          animation: floatGlow 3s infinite;
+          transition: all 0.25s ease;
+        }
+        .kisan-chatbot-fab:hover {
+          transform: translateY(-3px) scale(1.04);
+        }
+        @media (max-width: 768px) {
+          .kisan-chatbot-fab {
+            bottom: 74px;
+            right: 16px;
+            padding: 0.65rem 1rem;
+            font-size: 0.82rem;
+          }
+        }
+
+        .kisan-chatbot-drawer {
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          width: 400px;
+          max-width: calc(100vw - 32px);
+          height: 560px;
+          max-height: calc(100vh - 100px);
+          background: #FFFFFF;
+          border-radius: 18px;
+          border: 1px solid #CBD5E1;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+          z-index: 5001;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (max-width: 768px) {
+          .kisan-chatbot-drawer {
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 90vh;
+            max-height: 90vh;
+            border-radius: 20px 20px 0 0;
+          }
+        }
+
+        /* Mobile Bottom Nav */
+        .mobile-bottom-nav {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #FFFFFF;
+          border-top: 1px solid #E2E8F0;
+          padding: 0.45rem 0 calc(0.45rem + env(safe-area-inset-bottom));
+          z-index: 4000;
+          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .mobile-bottom-nav-inner {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+        .bottom-nav-btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.15rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.25rem 0.6rem;
+          color: #64748B;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          position: relative;
+        }
+        .bottom-nav-btn .bn-icon { font-size: 1.3rem; }
+        .bottom-nav-btn .bn-label { font-size: 0.65rem; font-weight: 700; }
+        .bottom-nav-btn.active { color: #166534; }
+        .bottom-nav-badge {
+          position: absolute;
+          top: -2px;
+          right: 6px;
+          background: #DC2626;
+          color: #fff;
+          font-size: 0.6rem;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+        }
+        @media (max-width: 768px) {
+          .mobile-bottom-nav { display: block; }
+          main { padding-bottom: 5.5rem !important; }
+        }
+              /* Responsive Sidebar Drawer for Mobile */
         .responsive-sidebar {
           width: 240px; background: #111; border-right: 1px solid #222;
           display: flex; flex-direction: column; flex-shrink: 0;
@@ -1940,457 +2343,704 @@ export default function App() {
         {/* ── Right Content ── */}
         <div style={{ flex:1, display:'flex', flexDirection:'column', minWidth:0, height:'calc(100vh - 36px)', overflowY:'auto' }}>
 
-          {/* Top Header Bar */}
-          <header style={{ background:'#111', borderBottom:'1px solid #222', padding:'.75rem 1.5rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'.5rem', position:'sticky', top:0, zIndex:10 }}>
-            <div style={{ display:'flex', alignItems:'center', fontWeight:700, fontSize:'1rem', color:'#f1f1f1' }}>
-              <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>☰</button>
-              {TABS.find(t => t.id === activeTab)?.icon} {TABS.find(t => t.id === activeTab)?.label}
-              {weatherLoading && <span style={{fontSize:'.72rem',color:'#60a5fa',marginLeft:'.5rem',fontWeight:500}}>⏳ Updating weather...</span>}
+          {/* Top Header Bar — Amazon / Flipkart Style */}
+          <header style={{ background:'#0F172A', borderBottom:'1px solid #1E293B', padding:'.7rem 1.5rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'.75rem', position:'sticky', top:0, zIndex:20, boxShadow:'0 2px 10px rgba(0,0,0,0.1)' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:'.75rem' }}>
+              <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)} style={{color:'#fff'}}>☰</button>
+              <div style={{ display:'flex', alignItems:'center', gap:'.4rem', fontWeight:800, fontSize:'1.05rem', color:'#FFFFFF' }}>
+                <span style={{ fontSize:'1.3rem' }}>{TABS.find(t => t.id === activeTab)?.icon}</span>
+                <span>{TABS.find(t => t.id === activeTab)?.label}</span>
+              </div>
+              {weatherLoading && <span style={{fontSize:'.72rem',color:'#60a5fa',background:'rgba(37,99,235,0.15)',padding:'.15rem .5rem',borderRadius:12}}>⏳ Live Open-Meteo Updating...</span>}
             </div>
-            <div style={{ display:'flex', gap:'.6rem', alignItems:'center', flexWrap:'wrap' }}>
-              <select className="input" style={{width:'auto',padding:'.4rem .7rem',fontSize:'.8rem'}} value={selState} onChange={e=>handleStateChange(e.target.value)}>
+
+            {/* Quick Header Right Tools: Location, Wishlist, Cart, Language */}
+            <div style={{ display:'flex', gap:'.65rem', alignItems:'center', flexWrap:'wrap' }}>
+              {/* Deliver-To Location Picker */}
+              <div style={{ display:'flex', alignItems:'center', gap:'.35rem', background:'rgba(255,255,255,0.08)', borderRadius:8, padding:'.3rem .6rem', border:'1px solid rgba(255,255,255,0.12)' }}>
+                <span style={{ fontSize:'.85rem', color:'#4ade80' }}>📍</span>
+                <span style={{ fontSize:'.75rem', color:'#CBD5E1', fontWeight:600 }}>{selMandal}, {selState}</span>
+              </div>
+
+              {/* State & District Selectors */}
+              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'#1E293B',color:'#fff',borderColor:'#334155'}} value={selState} onChange={e=>handleStateChange(e.target.value)}>
                 {ALL_STATES && ALL_STATES.map(s=><option key={s} value={s}>{s}</option>)}
               </select>
-              <select className="input" style={{width:'auto',padding:'.4rem .7rem',fontSize:'.8rem'}} value={selDistrict} onChange={e=>handleDistrictChange(e.target.value)}>
-                {districts.map(d=><option key={d} value={d}>{d}</option>)}
+
+              {/* Language Switch */}
+              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'#1E293B',color:'#fff',borderColor:'#334155'}} value={lang} onChange={e=>setLang(e.target.value)}>
+                <option value="en">English (EN)</option>
+                <option value="hi">हिन्दी (HI)</option>
+                <option value="te">తెలుగు (TE)</option>
               </select>
-              <select className="input" style={{width:'auto',padding:'.4rem .7rem',fontSize:'.8rem'}} value={selMandal} onChange={e=>setSelMandal(e.target.value)}>
-                {mandals.map(m=><option key={m} value={m}>{m}</option>)}
-              </select>
-              <select className="input" style={{width:'auto',padding:'.4rem .7rem',fontSize:'.8rem'}} value={lang} onChange={e=>setLang(e.target.value)}>
-                <option value="en">EN</option>
-                <option value="hi">HI</option>
-                <option value="te">TE</option>
-              </select>
+
+              {/* Wishlist Indicator */}
+              <button 
+                onClick={() => { setActiveTab('marketplace'); }} 
+                title="Your Wishlist"
+                style={{ background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.12)', color:'#fff', padding:'.35rem .65rem', borderRadius:8, cursor:'pointer', display:'flex', alignItems:'center', gap:'.3rem', fontSize:'.8rem' }}
+              >
+                <span>❤️</span>
+                <span style={{ fontWeight:700 }}>{wishlist.length}</span>
+              </button>
+
+              {/* Cart Button */}
+              <button 
+                onClick={() => setIsCartOpen(true)}
+                style={{ background:'#166534', border:'1px solid #22c55e', color:'#fff', padding:'.35rem .85rem', borderRadius:8, cursor:'pointer', display:'flex', alignItems:'center', gap:'.4rem', fontWeight:700, fontSize:'.8rem' }}
+              >
+                <span>🛒</span>
+                <span>Cart ({cart.reduce((s,i)=>s+i.quantity,0)})</span>
+              </button>
             </div>
           </header>
 
           {/* Main Page Content */}
           <main style={{ padding:'1.5rem', maxWidth:1400, width:'100%', margin:'0 auto', flex:1 }}>
 
-            {/* ════ AGRI P2P MARKETPLACE ════ */}
-            {activeTab==='marketplace' && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {/* Header Card */}
-                <div className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.25rem' }}>
-                  <div>
-                    <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff' }}>🛒 Farmers & Ingredients Marketplace</h2>
-                    <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '0.2rem' }}>Direct peer-to-peer commerce. Buy and sell farming tools, seeds, fertilizers, and crop yields.</p>
-                  </div>
+            {/* ════ AGRI P2P MARKETPLACE (Amazon / Flipkart / Myntra Layout) ════ */}
+            {activeTab==='marketplace' && (() => {
+              // Filtering & Sorting Pipeline
+              const sLower = marketSearchInput.toLowerCase().trim();
+              let items = activeListings.filter(item => {
+                const matchSearch = !sLower || 
+                  (item.title || '').toLowerCase().includes(sLower) || 
+                  (item.description || '').toLowerCase().includes(sLower) ||
+                  (item.category || '').toLowerCase().includes(sLower) ||
+                  (item.sellerName || '').toLowerCase().includes(sLower);
+                
+                const matchCategory = marketFilter === 'All' || item.category === marketFilter;
+                const matchLocation = marketLocFilter === 'All' || item.sellerLocation?.state === marketLocFilter;
+                
+                let matchPrice = true;
+                if (priceRangeFilter === 'under50') matchPrice = item.price < 50;
+                else if (priceRangeFilter === '50to200') matchPrice = item.price >= 50 && item.price <= 200;
+                else if (priceRangeFilter === '200to500') matchPrice = item.price > 200 && item.price <= 500;
+                else if (priceRangeFilter === 'above500') matchPrice = item.price > 500;
+
+                const matchStock = !inStockOnly || item.quantity > 0;
+
+                return matchSearch && matchCategory && matchLocation && matchPrice && matchStock;
+              });
+
+              // Sorting
+              if (sortBy === 'priceLow') {
+                items = [...items].sort((a,b) => a.price - b.price);
+              } else if (sortBy === 'priceHigh') {
+                items = [...items].sort((a,b) => b.price - a.price);
+              } else if (sortBy === 'rating') {
+                items = [...items].sort((a,b) => (b.rating||0) - (a.rating||0));
+              }
+
+              // Promos
+              const PROMOS = [
+                {
+                  title: '🌾 Kisan Mega Mandi — 100% Farm Fresh Harvest',
+                  subtitle: 'Buy Vegetables, Fruits, Grains & Ghee directly from verified local farmers at 0% intermediary markup.',
+                  cta: 'Shop Fresh Harvest',
+                  filter: '🥬 Vegetables',
+                  badge: 'MEGA HARVEST OFFER · UP TO 35% OFF'
+                },
+                {
+                  title: '🤖 Smart AI Agronomist — Precision Crop & Fertilizer Strategy',
+                  subtitle: 'Input your soil test NPK & rainfall to unlock highest-profit crops with complete cultivation calendar.',
+                  cta: 'Launch AI Advisor',
+                  action: () => setActiveTab('advisor'),
+                  badge: 'AI DECISION PLATFORM'
+                },
+                {
+                  title: '🔬 Plant Leaf Disease Hospital — Instant AI Diagnosis',
+                  subtitle: 'Take or upload a photo of affected leaf spots to identify fungus, blight, or leaf curl with biological remedies.',
+                  cta: 'Scan Crop Disease',
+                  action: () => setActiveTab('scanner'),
+                  badge: 'COMPUTER VISION PLANT SCANNER'
+                },
+                {
+                  title: '⚡ Live APMC Mandi Rates & MCX Commodity Ticker',
+                  subtitle: 'Real-time daily arrival prices across 30+ states. Compare wholesale mandis & calculate road freight.',
+                  cta: 'View Live Rates',
+                  action: () => setActiveTab('market'),
+                  badge: 'TRANSPARENT FARM PRICING'
+                }
+              ];
+
+              const currentPromo = PROMOS[promoSlide];
+
+              return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   
-                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <div style={{ background: '#222', borderRadius: '8px', padding: '0.25rem', display: 'flex' }}>
-                      <button 
-                        className={`btn ${marketplaceMode==='buy' ? 'btn-primary' : 'btn-outline'}`}
-                        style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', borderRadius: '6px', border: 'none' }}
-                        onClick={() => setMarketplaceMode('buy')}
-                      >
-                        Buy Produce
-                      </button>
-                      <button 
-                        className={`btn ${marketplaceMode==='sell' ? 'btn-primary' : 'btn-outline'}`}
-                        style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', borderRadius: '6px', border: 'none' }}
-                        onClick={() => setMarketplaceMode('sell')}
-                      >
-                        Sell Your Crop
-                      </button>
+                  {/* Top Bar: Mode Switch (Buy Produce vs Sell Harvest) */}
+                  <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: 14, padding: '0.85rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '1.25rem' }}>🌾</span>
+                        <h2 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>
+                          Agri Superstore & Direct Farmer Marketplace
+                        </h2>
+                      </div>
+                      <p style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.15rem' }}>
+                        Buy certified organic harvests, seeds, fertilizers, and farm tools — or sell your own yield directly to buyers.
+                      </p>
                     </div>
 
-                    <button 
-                      className="btn btn-outline" 
-                      style={{ padding: '0.45rem 1rem', fontSize: '0.8rem', position: 'relative' }}
-                      onClick={() => setIsCartOpen(true)}
-                    >
-                      🛒 Cart ({cart.reduce((s,i)=>s+i.quantity,0)})
-                      {cart.length > 0 && (
-                        <span style={{ position: 'absolute', top: -6, right: -6, background: '#ef4444', color: '#fff', fontSize: '0.65rem', width: 16, height: 16, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
-                          {cart.length}
-                        </span>
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                {marketplaceMode === 'buy' ? (
-                  <>
-                    {/* Horizontal Category Quick Filter Pills */}
-                    <div className="cat-scroll-container">
-                      {[
-                        { label: 'All Items', val: 'All', icon: '🛒' },
-                        { label: 'Vegetables', val: '🥬 Vegetables', icon: '🥬' },
-                        { label: 'Fruits', val: '🍎 Fruits', icon: '🍎' },
-                        { label: 'Grains & Flour', val: '🌾 Grains & Flour', icon: '🌾' },
-                        { label: 'Pulses & Dal', val: '🫘 Pulses & Dal', icon: '🫘' },
-                        { label: 'Spices & Masala', val: '🌶 Spices & Masala', icon: '🌶' },
-                        { label: 'Dry Fruits', val: '🥜 Dry Fruits & Nuts', icon: '🥜' },
-                        { label: 'Dairy & Oils', val: '🥛 Dairy & Oils', icon: '🥛' },
-                        { label: 'Daily Routine', val: '🧴 Daily Routine', icon: '🧴' },
-                        { label: 'Seeds', val: '🌱 Seeds', icon: '🌱' },
-                        { label: 'Fertilizers', val: '🧪 Fertilizers & Agri', icon: '🧪' },
-                        { label: 'Irrigation', val: '💧 Irrigation', icon: '💧' },
-                        { label: 'Farm Tools', val: '🛠️ Farming Tools', icon: '🛠️' },
-                      ].map(cat => (
+                    <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
+                      <div style={{ background: '#F1F5F9', borderRadius: 10, padding: '0.25rem', display: 'flex', border: '1px solid #E2E8F0' }}>
                         <button
-                          key={cat.val}
-                          className={`cat-scroll-pill ${marketFilter === cat.val ? 'active' : ''}`}
-                          onClick={() => setMarketFilter(cat.val)}
+                          className={`btn ${marketplaceMode==='buy' ? 'btn-primary' : 'btn-outline'}`}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.82rem', borderRadius: 8, border: 'none' }}
+                          onClick={() => setMarketplaceMode('buy')}
                         >
-                          {cat.icon} {cat.label}
+                          🛍️ Buy Products
                         </button>
-                      ))}
+                        <button
+                          className={`btn ${marketplaceMode==='sell' ? 'btn-primary' : 'btn-outline'}`}
+                          style={{ padding: '0.45rem 1rem', fontSize: '0.82rem', borderRadius: 8, border: 'none' }}
+                          onClick={() => setMarketplaceMode('sell')}
+                        >
+                          💼 Sell Your Crop
+                        </button>
+                      </div>
+
+                      <button
+                        className="btn btn-outline"
+                        style={{ padding: '0.45rem 1rem', fontSize: '0.82rem', position: 'relative', borderColor: '#CBD5E1' }}
+                        onClick={() => setIsCartOpen(true)}
+                      >
+                        🛒 Cart ({cart.reduce((s,i)=>s+i.quantity,0)})
+                        {cart.length > 0 && (
+                          <span style={{ position: 'absolute', top: -5, right: -5, background: '#DC2626', color: '#fff', fontSize: '0.65rem', width: 18, height: 18, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
+                            {cart.length}
+                          </span>
+                        )}
+                      </button>
                     </div>
+                  </div>
 
-                    {/* Filters Bar */}
-                    <div className="card" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                      <div style={{ flex: 2, minWidth: '200px' }}>
-                        <label className="fld">Search</label>
-                        <input 
-                          className="input" 
-                          placeholder="🔍 Search crops, fertilizers, tools..." 
-                          value={marketSearchInput}
-                          onChange={e => setMarketSearchInput(e.target.value)}
-                        />
-                      </div>
-                      
-                      <div style={{ flex: 1, minWidth: '150px' }}>
-                        <label className="fld">Location Filter</label>
-                        <select className="input" value={marketLocFilter} onChange={e => setMarketLocFilter(e.target.value)}>
-                          <option value="All">All Regions</option>
-                          {ALL_STATES && ALL_STATES.map(s => <option key={s} value={s}>{s}</option>)}
-                        </select>
-                      </div>
-
-                      <div style={{ flex: 1, minWidth: '150px' }}>
-                        <label className="fld">Category</label>
-                        <select className="input" value={marketFilter} onChange={e => setMarketFilter(e.target.value)}>
-                          <option value="All">All Categories</option>
-                          <option value="🥬 Vegetables">🥬 Vegetables</option>
-                          <option value="🍎 Fruits">🍎 Fruits</option>
-                          <option value="🌾 Grains & Flour">🌾 Grains & Flour</option>
-                          <option value="🫘 Pulses & Dal">🫘 Pulses & Dal</option>
-                          <option value="🌶 Spices & Masala">🌶 Spices & Masala</option>
-                          <option value="🥜 Dry Fruits & Nuts">🥜 Dry Fruits & Nuts</option>
-                          <option value="🥛 Dairy & Oils">🥛 Dairy & Oils</option>
-                          <option value="🧴 Daily Routine">🧴 Daily Routine</option>
-                          <option value="🌱 Seeds">🌱 Seeds</option>
-                          <option value="🧪 Fertilizers & Agri">🧪 Fertilizers & Agri</option>
-                          <option value="💧 Irrigation">💧 Irrigation</option>
-                          <option value="🛠️ Farming Tools">🛠️ Farming Tools</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Listings Grid */}
-                    {listingsLoading ? (
-                      <div style={{ textAlign: 'center', padding: '4rem' }}>
-                        <span style={{ fontSize: '2rem' }}>🔄</span>
-                        <p style={{ color: '#888', marginTop: '1rem' }}>Loading active marketplace listings...</p>
-                      </div>
-                    ) : (
-                      <div className="marketplace-grid">
-                        {(() => {
-                          const sLower = marketSearchInput.toLowerCase();
-                          const filtered = activeListings.filter(item => {
-                            const matchSearch = (item.title || '').toLowerCase().includes(sLower) || 
-                                                (item.description || '').toLowerCase().includes(sLower) ||
-                                                (item.sellerName || '').toLowerCase().includes(sLower);
-                            const matchCategory = marketFilter === 'All' || item.category === marketFilter;
-                            const matchLocation = marketLocFilter === 'All' || item.sellerLocation?.state === marketLocFilter;
-                            return matchSearch && matchCategory && matchLocation;
-                          });
-
-                          if (filtered.length === 0) {
-                            return (
-                              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem', opacity: 0.5 }}>
-                                <span style={{ fontSize: '3rem' }}>🛒</span>
-                                <p style={{ color: '#888', marginTop: '1rem' }}>No listings found matching filters.</p>
+                  {marketplaceMode === 'buy' ? (
+                    <>
+                      {/* ═══ Circular Category Ribbon (Flipkart / Myntra format) ═══ */}
+                      <div style={{ background: '#FFFFFF', borderRadius: 14, padding: '0.75rem 1rem', border: '1px solid #E2E8F0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                        <div className="category-ribbon">
+                          {[
+                            { label: 'All Store', val: 'All', icon: '🛒' },
+                            { label: 'Vegetables', val: '🥬 Vegetables', icon: '🥬' },
+                            { label: 'Fresh Fruits', val: '🍎 Fruits', icon: '🍎' },
+                            { label: 'Atta & Grains', val: '🌾 Grains & Flour', icon: '🌾' },
+                            { label: 'Dals & Pulses', val: '🫘 Pulses & Dal', icon: '🫘' },
+                            { label: 'Spices', val: '🌶 Spices & Masala', icon: '🌶' },
+                            { label: 'Dry Fruits', val: '🥜 Dry Fruits & Nuts', icon: '🥜' },
+                            { label: 'A2 Ghee & Oils', val: '🥛 Dairy & Oils', icon: '🥛' },
+                            { label: 'Daily Routine', val: '🧴 Daily Routine', icon: '🧴' },
+                            { label: 'Hybrid Seeds', val: '🌱 Seeds', icon: '🌱' },
+                            { label: 'Fertilizers', val: '🧪 Fertilizers & Agri', icon: '🧪' },
+                            { label: 'Drip Irrigation', val: '💧 Irrigation', icon: '💧' },
+                            { label: 'Farming Tools', val: '🛠️ Farming Tools', icon: '🛠️' },
+                          ].map(cat => (
+                            <button
+                              key={cat.val}
+                              className={`cat-circle-card ${marketFilter === cat.val ? 'active' : ''}`}
+                              onClick={() => setMarketFilter(cat.val)}
+                            >
+                              <div className="cat-circle-icon">
+                                <span>{cat.icon}</span>
                               </div>
-                            );
-                          }
+                              <span className="cat-circle-label">{cat.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
 
-                          return filtered.map(item => (
-                            <div key={item.id} className="product-card">
-                              <div className="product-img-container">
-                                {item.image && item.image.startsWith('http') ? (
-                                  <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="product-img"
-                                    loading="lazy"
-                                    onError={(e) => {
-                                      e.target.style.display = 'none';
-                                      if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
-                                    }}
-                                  />
-                                ) : null}
-                                <div
-                                  className="product-img-fallback"
-                                  style={{ display: item.image && item.image.startsWith('http') ? 'none' : 'flex' }}
+                      {/* ═══ Flipkart / Amazon Hero Promo Carousel Banner ═══ */}
+                      <div className={`promo-banner promo-slide-${promoSlide}`}>
+                        <div style={{ maxWidth: '640px', zIndex: 2 }}>
+                          <span style={{ background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)', padding: '0.2rem 0.65rem', borderRadius: 20, fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.05em' }}>
+                            {currentPromo.badge}
+                          </span>
+                          <h2 style={{ fontSize: '1.45rem', fontWeight: 800, marginTop: '0.6rem', lineHeight: 1.25, color: '#FFFFFF' }}>
+                            {currentPromo.title}
+                          </h2>
+                          <p style={{ fontSize: '0.85rem', color: '#E2E8F0', marginTop: '0.4rem', lineHeight: 1.45, maxWidth: '540px' }}>
+                            {currentPromo.subtitle}
+                          </p>
+                          <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem' }}>
+                            <button
+                              className="btn"
+                              style={{ background: '#FFFFFF', color: '#0F172A', fontWeight: 800, fontSize: '0.85rem', padding: '0.55rem 1.25rem', boxShadow: '0 4px 14px rgba(0,0,0,0.15)' }}
+                              onClick={() => {
+                                if (currentPromo.action) currentPromo.action();
+                                else if (currentPromo.filter) setMarketFilter(currentPromo.filter);
+                              }}
+                            >
+                              {currentPromo.cta} →
+                            </button>
+                            <button
+                              className="btn btn-outline"
+                              style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#FFFFFF', background: 'rgba(255,255,255,0.1)' }}
+                              onClick={() => setIsChatbotOpen(true)}
+                            >
+                              💬 Ask Kisan AI
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Slide Indicator Dots */}
+                        <div className="promo-dots">
+                          {[0,1,2,3].map(i => (
+                            <div
+                              key={i}
+                              className={`promo-dot ${promoSlide === i ? 'active' : ''}`}
+                              onClick={() => setPromoSlide(i)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* ═══ Universal Search & Filter Facets Bar (Amazon format) ═══ */}
+                      <div className="card" style={{ padding: '1rem 1.25rem' }}>
+                        <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                          {/* Search Input */}
+                          <div style={{ flex: 3, minWidth: '220px', position: 'relative' }}>
+                            <label className="fld">Search Products & Crops</label>
+                            <div style={{ position: 'relative' }}>
+                              <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }}>🔍</span>
+                              <input
+                                className="input"
+                                style={{ paddingLeft: '2.2rem', paddingRight: marketSearchInput ? '2rem' : '0.85rem' }}
+                                placeholder="Search spinach, tomato, basmati, seeds, urea, ghee, tools..."
+                                value={marketSearchInput}
+                                onChange={e => setMarketSearchInput(e.target.value)}
+                              />
+                              {marketSearchInput && (
+                                <button
+                                  onClick={() => setMarketSearchInput('')}
+                                  style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', border: 'none', background: 'transparent', color: '#94A3B8', cursor: 'pointer', fontSize: '1rem' }}
                                 >
-                                  {item.category?.includes('Vegetables') ? '🥬' :
-                                   item.category?.includes('Fruits') ? '🍎' :
-                                   item.category?.includes('Grains') ? '🌾' :
-                                   item.category?.includes('Pulses') || item.category?.includes('Spices') ? '🫘' :
-                                   item.category?.includes('Dry') ? '🥜' :
-                                   item.category?.includes('Dairy') || item.category?.includes('Oils') ? '🥛' :
-                                   item.category?.includes('Fertilizers') ? '🧪' : '🛠️'}
-                                </div>
-                              </div>
-                              {/* Discount badge & Wishlist button on image */}
-                              {item.mrp && item.mrp > item.price && (
-                                <span className="discount-pill">
-                                  {Math.round(((item.mrp - item.price) / item.mrp) * 100)}% OFF
-                                </span>
+                                  ✕
+                                </button>
                               )}
-                              <button
-                                className="wishlist-icon-btn"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setWishlist(prev => prev.includes(item.id) ? prev.filter(id => id !== item.id) : [...prev, item.id]);
-                                }}
-                                title="Add to Wishlist"
-                              >
-                                {wishlist.includes(item.id) ? '❤️' : '🤍'}
-                              </button>
+                            </div>
+                          </div>
 
-                              <div className="product-details">
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
-                                  <span style={{ fontSize: '0.68rem', background: '#F0FDF4', color: '#166534', padding: '0.12rem 0.4rem', borderRadius: 4, fontWeight: 700 }}>
-                                    {item.category}
+                          {/* Price Range */}
+                          <div style={{ flex: 1.2, minWidth: '130px' }}>
+                            <label className="fld">Price Filter</label>
+                            <select className="input" value={priceRangeFilter} onChange={e => setPriceRangeFilter(e.target.value)}>
+                              <option value="all">All Prices</option>
+                              <option value="under50">Under ₹50</option>
+                              <option value="50to200">₹50 – ₹200</option>
+                              <option value="200to500">₹200 – ₹500</option>
+                              <option value="above500">Above ₹500</option>
+                            </select>
+                          </div>
+
+                          {/* Region / State */}
+                          <div style={{ flex: 1.2, minWidth: '140px' }}>
+                            <label className="fld">Farmer Region</label>
+                            <select className="input" value={marketLocFilter} onChange={e => setMarketLocFilter(e.target.value)}>
+                              <option value="All">All India</option>
+                              {ALL_STATES && ALL_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                            </select>
+                          </div>
+
+                          {/* Sort By */}
+                          <div style={{ flex: 1.2, minWidth: '140px' }}>
+                            <label className="fld">Sort Products</label>
+                            <select className="input" value={sortBy} onChange={e => setSortBy(e.target.value)}>
+                              <option value="featured">Featured / Best Match</option>
+                              <option value="priceLow">Price: Low to High</option>
+                              <option value="priceHigh">Price: High to Low</option>
+                              <option value="rating">Customer Rating</option>
+                            </select>
+                          </div>
+
+                          {/* In-Stock Toggle */}
+                          <div style={{ display: 'flex', flexDirection: 'column', minWidth: '100px' }}>
+                            <label className="fld">Availability</label>
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem', color: '#334155', fontWeight: 600, cursor: 'pointer', height: '38px' }}>
+                              <input
+                                type="checkbox"
+                                checked={inStockOnly}
+                                onChange={e => setInStockOnly(e.target.checked)}
+                                style={{ accentColor: '#166534', width: 16, height: 16 }}
+                              />
+                              In Stock Only
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Active Filters Summary */}
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.75rem', paddingTop: '0.6rem', borderTop: '1px solid #F1F5F9', flexWrap: 'wrap', gap: '0.5rem' }}>
+                          <span style={{ fontSize: '0.8rem', color: '#64748B' }}>
+                            Showing <strong>{items.length}</strong> verified agricultural products & daily staples
+                          </span>
+                          {(marketFilter !== 'All' || marketSearchInput || marketLocFilter !== 'All' || priceRangeFilter !== 'all' || inStockOnly) && (
+                            <button
+                              onClick={() => {
+                                setMarketFilter('All');
+                                setMarketSearchInput('');
+                                setMarketLocFilter('All');
+                                setPriceRangeFilter('all');
+                                setInStockOnly(false);
+                              }}
+                              style={{ background: 'transparent', border: 'none', color: '#2563EB', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}
+                            >
+                              ↺ Reset Filters
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* ═══ Product Cards Grid (Amazon / Flipkart Responsive Grid) ═══ */}
+                      {listingsLoading ? (
+                        <div style={{ textAlign: 'center', padding: '4rem', background: '#FFFFFF', borderRadius: 14 }}>
+                          <span style={{ fontSize: '2.5rem', animation: 'spin 1s infinite' }}>🔄</span>
+                          <p style={{ color: '#64748B', marginTop: '1rem', fontWeight: 600 }}>Loading verified farm-fresh listings...</p>
+                        </div>
+                      ) : items.length === 0 ? (
+                        <div style={{ textAlign: 'center', padding: '4rem', background: '#FFFFFF', borderRadius: 14, border: '1px solid #E2E8F0' }}>
+                          <span style={{ fontSize: '3.5rem' }}>🔍</span>
+                          <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0F172A', marginTop: '0.75rem' }}>No products match your current filters</h3>
+                          <p style={{ fontSize: '0.85rem', color: '#64748B', marginTop: '0.35rem' }}>Try clearing filters or search for another crop or daily routine item.</p>
+                          <button
+                            className="btn btn-primary"
+                            style={{ marginTop: '1rem' }}
+                            onClick={() => {
+                              setMarketFilter('All');
+                              setMarketSearchInput('');
+                              setMarketLocFilter('All');
+                              setPriceRangeFilter('all');
+                              setInStockOnly(false);
+                            }}
+                          >
+                            Show All Products
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="marketplace-grid">
+                          {items.map(item => {
+                            const inCartItem = cart.find(c => c.id === item.id);
+                            const discountPct = item.mrp && item.mrp > item.price ? Math.round(((item.mrp - item.price) / item.mrp) * 100) : 0;
+
+                            return (
+                              <div key={item.id} className="product-card">
+                                {/* Discount pill on top-left */}
+                                {discountPct > 0 && (
+                                  <span className="discount-pill">
+                                    {discountPct}% OFF
                                   </span>
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: '#D97706', fontWeight: 700 }}>
-                                    <span 
-                                      style={{ cursor: 'pointer' }}
+                                )}
+
+                                {/* Wishlist toggle button on top-right */}
+                                <button
+                                  className="wishlist-icon-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setWishlist(prev => prev.includes(item.id) ? prev.filter(id => id !== item.id) : [...prev, item.id]);
+                                  }}
+                                  title="Add to Wishlist"
+                                >
+                                  {wishlist.includes(item.id) ? '❤️' : '🤍'}
+                                </button>
+
+                                {/* Product Image */}
+                                <div className="product-img-container">
+                                  {item.image && item.image.startsWith('http') ? (
+                                    <img
+                                      src={item.image}
+                                      alt={item.title}
+                                      className="product-img"
+                                      loading="lazy"
+                                      onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                                      }}
+                                    />
+                                  ) : null}
+                                  <div
+                                    className="product-img-fallback"
+                                    style={{ display: item.image && item.image.startsWith('http') ? 'none' : 'flex' }}
+                                  >
+                                    {item.category?.includes('Vegetables') ? '🥬' :
+                                     item.category?.includes('Fruits') ? '🍎' :
+                                     item.category?.includes('Grains') ? '🌾' :
+                                     item.category?.includes('Pulses') ? '🫘' :
+                                     item.category?.includes('Spices') ? '🌶' :
+                                     item.category?.includes('Dry') ? '🥜' :
+                                     item.category?.includes('Dairy') ? '🥛' :
+                                     item.category?.includes('Daily') ? '🧴' :
+                                     item.category?.includes('Seeds') ? '🌱' :
+                                     item.category?.includes('Fertilizers') ? '🧪' : '🛠️'}
+                                  </div>
+                                </div>
+
+                                {/* Product Info Details */}
+                                <div className="product-details">
+                                  {/* Category tag & Star Rating */}
+                                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                                    <span style={{ fontSize: '0.68rem', background: '#F0FDF4', color: '#166534', padding: '0.15rem 0.45rem', borderRadius: 6, fontWeight: 700 }}>
+                                      {item.category}
+                                    </span>
+                                    <div 
+                                      style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.72rem', color: '#D97706', fontWeight: 700, cursor: 'pointer' }}
                                       title="Rate this product"
                                       onClick={() => handleRateProduct(item.id, 5)}
                                     >
-                                      ★ {item.rating || 5.0}
-                                    </span>
-                                    <span style={{ color: '#94A3B8', fontWeight: 500 }}>({item.ratingCount || 1})</span>
+                                      <span>★ {item.rating || 4.9}</span>
+                                      <span style={{ color: '#94A3B8', fontWeight: 500 }}>({item.ratingCount || 100})</span>
+                                    </div>
                                   </div>
-                                </div>
-                                
-                                <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#172017', marginBottom: '0.25rem', lineHeight: 1.3, height: '2.4rem', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                                  {item.title}
-                                </h3>
 
-                                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.4rem', margin: '0.25rem 0 0.4rem' }}>
-                                  <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#15803D' }}>
-                                    ₹{item.price}
-                                  </span>
-                                  <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 500 }}>
-                                    /{item.unit}
-                                  </span>
-                                  {item.mrp && item.mrp > item.price && (
-                                    <span style={{ fontSize: '0.75rem', color: '#94A3B8', textDecoration: 'line-through' }}>
-                                      ₹{item.mrp}
-                                    </span>
-                                  )}
-                                </div>
-                                
-                                <p style={{ fontSize: '0.74rem', color: '#64748B', lineHeight: 1.35, height: '2rem', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '0.5rem' }}>
-                                  {item.description}
-                                </p>
-                                
-                                <div style={{ background: '#F8FAF8', padding: '0.45rem 0.6rem', borderRadius: 6, fontSize: '0.7rem', border: '1px solid #E5E7EB', display: 'flex', flexDirection: 'column', gap: '0.15rem', marginBottom: '0.65rem' }}>
-                                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <span style={{ color: '#64748B' }}>Seller:</span>
-                                    <strong style={{ color: '#172017', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>{item.sellerName}</strong>
-                                  </div>
-                                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <span style={{ color: '#64748B' }}>Location:</span>
-                                    <span style={{ color: '#172017' }}>📍 {item.sellerLocation?.state}</span>
-                                  </div>
-                                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.1rem', borderTop: '1px solid #E5E7EB', paddingTop: '0.15rem' }}>
-                                    <span style={{ color: '#64748B' }}>Stock:</span>
-                                    <strong style={{ color: item.quantity > 5 ? '#15803D' : '#DC2626' }}>{item.quantity} {item.unit}s left</strong>
-                                  </div>
-                                </div>
+                                  {/* Title */}
+                                  <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.35rem', lineHeight: 1.35, height: '2.5rem', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                                    {item.title}
+                                  </h3>
 
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                  {item.sellerId === (user.phone || user.email) ? (
-                                    <button className="btn btn-outline" style={{ width: '100%', opacity: 0.6 }} disabled>
-                                      ✏️ Your Listing
-                                    </button>
-                                  ) : item.quantity <= 0 ? (
-                                    <button className="btn btn-outline" style={{ width: '100%', opacity: 0.5 }} disabled>
-                                      ❌ Out of Stock
-                                    </button>
-                                  ) : (
-                                    <>
+                                  {/* Pricing Row: Price, MRP, Savings */}
+                                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.45rem', marginBottom: '0.4rem' }}>
+                                    <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#15803D' }}>
+                                      ₹{item.price}
+                                    </span>
+                                    <span style={{ fontSize: '0.74rem', color: '#64748B', fontWeight: 600 }}>
+                                      / {item.unit}
+                                    </span>
+                                    {item.mrp && item.mrp > item.price && (
+                                      <span style={{ fontSize: '0.76rem', color: '#94A3B8', textDecoration: 'line-through' }}>
+                                        ₹{item.mrp}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  {/* Delivery & Seller Tag */}
+                                  <div style={{ background: '#F8FAFC', padding: '0.45rem 0.6rem', borderRadius: 8, fontSize: '0.7rem', border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '0.15rem', marginBottom: '0.75rem' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <span style={{ color: '#64748B' }}>Seller:</span>
+                                      <strong style={{ color: '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>
+                                        ✅ {item.sellerName}
+                                      </strong>
+                                    </div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                      <span style={{ color: '#64748B' }}>Origin:</span>
+                                      <span style={{ color: '#334155' }}>📍 {item.sellerLocation?.district || 'Farm'}, {item.sellerLocation?.state}</span>
+                                    </div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #E2E8F0', paddingTop: '0.15rem', marginTop: '0.1rem' }}>
+                                      <span style={{ color: '#166534', fontWeight: 600 }}>⚡ 24-hr Delivery</span>
+                                      <strong style={{ color: item.quantity > 5 ? '#15803D' : '#DC2626' }}>
+                                        {item.quantity > 5 ? `${item.quantity} ${item.unit}s in stock` : 'Only a few left!'}
+                                      </strong>
+                                    </div>
+                                  </div>
+
+                                  {/* Actions: Add to Cart / Qty Stepper & WhatsApp Contact */}
+                                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', marginTop: 'auto' }}>
+                                    {inCartItem ? (
+                                      <div className="cart-qty-stepper">
+                                        <button className="qty-step-btn" onClick={() => handleUpdateCartQty(item.id, inCartItem.quantity - 1)}>–</button>
+                                        <span style={{ fontWeight: 800, fontSize: '0.85rem', color: '#166534' }}>In Cart: {inCartItem.quantity} {item.unit}</span>
+                                        <button className="qty-step-btn" onClick={() => handleUpdateCartQty(item.id, inCartItem.quantity + 1)}>+</button>
+                                      </div>
+                                    ) : (
                                       <button
                                         className="btn btn-primary"
-                                        style={{ width: '100%' }}
+                                        style={{ width: '100%', padding: '0.55rem', fontSize: '0.85rem' }}
                                         onClick={() => handleAddToCart(item, 1)}
                                       >
                                         🛒 Add to Cart
                                       </button>
-                                      {item.sellerPhone && (
-                                        <a
-                                          href={`https://wa.me/91${item.sellerPhone}?text=${encodeURIComponent(`Hi ${item.sellerName}, I am interested in buying your listing: "${item.title}" at ₹${item.price}/${item.unit}. Please confirm availability.`)}`}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', padding: '0.5rem', background: '#16a34a', color: '#fff', borderRadius: 8, fontSize: '0.82rem', fontWeight: 700, textDecoration: 'none' }}
-                                        >
-                                          💬 WhatsApp Seller
-                                        </a>
-                                      )}
-                                    </>
-                                  )}
+                                    )}
+
+                                    {item.sellerPhone && (
+                                      <a
+                                        href={`https://wa.me/91${item.sellerPhone}?text=${encodeURIComponent(`Hi ${item.sellerName}, I want to buy "${item.title}" (₹${item.price}/${item.unit}) from Smart Crop Advisor.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', padding: '0.45rem', background: '#25D366', color: '#FFFFFF', borderRadius: 8, fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none' }}
+                                      >
+                                        <span>💬</span>
+                                        <span>WhatsApp Farmer</span>
+                                      </a>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ));
-                        })()}
+                            );
+                          })}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    /* ═══ Farmer Seller Portal — List Harvest / Product ═══ */
+                    <div className="card" style={{ maxWidth: '720px', margin: '0 auto', width: '100%', padding: '2rem' }}>
+                      <div style={{ borderBottom: '1px solid #E2E8F0', paddingBottom: '1rem', marginBottom: '1.5rem' }}>
+                        <span style={{ background: '#F0FDF4', color: '#166534', padding: '0.2rem 0.6rem', borderRadius: 20, fontSize: '0.75rem', fontWeight: 800 }}>
+                          🌾 DIRECT FARMER ONBOARDING
+                        </span>
+                        <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', marginTop: '0.5rem' }}>
+                          Sell Your Harvest Directly to Buyers
+                        </h2>
+                        <p style={{ fontSize: '0.85rem', color: '#64748B', marginTop: '0.25rem' }}>
+                          List your produce in 2 minutes. Receive direct buyer inquiries on WhatsApp with zero intermediary fees.
+                        </p>
                       </div>
-                    )}
-                  </>
-                ) : (
-                  /* ── Sell Form ── */
-                  <div className="card" style={{ maxWidth: '680px', margin: '0 auto', width: '100%' }}>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      🌾 List Your Crop / Product For Sale
-                    </h3>
-                    <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '1.25rem' }}>
-                      Fill in all details below. Buyers will contact you directly via phone/WhatsApp.
-                    </p>
 
-                    <form onSubmit={handleCreateListing} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-
-                      {/* Product Info */}
-                      <div style={{ background: '#181818', border: '1px solid #2a2a2a', borderRadius: 10, padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#60a5fa', marginBottom: '-0.4rem' }}>📦 PRODUCT DETAILS</div>
-
+                      <form onSubmit={handleCreateListing} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div>
-                          <label className="fld">Product / Crop Title *</label>
-                          <input className="input" placeholder="e.g. Fresh Organic Tomatoes — Grade A" value={newListing.title}
-                            onChange={e => setNewListing(p => ({ ...p, title: e.target.value }))} required />
+                          <label className="fld">Produce / Product Title *</label>
+                          <input
+                            className="input"
+                            placeholder="e.g. Organic Red Tomatoes, Sona Masuri Paddy, A2 Desi Cow Ghee..."
+                            value={newListing.title}
+                            onChange={e => setNewListing(p => ({ ...p, title: e.target.value }))}
+                            required
+                          />
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                           <div>
                             <label className="fld">Category *</label>
-                            <select className="input" value={newListing.category} onChange={e => setNewListing(p => ({ ...p, category: e.target.value }))}>
+                            <select
+                              className="input"
+                              value={newListing.category}
+                              onChange={e => setNewListing(p => ({ ...p, category: e.target.value }))}
+                            >
                               <option value="🥬 Vegetables">🥬 Vegetables</option>
                               <option value="🍎 Fruits">🍎 Fruits</option>
-                              <option value="🌾 Grains & Seeds">🌾 Grains & Seeds</option>
-                              <option value="🫘 Pulses & Spices">🫘 Pulses & Spices</option>
+                              <option value="🌾 Grains & Flour">🌾 Grains & Flour</option>
+                              <option value="🫘 Pulses & Dal">🫘 Pulses & Dal</option>
+                              <option value="🌶 Spices & Masala">🌶 Spices & Masala</option>
                               <option value="🥜 Dry Fruits & Nuts">🥜 Dry Fruits & Nuts</option>
                               <option value="🥛 Dairy & Oils">🥛 Dairy & Oils</option>
+                              <option value="🧴 Daily Routine">🧴 Daily Routine</option>
+                              <option value="🌱 Seeds">🌱 Seeds</option>
                               <option value="🧪 Fertilizers & Agri">🧪 Fertilizers & Agri</option>
+                              <option value="💧 Irrigation">💧 Irrigation</option>
                               <option value="🛠️ Farming Tools">🛠️ Farming Tools</option>
                             </select>
                           </div>
+
                           <div>
-                            <label className="fld">Unit Type *</label>
-                            <select className="input" value={newListing.unit} onChange={e => setNewListing(p => ({ ...p, unit: e.target.value }))}>
-                              <option value="kg">kilogram (kg)</option>
-                              <option value="quintal">quintal</option>
-                              <option value="tonne">tonne</option>
-                              <option value="bag">bag (50 kg)</option>
-                              <option value="pkt">packet (pkt)</option>
-                              <option value="litre">litre</option>
-                              <option value="dozen">dozen</option>
-                              <option value="piece">piece</option>
+                            <label className="fld">Unit of Measurement *</label>
+                            <select
+                              className="input"
+                              value={newListing.unit}
+                              onChange={e => setNewListing(p => ({ ...p, unit: e.target.value }))}
+                            >
+                              <option value="kg">Kilogram (kg)</option>
+                              <option value="quintal">Quintal (100 kg)</option>
+                              <option value="tonne">Tonne</option>
+                              <option value="litre">Litre (L)</option>
+                              <option value="bag">Bag / Sack</option>
+                              <option value="pcs">Pieces / Units</option>
+                              <option value="pkt">Packet</option>
+                              <option value="box">Crate / Box</option>
                             </select>
                           </div>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
                           <div>
-                            <label className="fld">Price per Unit (₹) *</label>
-                            <input className="input" type="number" placeholder="e.g. 50" value={newListing.price}
-                              onChange={e => setNewListing(p => ({ ...p, price: e.target.value }))} required min="1" />
+                            <label className="fld">Your Price (₹) *</label>
+                            <input
+                              type="number"
+                              className="input"
+                              placeholder="e.g. 25"
+                              value={newListing.price}
+                              onChange={e => setNewListing(p => ({ ...p, price: e.target.value }))}
+                              required
+                            />
                           </div>
+
                           <div>
-                            <label className="fld">Available Stock / Quantity *</label>
-                            <input className="input" type="number" placeholder="e.g. 200" value={newListing.quantity}
-                              onChange={e => setNewListing(p => ({ ...p, quantity: e.target.value }))} required min="1" />
+                            <label className="fld">Market MRP (₹)</label>
+                            <input
+                              type="number"
+                              className="input"
+                              placeholder="e.g. 35"
+                              value={newListing.mrp || ''}
+                              onChange={e => setNewListing(p => ({ ...p, mrp: e.target.value }))}
+                            />
+                          </div>
+
+                          <div>
+                            <label className="fld">Total Available Stock *</label>
+                            <input
+                              type="number"
+                              className="input"
+                              placeholder="e.g. 500"
+                              value={newListing.quantity}
+                              onChange={e => setNewListing(p => ({ ...p, quantity: e.target.value }))}
+                              required
+                            />
                           </div>
                         </div>
 
                         <div>
-                          <label className="fld">Description & Quality Details</label>
-                          <textarea className="input" style={{ height: '90px', resize: 'vertical' }}
-                            placeholder="Describe quality grade, organic status, harvest date, packaging, delivery terms, etc."
+                          <label className="fld">Harvest Description & Quality Details</label>
+                          <textarea
+                            className="input"
+                            rows={3}
+                            placeholder="Describe freshness, seed variety, harvest date, and organic cultivation methods..."
                             value={newListing.description}
-                            onChange={e => setNewListing(p => ({ ...p, description: e.target.value }))} />
-                        </div>
-
-                        <div>
-                          <label className="fld">Product Image URL (Optional)</label>
-                          <input className="input" type="url" placeholder="https://example.com/product-photo.jpg (leave blank for auto-image)"
-                            value={newListing.imageUrl}
-                            onChange={e => setNewListing(p => ({ ...p, imageUrl: e.target.value }))} />
-                          {newListing.imageUrl && newListing.imageUrl.startsWith('http') && (
-                            <img src={newListing.imageUrl} alt="preview" style={{ marginTop: '0.5rem', height: 80, borderRadius: 6, objectFit: 'cover' }}
-                              onError={e => e.target.style.display = 'none'} />
-                          )}
-                          {!newListing.imageUrl && (
-                            <div style={{ fontSize: '0.7rem', color: '#555', marginTop: '0.3rem' }}>
-                              Auto-image: <span style={{ color: '#888' }}>{CATEGORY_IMAGES[newListing.category] ? 'Unsplash CDN photo will be used' : 'Emoji fallback'}</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Seller Info */}
-                      <div style={{ background: '#181818', border: '1px solid #2a2a2a', borderRadius: 10, padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#22c55e', marginBottom: '-0.4rem' }}>👤 SELLER / CONTACT DETAILS</div>
-
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                          <div>
-                            <label className="fld">Your Full Name *</label>
-                            <input className="input" placeholder={user.name || 'e.g. Ramesh Kumar'}
-                              value={newListing.sellerName}
-                              onChange={e => setNewListing(p => ({ ...p, sellerName: e.target.value }))} />
-                            <div style={{ fontSize: '0.68rem', color: '#555', marginTop: '0.2rem' }}>Leave blank to use profile name: {user.name}</div>
-                          </div>
-                          <div>
-                            <label className="fld">Mobile Number (10 digits) *</label>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-                              <span style={{ background: '#222', border: '1px solid #333', borderRight: 'none', borderRadius: '8px 0 0 8px', padding: '0.6rem 0.75rem', fontSize: '0.875rem', color: '#888', whiteSpace: 'nowrap' }}>+91</span>
-                              <input className="input" style={{ borderRadius: '0 8px 8px 0' }} type="tel" placeholder={user.phone || '9876543210'} maxLength={10}
-                                value={newListing.sellerPhone}
-                                onChange={e => setNewListing(p => ({ ...p, sellerPhone: e.target.value.replace(/\D/g, '').slice(0, 10) }))} />
-                            </div>
-                            <div style={{ fontSize: '0.68rem', color: '#555', marginTop: '0.2rem' }}>Buyers will contact via WhatsApp/call</div>
-                          </div>
+                            onChange={e => setNewListing(p => ({ ...p, description: e.target.value }))}
+                          />
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem' }}>
                           <div>
                             <label className="fld">State *</label>
-                            <select className="input" value={newListing.sellerState}
-                              onChange={e => setNewListing(p => ({ ...p, sellerState: e.target.value, sellerDistrict: Object.keys(INDIA_LOCATIONS[e.target.value] || {})[0] || '', sellerMandal: '' }))}>
+                            <select
+                              className="input"
+                              value={newListing.sellerState}
+                              onChange={e => setNewListing(p => ({ ...p, sellerState: e.target.value, sellerDistrict: Object.keys(INDIA_LOCATIONS[e.target.value] || {})[0] || '', sellerMandal: '' }))}
+                            >
                               {ALL_STATES && ALL_STATES.map(s => <option key={s} value={s}>{s}</option>)}
                             </select>
                           </div>
                           <div>
                             <label className="fld">District *</label>
-                            <select className="input" value={newListing.sellerDistrict}
-                              onChange={e => setNewListing(p => ({ ...p, sellerDistrict: e.target.value, sellerMandal: (INDIA_LOCATIONS[p.sellerState]?.[e.target.value])?.[0] || '' }))}>
+                            <select
+                              className="input"
+                              value={newListing.sellerDistrict}
+                              onChange={e => setNewListing(p => ({ ...p, sellerDistrict: e.target.value, sellerMandal: (INDIA_LOCATIONS[p.sellerState]?.[e.target.value])?.[0] || '' }))}
+                            >
                               {Object.keys(INDIA_LOCATIONS[newListing.sellerState] || {}).map(d => <option key={d} value={d}>{d}</option>)}
                             </select>
                           </div>
                           <div>
                             <label className="fld">Mandal / Village *</label>
-                            <select className="input" value={newListing.sellerMandal}
-                              onChange={e => setNewListing(p => ({ ...p, sellerMandal: e.target.value }))}>
+                            <select
+                              className="input"
+                              value={newListing.sellerMandal}
+                              onChange={e => setNewListing(p => ({ ...p, sellerMandal: e.target.value }))}
+                            >
                               {(INDIA_LOCATIONS[newListing.sellerState]?.[newListing.sellerDistrict] || []).map(m => <option key={m} value={m}>{m}</option>)}
                             </select>
                           </div>
                         </div>
-                      </div>
 
-                      <button type="submit" className="btn btn-primary" style={{ padding: '0.85rem', fontWeight: 'bold', fontSize: '1rem' }}>
-                        🚀 Publish Listing to Marketplace
-                      </button>
-                    </form>
-                  </div>
-                )}
-              </div>
-            )}
+                        <div>
+                          <label className="fld">Product Photo URL (Unsplash or Direct Image)</label>
+                          <input
+                            className="input"
+                            placeholder="https://images.unsplash.com/... or leave blank for auto category photo"
+                            value={newListing.imageUrl || ''}
+                            onChange={e => setNewListing(p => ({ ...p, imageUrl: e.target.value }))}
+                          />
+                        </div>
+
+                        <button
+                          type="submit"
+                          className="btn btn-primary"
+                          style={{ padding: '0.85rem', fontWeight: 800, fontSize: '1rem', marginTop: '0.5rem' }}
+                        >
+                          🚀 Publish Produce to Marketplace
+                        </button>
+                      </form>
+                    </div>
+                  )}
+
+                </div>
+              );
+            })()}
 
             {/* ════ FARMERS REGISTRY ════ */}
             {activeTab==='directory' && (
@@ -3699,6 +4349,163 @@ export default function App() {
           </button>
         </div>
       </nav>
+
+      {/* ════ UNIVERSAL FLOATING KISAN AI CHATBOT WIDGET ════ */}
+      {!isChatbotOpen && (
+        <button
+          className="kisan-chatbot-fab"
+          onClick={() => setIsChatbotOpen(true)}
+          title="Open Kisan AI Farming Assistant"
+        >
+          <span style={{ fontSize: '1.4rem' }}>🤖</span>
+          <span>Ask Kisan AI</span>
+          <span style={{ background: '#22C55E', color: '#0F172A', fontSize: '0.65rem', padding: '0.1rem 0.4rem', borderRadius: 10, fontWeight: 800 }}>
+            ONLINE
+          </span>
+        </button>
+      )}
+
+      {isChatbotOpen && (
+        <div className="kisan-chatbot-drawer">
+          {/* Header */}
+          <div style={{ background: '#0F5132', color: '#FFFFFF', padding: '0.9rem 1.1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#22C55E', color: '#0F172A', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.15rem', fontWeight: 800 }}>
+                🤖
+              </div>
+              <div>
+                <div style={{ fontWeight: 800, fontSize: '0.92rem', lineHeight: 1.2 }}>Kisan AI Assistant</div>
+                <div style={{ fontSize: '0.7rem', color: '#86EFAC', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <span>● Online 24/7</span> · <span>Agronomist</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              {/* Language Switch */}
+              <select
+                value={lang}
+                onChange={e => setLang(e.target.value)}
+                style={{ background: 'rgba(255,255,255,0.2)', color: '#fff', border: 'none', borderRadius: 6, fontSize: '0.72rem', padding: '0.2rem 0.4rem', cursor: 'pointer' }}
+              >
+                <option value="en" style={{ color: '#000' }}>EN</option>
+                <option value="hi" style={{ color: '#000' }}>HI</option>
+                <option value="te" style={{ color: '#000' }}>TE</option>
+              </select>
+
+              {/* Voice Speech Toggle */}
+              <button
+                onClick={() => setChatbotSpeaking(p => !p)}
+                style={{ background: chatbotSpeaking ? '#22C55E' : 'rgba(255,255,255,0.2)', color: chatbotSpeaking ? '#0F172A' : '#fff', border: 'none', borderRadius: 6, fontSize: '0.72rem', padding: '0.2rem 0.45rem', cursor: 'pointer', fontWeight: 700 }}
+                title={chatbotSpeaking ? 'Voice Audio Speech: ON' : 'Voice Audio Speech: OFF'}
+              >
+                {chatbotSpeaking ? '🔊 Voice' : '🔇 Mute'}
+              </button>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setIsChatbotOpen(false)}
+                style={{ background: 'transparent', border: 'none', color: '#FFFFFF', fontSize: '1.2rem', cursor: 'pointer', padding: '0.2rem' }}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+
+          {/* Quick Suggestion Chips */}
+          <div style={{ background: '#F8FAFC', padding: '0.6rem 0.85rem', borderBottom: '1px solid #E2E8F0', overflowX: 'auto', display: 'flex', gap: '0.45rem', whiteSpace: 'nowrap', scrollbarWidth: 'none' }}>
+            {[
+              '🍂 Why are tomato leaves turning yellow?',
+              '🌾 Cotton fertilizer schedule for 5 acres',
+              '💧 Paddy water at tillering stage',
+              '🌶️ Chilli leaf curl mite remedy',
+              '🍅 Tomato mandi price today',
+              '🏛️ How to apply for PM-KISAN ₹6000?',
+              '🛒 How to buy products on this app?',
+              '💼 How to sell my harvest as a farmer?'
+            ].map(prompt => (
+              <button
+                key={prompt}
+                onClick={() => {
+                  setChatbotMessages(prev => [...prev, { sender: 'user', text: prompt, time: 'Now' }]);
+                  const reply = generateChatGPTResponse(prompt);
+                  setTimeout(() => {
+                    setChatbotMessages(prev => [...prev, { sender: 'bot', text: reply, time: 'Now' }]);
+                    if (chatbotSpeaking) speakText(reply);
+                  }, 400);
+                }}
+                style={{ background: '#FFFFFF', border: '1px solid #CBD5E1', borderRadius: 20, padding: '0.25rem 0.65rem', fontSize: '0.72rem', color: '#334155', cursor: 'pointer', fontWeight: 600, flexShrink: 0 }}
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
+
+          {/* Messages Stream */}
+          <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.85rem', background: '#FAFAFA' }}>
+            {chatbotMessages.map((m, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: m.sender === 'user' ? 'flex-end' : 'flex-start' }}>
+                <div className={`chat-bubble ${m.sender}`}>
+                  <div style={{ whiteSpace: 'pre-wrap' }}>
+                    {m.text}
+                  </div>
+                  {m.sender === 'bot' && (
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', paddingTop: '0.35rem', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+                      <span style={{ fontSize: '0.65rem', color: '#94A3B8' }}>{m.time || 'AI Verified'}</span>
+                      <button
+                        onClick={() => speakText(m.text)}
+                        style={{ background: 'transparent', border: 'none', color: '#166534', cursor: 'pointer', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.2rem', fontWeight: 700 }}
+                      >
+                        🔊 Listen
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Input Footer */}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!chatbotInput.trim()) return;
+              const text = chatbotInput;
+              setChatbotInput('');
+              setChatbotMessages(prev => [...prev, { sender: 'user', text, time: 'Now' }]);
+              const reply = generateChatGPTResponse(text);
+              setTimeout(() => {
+                setChatbotMessages(prev => [...prev, { sender: 'bot', text: reply, time: 'Now' }]);
+                if (chatbotSpeaking) speakText(reply);
+              }, 400);
+            }}
+            style={{ padding: '0.75rem', background: '#FFFFFF', borderTop: '1px solid #E2E8F0', display: 'flex', gap: '0.5rem', alignItems: 'center' }}
+          >
+            <input
+              className="input"
+              style={{ fontSize: '0.84rem', padding: '0.55rem 0.8rem', borderRadius: 20 }}
+              placeholder="Type any farming, crop, or store query..."
+              value={chatbotInput}
+              onChange={e => setChatbotInput(e.target.value)}
+            />
+            <button
+              type="button"
+              onClick={() => runVoiceSim()}
+              title="Voice Input Simulation"
+              style={{ background: isRecording ? '#DC2626' : '#F1F5F9', border: '1px solid #CBD5E1', borderRadius: '50%', width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '0.95rem' }}
+            >
+              🎙️
+            </button>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{ borderRadius: '50%', width: 36, height: 36, padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              ➤
+            </button>
+          </form>
+        </div>
+      )}
 
       {/* ── Cart Sidebar Panel ── */}
       <div className={`cart-overlay${isCartOpen ? ' open' : ''}`} onClick={() => setIsCartOpen(false)} />
