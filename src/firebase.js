@@ -3,12 +3,12 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs, getDoc, query, where, updateDoc, doc, serverTimestamp, orderBy, limit } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBOjbUa99WcMROIWsaGbvFBoLoYPEE2_KY",
-  authDomain: "smart-crop-advisor-ai.firebaseapp.com",
-  projectId: "smart-crop-advisor-ai",
-  storageBucket: "smart-crop-advisor-ai.firebasestorage.app",
-  messagingSenderId: "571496941665",
-  appId: "1:571496941665:web:a545774e624564f4c34220",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyBOjbUa99WcMROIWsaGbvFBoLoYPEE2_KY",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "smart-crop-advisor-ai.firebaseapp.com",
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || "smart-crop-advisor-ai",
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "smart-crop-advisor-ai.firebasestorage.app",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || "571496941665",
+  appId: process.env.REACT_APP_FIREBASE_APP_ID || "1:571496941665:web:a545774e624564f4c34220",
   measurementId: "G-Z9NVY4JR04"
 };
 
