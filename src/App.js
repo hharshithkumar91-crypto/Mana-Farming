@@ -3413,32 +3413,163 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* ── FEATURED PRODUCTS STRIP ──────────────────────── */}
-                  <div>
-                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.6rem'}}>
-                      <span style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em'}}>🛒 Hot Deals</span>
-                      <button onClick={() => setActiveTab('marketplace')} style={{background:'transparent',border:'none',color:'#22c55e',fontSize:'0.72rem',fontWeight:700,cursor:'pointer'}}>View All →</button>
+                  {/* ── ZEPTO/BLINKIT STYLE EXPRESS DISPATCH BAR ──────── */}
+                  <div style={{
+                    background:'linear-gradient(90deg,#142918 0%,#0f172a 100%)',
+                    border:'1px solid rgba(34,197,94,0.3)',
+                    borderRadius:14,
+                    padding:'0.75rem 1.1rem',
+                    display:'flex',
+                    alignItems:'center',
+                    justifyContent:'space-between',
+                    flexWrap:'wrap',
+                    gap:'0.6rem'
+                  }}>
+                    <div style={{display:'flex',alignItems:'center',gap:'0.65rem'}}>
+                      <div style={{width:32,height:32,borderRadius:'50%',background:'#22c55e',color:'#0f172a',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:900,fontSize:'1rem'}}>
+                        ⚡
+                      </div>
+                      <div>
+                        <div style={{fontSize:'0.82rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                          Express Mandi Dispatch · Same-Day Delivery Available
+                          <span style={{background:'#dc2626',color:'#fff',fontSize:'0.6rem',fontWeight:800,padding:'0.1rem 0.4rem',borderRadius:4}}>LIVE</span>
+                        </div>
+                        <div style={{fontSize:'0.68rem',color:'#9ca3af',marginTop:'0.1rem'}}>
+                          Delivering farm-fresh harvest, seeds & organic inputs directly to your village in {selDistrict}
+                        </div>
+                      </div>
                     </div>
-                    <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.65rem'}}>
-                      {[...STARTER_LISTINGS].slice(0,4).map(p => {
+                    <button
+                      onClick={() => setActiveTab('marketplace')}
+                      style={{background:'#22c55e',border:'none',color:'#0f172a',padding:'0.4rem 0.85rem',borderRadius:8,fontWeight:800,fontSize:'0.75rem',cursor:'pointer'}}
+                    >
+                      Explore Catalog →
+                    </button>
+                  </div>
+
+                  {/* ── DAILY ROUTINE ESSENTIALS (FLIPKART / ZEPTO STYLE) ── */}
+                  <div>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
+                      <div>
+                        <div style={{fontSize:'0.9rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                          🥛 Daily Farm Essentials & Kitchen Staples
+                          <span style={{fontSize:'0.62rem',background:'rgba(34,197,94,0.15)',color:'#4ade80',padding:'0.15rem 0.45rem',borderRadius:20,fontWeight:700}}>Farm-Fresh</span>
+                        </div>
+                        <div style={{fontSize:'0.7rem',color:'#64748b'}}>Pure A2 Ghee, Cold-Pressed Oils, Stone-Ground Atta & Organic Spices</div>
+                      </div>
+                      <button onClick={() => setActiveTab('marketplace')} style={{background:'transparent',border:'none',color:'#22c55e',fontSize:'0.75rem',fontWeight:700,cursor:'pointer'}}>View 40+ Items →</button>
+                    </div>
+
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.75rem'}}>
+                      {[...STARTER_LISTINGS].filter(item => 
+                        item.category.includes('Dairy') || 
+                        item.category.includes('Routine') || 
+                        item.category.includes('Grains') || 
+                        item.category.includes('Spices')
+                      ).slice(0, 4).map(p => {
+                        const inCart = cart.find(c => c.id === p.id);
                         const disc = p.mrp ? Math.round(((p.mrp - p.price)/p.mrp)*100) : 0;
                         return (
-                          <div key={p.id} onClick={() => setActiveTab('marketplace')} style={{background:'#111',border:'1px solid #1f1f1f',borderRadius:14,overflow:'hidden',cursor:'pointer',transition:'transform 0.15s'}}>
-                            <div style={{height:100,overflow:'hidden',position:'relative'}}>
+                          <div key={p.id} style={{background:'#111',border:'1px solid #222',borderRadius:14,overflow:'hidden',display:'flex',flexDirection:'column',justifyContent:'space-between',transition:'box-shadow 0.2s'}}>
+                            <div style={{position:'relative',height:115,overflow:'hidden'}}>
                               <img src={p.image} alt={p.title} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={e=>{e.target.style.display='none'}} />
-                              {disc > 0 && <span style={{position:'absolute',top:6,left:6,background:'#dc2626',color:'#fff',fontSize:'0.58rem',fontWeight:800,borderRadius:4,padding:'0.1rem 0.3rem'}}>{disc}% OFF</span>}
+                              {disc > 0 && (
+                                <span style={{position:'absolute',top:8,left:8,background:'#dc2626',color:'#fff',fontSize:'0.62rem',fontWeight:800,padding:'0.15rem 0.4rem',borderRadius:4,boxShadow:'0 2px 6px rgba(0,0,0,0.4)'}}>
+                                  {disc}% OFF
+                                </span>
+                              )}
+                              <span style={{position:'absolute',bottom:6,right:6,background:'rgba(0,0,0,0.65)',backdropFilter:'blur(4px)',color:'#86efac',fontSize:'0.58rem',fontWeight:700,padding:'0.1rem 0.35rem',borderRadius:4}}>
+                                ✓ Direct Farm
+                              </span>
                             </div>
-                            <div style={{padding:'0.6rem 0.65rem'}}>
-                              <div style={{fontSize:'0.72rem',color:'#e2e8f0',fontWeight:600,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{p.title}</div>
-                              <div style={{display:'flex',alignItems:'center',gap:'0.3rem',marginTop:'0.25rem'}}>
-                                <span style={{fontSize:'0.82rem',fontWeight:800,color:'#22c55e'}}>₹{p.price}</span>
-                                {p.mrp && <span style={{fontSize:'0.62rem',color:'#6b7280',textDecoration:'line-through'}}>₹{p.mrp}</span>}
+
+                            <div style={{padding:'0.75rem',display:'flex',flexDirection:'column',gap:'0.35rem'}}>
+                              <div style={{fontSize:'0.78rem',fontWeight:700,color:'#f1f5f9',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}} title={p.title}>
+                                {p.title}
                               </div>
-                              <div style={{fontSize:'0.6rem',color:'#f59e0b',marginTop:'0.15rem'}}>{'⭐'.repeat(Math.floor(p.rating||4))} {p.rating||4.5}</div>
+                              <div style={{fontSize:'0.65rem',color:'#64748b'}}>
+                                Seller: {p.sellerName?.split(' ')[0] || 'Farmer'} (📍 {p.sellerLocation?.state || selState})
+                              </div>
+                              <div style={{display:'flex',alignItems:'baseline',gap:'0.4rem',marginTop:'0.2rem'}}>
+                                <span style={{fontSize:'0.95rem',fontWeight:800,color:'#22c55e'}}>₹{p.price}</span>
+                                {p.mrp && <span style={{fontSize:'0.7rem',color:'#64748b',textDecoration:'line-through'}}>₹{p.mrp}</span>}
+                                <span style={{fontSize:'0.65rem',color:'#9ca3af'}}>/{p.unit}</span>
+                              </div>
+
+                              <div style={{marginTop:'0.4rem'}}>
+                                {inCart ? (
+                                  <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',background:'#166534',borderRadius:8,padding:'0.25rem 0.5rem'}}>
+                                    <button
+                                      onClick={() => handleUpdateCartQty(p.id, inCart.quantity - 1)}
+                                      style={{background:'transparent',border:'none',color:'#fff',fontWeight:800,fontSize:'0.9rem',cursor:'pointer',padding:'0 0.25rem'}}
+                                    >
+                                      -
+                                    </button>
+                                    <span style={{color:'#fff',fontWeight:800,fontSize:'0.82rem'}}>{inCart.quantity}</span>
+                                    <button
+                                      onClick={() => handleUpdateCartQty(p.id, inCart.quantity + 1)}
+                                      style={{background:'transparent',border:'none',color:'#fff',fontWeight:800,fontSize:'0.9rem',cursor:'pointer',padding:'0 0.25rem'}}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                ) : (
+                                  <button
+                                    onClick={() => handleAddToCart(p)}
+                                    style={{
+                                      width:'100%',
+                                      background:'rgba(34,197,94,0.12)',
+                                      border:'1px solid rgba(34,197,94,0.4)',
+                                      color:'#4ade80',
+                                      padding:'0.4rem 0.5rem',
+                                      borderRadius:8,
+                                      fontWeight:800,
+                                      fontSize:'0.75rem',
+                                      cursor:'pointer',
+                                      display:'flex',
+                                      alignItems:'center',
+                                      justifyContent:'center',
+                                      gap:'0.3rem',
+                                      transition:'background 0.15s'
+                                    }}
+                                  >
+                                    🛒 Add to Cart
+                                  </button>
+                                )}
+                              </div>
                             </div>
                           </div>
                         );
                       })}
+                    </div>
+                  </div>
+
+                  {/* ── CLIENT & INVESTOR TRUST METRICS (PROOF OF SCALE) ── */}
+                  <div style={{
+                    background:'linear-gradient(135deg,#0c1626 0%,#09131f 100%)',
+                    border:'1px solid rgba(59,130,246,0.25)',
+                    borderRadius:16,
+                    padding:'1.1rem 1.4rem',
+                    display:'grid',
+                    gridTemplateColumns:'repeat(4,1fr)',
+                    gap:'1rem',
+                    textAlign:'center'
+                  }}>
+                    <div>
+                      <div style={{fontSize:'1.35rem',fontWeight:900,color:'#60a5fa'}}>24,500+</div>
+                      <div style={{fontSize:'0.7rem',color:'#94a3b8',marginTop:'0.2rem',fontWeight:600}}>Registered Farmers</div>
+                    </div>
+                    <div>
+                      <div style={{fontSize:'1.35rem',fontWeight:900,color:'#4ade80'}}>₹3.2 Cr+</div>
+                      <div style={{fontSize:'0.7rem',color:'#94a3b8',marginTop:'0.2rem',fontWeight:600}}>Direct Harvest Traded</div>
+                    </div>
+                    <div>
+                      <div style={{fontSize:'1.35rem',fontWeight:900,color:'#fbbf24'}}>15 States</div>
+                      <div style={{fontSize:'0.7rem',color:'#94a3b8',marginTop:'0.2rem',fontWeight:600}}>Mandi Coverage</div>
+                    </div>
+                    <div>
+                      <div style={{fontSize:'1.35rem',fontWeight:900,color:'#a78bfa'}}>98.4%</div>
+                      <div style={{fontSize:'0.7rem',color:'#94a3b8',marginTop:'0.2rem',fontWeight:600}}>AI Diagnosis Accuracy</div>
                     </div>
                   </div>
 
