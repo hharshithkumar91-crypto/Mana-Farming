@@ -773,6 +773,7 @@ export default function App() {
   const [cart, setCart]                           = useState([]);
   const [isCartOpen, setIsCartOpen]               = useState(false);
   const [wishlist, setWishlist]                   = useState([]);
+  const [selectedProduct, setSelectedProduct]     = useState(null);
 
   /* ── E-Commerce Filters, Sorting & Hero Promo Carousel ── */
   const [priceRangeFilter, setPriceRangeFilter]   = useState('all');
@@ -2751,7 +2752,7 @@ export default function App() {
                                 </button>
 
                                 {/* Product Image */}
-                                <div className="product-img-container">
+                                <div className="product-img-container" style={{ cursor: "pointer" }} onClick={() => setSelectedProduct(item)}>
                                   {item.image && item.image.startsWith('http') ? (
                                     <img
                                       src={item.image}
@@ -2799,7 +2800,7 @@ export default function App() {
                                   </div>
 
                                   {/* Title */}
-                                  <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.35rem', lineHeight: 1.35, height: '2.5rem', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                                  <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.35rem', lineHeight: 1.35, height: '2.5rem', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', cursor: 'pointer' }} onClick={() => setSelectedProduct(item)}>
                                     {item.title}
                                   </h3>
 
@@ -3471,7 +3472,7 @@ export default function App() {
                         const disc = p.mrp ? Math.round(((p.mrp - p.price)/p.mrp)*100) : 0;
                         return (
                           <div key={p.id} style={{background:'#111',border:'1px solid #222',borderRadius:14,overflow:'hidden',display:'flex',flexDirection:'column',justifyContent:'space-between',transition:'box-shadow 0.2s'}}>
-                            <div style={{position:'relative',height:115,overflow:'hidden'}}>
+                            <div style={{position:'relative',height:115,overflow:'hidden',cursor:'pointer'}} onClick={() => setSelectedProduct(p)}>
                               <img src={p.image} alt={p.title} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={e=>{e.target.style.display='none'}} />
                               {disc > 0 && (
                                 <span style={{position:'absolute',top:8,left:8,background:'#dc2626',color:'#fff',fontSize:'0.62rem',fontWeight:800,padding:'0.15rem 0.4rem',borderRadius:4,boxShadow:'0 2px 6px rgba(0,0,0,0.4)'}}>
@@ -3484,7 +3485,7 @@ export default function App() {
                             </div>
 
                             <div style={{padding:'0.75rem',display:'flex',flexDirection:'column',gap:'0.35rem'}}>
-                              <div style={{fontSize:'0.78rem',fontWeight:700,color:'#f1f5f9',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}} title={p.title}>
+                              <div style={{fontSize:'0.78rem',fontWeight:700,color:'#f1f5f9',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',cursor:'pointer'}} title={p.title} onClick={() => setSelectedProduct(p)}>
                                 {p.title}
                               </div>
                               <div style={{fontSize:'0.65rem',color:'#64748b'}}>
@@ -4707,6 +4708,306 @@ export default function App() {
           </form>
         </div>
       )}
+
+      {/* ── Amazon/Flipkart/Zepto Product Detail Modal ── */}
+      {selectedProduct && (() => {
+        const p = selectedProduct;
+        const inCartItem = cart.find(i => i.id === p.id);
+        const discount = p.mrp && p.mrp > p.price ? Math.round(((p.mrp - p.price) / p.mrp) * 100) : 0;
+        const youSave = p.mrp && p.mrp > p.price ? (p.mrp - p.price) : 0;
+
+        return (
+          <div 
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(0,0,0,0.85)',
+              backdropFilter: 'blur(8px)',
+              zIndex: 3500,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '1rem'
+            }}
+            onClick={() => setSelectedProduct(null)}
+          >
+            <div 
+              style={{
+                background: '#FFFFFF',
+                borderRadius: 20,
+                maxWidth: 780,
+                width: '100%',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
+                position: 'relative',
+                animation: 'fadeIn 0.25s ease'
+              }}
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button 
+                onClick={() => setSelectedProduct(null)}
+                style={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  background: '#F1F5F9',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: 38,
+                  height: 38,
+                  fontSize: '1.2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 10,
+                  color: '#475569',
+                  fontWeight: 800
+                }}
+              >
+                ✕
+              </button>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1.3fr', gap: '1.5rem', padding: '1.75rem' }}>
+                {/* Left: Image & Tags */}
+                <div>
+                  <div style={{
+                    width: '100%',
+                    height: 300,
+                    borderRadius: 16,
+                    overflow: 'hidden',
+                    position: 'relative',
+                    background: '#F8FAFC',
+                    border: '1px solid #E2E8F0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    {p.image && p.image.startsWith('http') ? (
+                      <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <span style={{ fontSize: '4.5rem' }}>🌾</span>
+                    )}
+
+                    {discount > 0 && (
+                      <span style={{
+                        position: 'absolute',
+                        top: 12,
+                        left: 12,
+                        background: '#DC2626',
+                        color: '#FFFFFF',
+                        fontWeight: 900,
+                        fontSize: '0.75rem',
+                        padding: '0.25rem 0.6rem',
+                        borderRadius: 6
+                      }}>
+                        {discount}% OFF
+                      </span>
+                    )}
+
+                    <span style={{
+                      position: 'absolute',
+                      bottom: 12,
+                      left: 12,
+                      background: 'rgba(15,23,42,0.85)',
+                      color: '#4ADE80',
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      padding: '0.2rem 0.5rem',
+                      borderRadius: 6
+                    }}>
+                      ✓ 100% Direct From Farm
+                    </span>
+                  </div>
+
+                  {/* Trust Highlights */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginTop: '1rem' }}>
+                    <div style={{ background: '#F8FAFC', padding: '0.6rem', borderRadius: 10, border: '1px solid #E2E8F0', textAlign: 'center' }}>
+                      <div style={{ fontSize: '1.2rem' }}>⚡</div>
+                      <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#0F172A', marginTop: '0.2rem' }}>24h Dispatch</div>
+                      <div style={{ fontSize: '0.62rem', color: '#64748B' }}>Direct Mandi Link</div>
+                    </div>
+                    <div style={{ background: '#F8FAFC', padding: '0.6rem', borderRadius: 10, border: '1px solid #E2E8F0', textAlign: 'center' }}>
+                      <div style={{ fontSize: '1.2rem' }}>🌱</div>
+                      <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#0F172A', marginTop: '0.2rem' }}>Organic Quality</div>
+                      <div style={{ fontSize: '0.62rem', color: '#64748B' }}>Kisan Verified</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Product Details & Actions */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {/* Category & Rating */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ background: '#DCFCE7', color: '#166534', fontSize: '0.72rem', fontWeight: 700, padding: '0.2rem 0.55rem', borderRadius: 6 }}>
+                      {p.category}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: '#D97706', fontWeight: 800 }}>
+                      ★ {p.rating || 4.8} ({p.ratingCount || 128} reviews)
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.25, margin: 0 }}>
+                    {p.title}
+                  </h2>
+
+                  {/* Price Block */}
+                  <div style={{ background: '#F0FDF4', border: '1px solid #BBF7D0', borderRadius: 12, padding: '0.75rem 1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem' }}>
+                      <span style={{ fontSize: '1.75rem', fontWeight: 900, color: '#15803D' }}>
+                        ₹{p.price}
+                      </span>
+                      <span style={{ fontSize: '0.85rem', color: '#64748B', fontWeight: 600 }}>
+                        per {p.unit}
+                      </span>
+                      {p.mrp && p.mrp > p.price && (
+                        <span style={{ fontSize: '0.95rem', color: '#94A3B8', textDecoration: 'line-through' }}>
+                          ₹{p.mrp}
+                        </span>
+                      )}
+                    </div>
+                    {youSave > 0 && (
+                      <div style={{ fontSize: '0.75rem', color: '#166534', fontWeight: 700, marginTop: '0.2rem' }}>
+                        🎉 You Save ₹{youSave} per {p.unit} ({discount}% off MRP)
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Stock & Delivery Status */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.78rem' }}>
+                    <span style={{ color: p.quantity > 5 ? '#166534' : '#DC2626', fontWeight: 700 }}>
+                      ● {p.quantity > 0 ? `In Stock (${p.quantity} ${p.unit} available)` : 'Out of Stock'}
+                    </span>
+                    <span style={{ color: '#94A3B8' }}>·</span>
+                    <span style={{ color: '#475569' }}>
+                      📍 Deliver to: <strong>{selMandal}, {selDistrict}</strong>
+                    </span>
+                  </div>
+
+                  {/* Seller Profile Card */}
+                  <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 12, padding: '0.7rem 0.85rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <div style={{ fontSize: '0.68rem', color: '#64748B', textTransform: 'uppercase', fontWeight: 700 }}>Harvest Producer</div>
+                      <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A', marginTop: '0.1rem' }}>
+                        👨‍🌾 {p.sellerName || 'Verified Farmer'}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#475569', marginTop: '0.1rem' }}>
+                        📍 {p.sellerLocation?.mandal || selMandal}, {p.sellerLocation?.district || selDistrict}, {p.sellerLocation?.state || selState}
+                      </div>
+                    </div>
+                    <span style={{ background: '#DCFCE7', color: '#15803D', fontSize: '0.68rem', fontWeight: 800, padding: '0.25rem 0.5rem', borderRadius: 6 }}>
+                      ✓ FPO Verified
+                    </span>
+                  </div>
+
+                  {/* Harvest Description */}
+                  {p.description && (
+                    <div style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.5, background: '#FAFAFA', padding: '0.6rem 0.75rem', borderRadius: 10, border: '1px solid #F1F5F9' }}>
+                      <strong>Description:</strong> {p.description}
+                    </div>
+                  )}
+
+                  {/* Action Buttons */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: 'auto', paddingTop: '0.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
+                      {inCartItem ? (
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#166534', color: '#FFFFFF', borderRadius: 10, padding: '0.55rem 0.85rem' }}>
+                          <button 
+                            onClick={() => handleUpdateCartQty(p.id, inCartItem.quantity - 1)}
+                            style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1.1rem', cursor: 'pointer', fontWeight: 800 }}
+                          >
+                            –
+                          </button>
+                          <span style={{ fontWeight: 800, fontSize: '0.9rem' }}>{inCartItem.quantity} {p.unit} in Cart</span>
+                          <button 
+                            onClick={() => handleUpdateCartQty(p.id, inCartItem.quantity + 1)}
+                            style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: '1.1rem', cursor: 'pointer', fontWeight: 800 }}
+                          >
+                            +
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => handleAddToCart(p, 1)}
+                          style={{
+                            background: '#166534',
+                            color: '#FFFFFF',
+                            border: 'none',
+                            borderRadius: 10,
+                            padding: '0.7rem',
+                            fontWeight: 800,
+                            fontSize: '0.88rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '0.4rem',
+                            boxShadow: '0 4px 14px rgba(22,101,52,0.35)'
+                          }}
+                        >
+                          🛒 Add to Cart
+                        </button>
+                      )}
+
+                      <button
+                        onClick={() => {
+                          if (!inCartItem) handleAddToCart(p, 1);
+                          setSelectedProduct(null);
+                          setIsCartOpen(true);
+                        }}
+                        style={{
+                          background: '#F59E0B',
+                          color: '#0F172A',
+                          border: 'none',
+                          borderRadius: 10,
+                          padding: '0.7rem',
+                          fontWeight: 800,
+                          fontSize: '0.88rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '0.4rem',
+                          boxShadow: '0 4px 14px rgba(245,158,11,0.3)'
+                        }}
+                      >
+                        ⚡ Buy Now
+                      </button>
+                    </div>
+
+                    {p.sellerPhone && (
+                      <a
+                        href={`https://wa.me/91${p.sellerPhone}?text=${encodeURIComponent(`Hi ${p.sellerName}, I am viewing your "${p.title}" (₹${p.price}/${p.unit}) on Smart Crop Advisor AI and want to order.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '0.4rem',
+                          padding: '0.65rem',
+                          background: '#25D366',
+                          color: '#FFFFFF',
+                          borderRadius: 10,
+                          fontSize: '0.82rem',
+                          fontWeight: 800,
+                          textDecoration: 'none'
+                        }}
+                      >
+                        <span>💬</span> Chat with Farmer on WhatsApp
+                      </a>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* ── Cart Sidebar Panel ── */}
       <div className={`cart-overlay${isCartOpen ? ' open' : ''}`} onClick={() => setIsCartOpen(false)} />
