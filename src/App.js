@@ -3131,271 +3131,280 @@ export default function App() {
               </div>
             )}
 
-            {/* ════ OVERVIEW ════ */}
+            {/* ════ OVERVIEW HOME ════ */}
             {activeTab==='overview' && (() => {
               const t = I18N[lang] || I18N.en;
               const weatherDecisions = calculateWeatherDecisions(weather);
-
+              const hour = new Date().getHours();
+              const greeting = hour < 5 ? '🌙 Good Night' : hour < 12 ? '🌅 Good Morning' : hour < 17 ? '☀️ Good Afternoon' : hour < 21 ? '🌆 Good Evening' : '🌙 Good Night';
+              const topCrops = [
+                { emoji:'🍅', name:'Tomato', price: livePrices['Tomato'] || 28, trend:'up', pct: '+4.2' },
+                { emoji:'🌾', name:'Paddy', price: livePrices['Paddy (Rice)'] || 2250, trend:'up', pct: '+1.8' },
+                { emoji:'🌶️', name:'Red Chilli', price: livePrices['Red Chilli (Dry)'] || 180, trend:'down', pct: '-2.1' },
+                { emoji:'🧅', name:'Onion', price: livePrices['Onion'] || 22, trend:'up', pct: '+6.5' },
+                { emoji:'🌿', name:'Turmeric', price: livePrices['Turmeric (Haldi)'] || 95, trend:'up', pct: '+3.3' },
+                { emoji:'🌻', name:'Sunflower', price: livePrices['Sunflower'] || 5800, trend:'down', pct: '-1.4' },
+              ];
+              
               return (
-                <div style={{display:'flex',flexDirection:'column',gap:'1.5rem'}}>
-                  {/* Hero Farmer Decision Banner */}
-                  <div className="card" style={{
-                    background: 'linear-gradient(135deg, #0d2818 0%, #041b10 50%, #111827 100%)',
-                    border: '1px solid #15803d',
-                    padding: '1.75rem',
-                    position: 'relative',
-                    overflow: 'hidden'
+                <div style={{display:'flex',flexDirection:'column',gap:'1.25rem'}}>
+
+                  {/* ── HERO BANNER ─────────────────────────────────── */}
+                  <div style={{
+                    background:'linear-gradient(135deg,#0a1f0a 0%,#0d2b1a 40%,#111827 100%)',
+                    borderRadius:20,
+                    padding:'0',
+                    overflow:'hidden',
+                    border:'1px solid rgba(34,197,94,0.25)',
+                    position:'relative',
+                    minHeight:220,
+                    display:'flex',
+                    flexDirection:'column',
+                    justifyContent:'flex-end'
                   }}>
-                    <div style={{position:'absolute',right:'-20px',top:'-20px',fontSize:'8rem',opacity:0.08,pointerEvents:'none'}}>🌾</div>
-                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:'1rem'}}>
-                      <div>
-                        <div style={{display:'inline-flex',alignItems:'center',gap:'.4rem',background:'rgba(34,197,94,0.15)',border:'1px solid rgba(34,197,94,0.3)',borderRadius:20,padding:'.25rem .75rem',fontSize:'.75rem',fontWeight:700,color:'#4ade80',marginBottom:'.75rem'}}>
-                          🌱 AI DECISION SUPPORT PLATFORM
-                        </div>
-                        <h1 style={{fontSize:'1.6rem',fontWeight:800,color:'#fff',lineHeight:1.2,marginBottom:'.4rem'}}>
-                          {t.title}
-                        </h1>
-                        <p style={{fontSize:'.95rem',fontWeight:600,color:'#86efac',marginBottom:'.25rem'}}>
-                          "{t.tagline}"
-                        </p>
-                        <p style={{fontSize:'.82rem',color:'#9ca3af',maxWidth:650}}>
-                          {t.subtagline}
-                        </p>
-                      </div>
+                    {/* Animated background blobs */}
+                    <div style={{position:'absolute',inset:0,overflow:'hidden',pointerEvents:'none'}}>
+                      <div style={{position:'absolute',top:'-60px',right:'-60px',width:280,height:280,borderRadius:'50%',background:'radial-gradient(circle,rgba(34,197,94,0.15) 0%,transparent 70%)'}} />
+                      <div style={{position:'absolute',bottom:'-40px',left:'-40px',width:220,height:220,borderRadius:'50%',background:'radial-gradient(circle,rgba(37,99,235,0.12) 0%,transparent 70%)'}} />
+                      <div style={{position:'absolute',top:'30%',left:'40%',width:160,height:160,borderRadius:'50%',background:'radial-gradient(circle,rgba(168,85,247,0.08) 0%,transparent 70%)'}} />
+                      {/* Grid pattern overlay */}
+                      <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)',backgroundSize:'40px 40px'}} />
+                    </div>
 
-                      <div style={{background:'rgba(0,0,0,0.4)',border:'1px solid rgba(255,255,255,0.1)',borderRadius:10,padding:'.75rem 1rem',minWidth:220}}>
-                        <div style={{fontSize:'.72rem',color:'#9ca3af',textTransform:'uppercase',fontWeight:700}}>Farmer Profile</div>
-                        <div style={{fontSize:'.95rem',fontWeight:800,color:'#fff',marginTop:'.2rem'}}>{user.name || 'Registered Farmer'} 👋</div>
-                        <div style={{fontSize:'.78rem',color:'#60a5fa',marginTop:'.2rem'}}>📍 {selMandal}, {selDistrict}, {selState}</div>
-                        <div style={{fontSize:'.72rem',color:'#86efac',marginTop:'.3rem',display:'flex',alignItems:'center',gap:'.3rem'}}>
-                          <span>🌤️ {weather.temp}</span> · <span>💧 {weather.humidity}</span> · <span>🌧️ {weather.rain}</span>
+                    {/* Top badge row */}
+                    <div style={{position:'relative',padding:'1.5rem 1.75rem 0',display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:'0.5rem'}}>
+                      <div style={{display:'flex',gap:'0.5rem',flexWrap:'wrap'}}>
+                        <span style={{background:'rgba(34,197,94,0.2)',border:'1px solid rgba(34,197,94,0.4)',borderRadius:20,padding:'0.2rem 0.65rem',fontSize:'0.68rem',fontWeight:700,color:'#4ade80',letterSpacing:'0.04em'}}>
+                          🌱 AI FARM PLATFORM
+                        </span>
+                        {liveWeather?.isLive && (
+                          <span style={{background:'rgba(37,99,235,0.2)',border:'1px solid rgba(37,99,235,0.4)',borderRadius:20,padding:'0.2rem 0.65rem',fontSize:'0.68rem',fontWeight:700,color:'#60a5fa'}}>
+                            ● LIVE WEATHER
+                          </span>
+                        )}
+                      </div>
+                      {/* Live weather mini badge */}
+                      <div style={{background:'rgba(0,0,0,0.5)',backdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.1)',borderRadius:12,padding:'0.4rem 0.75rem',display:'flex',alignItems:'center',gap:'0.5rem'}}>
+                        <span style={{fontSize:'1.1rem'}}>{weather.conditionIcon || '🌤'}</span>
+                        <div>
+                          <div style={{fontSize:'0.9rem',fontWeight:800,color:'#fff',lineHeight:1}}>{weather.temp || '--'}</div>
+                          <div style={{fontSize:'0.6rem',color:'#9ca3af'}}>{selDistrict}</div>
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Main hero content */}
+                    <div style={{position:'relative',padding:'1rem 1.75rem 1.75rem'}}>
+                      <div style={{fontSize:'0.78rem',fontWeight:600,color:'#86efac',marginBottom:'0.3rem'}}>{greeting}, {user?.name?.split(' ')[0] || 'Farmer'} 👋</div>
+                      <h1 style={{fontSize:'clamp(1.4rem,4vw,2.1rem)',fontWeight:900,color:'#fff',lineHeight:1.15,marginBottom:'0.5rem',letterSpacing:'-0.02em'}}>
+                        {t.title}
+                      </h1>
+                      <p style={{fontSize:'0.85rem',color:'#9ca3af',maxWidth:520,lineHeight:1.6,marginBottom:'1.25rem'}}>
+                        📍 {selMandal}, {selDistrict}, {selState} · {weather.condition || 'Checking weather...'}
+                      </p>
+
+                      {/* CTA Buttons */}
+                      <div style={{display:'flex',gap:'0.75rem',flexWrap:'wrap'}}>
+                        <button
+                          onClick={() => setActiveTab('advisor')}
+                          style={{background:'linear-gradient(135deg,#16a34a,#15803d)',border:'none',color:'#fff',borderRadius:12,padding:'0.65rem 1.25rem',fontWeight:700,fontSize:'0.85rem',cursor:'pointer',display:'flex',alignItems:'center',gap:'0.4rem',boxShadow:'0 4px 15px rgba(22,163,74,0.4)',transition:'all 0.2s'}}
+                        >
+                          🌱 Get Crop Advice
+                        </button>
+                        <button
+                          onClick={() => setActiveTab('marketplace')}
+                          style={{background:'rgba(255,255,255,0.1)',backdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.2)',color:'#fff',borderRadius:12,padding:'0.65rem 1.25rem',fontWeight:700,fontSize:'0.85rem',cursor:'pointer',display:'flex',alignItems:'center',gap:'0.4rem'}}
+                        >
+                          🛒 Shop Market
+                        </button>
+                        <button
+                          onClick={() => setActiveTab('market')}
+                          style={{background:'rgba(255,255,255,0.1)',backdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.2)',color:'#fff',borderRadius:12,padding:'0.65rem 1.25rem',fontWeight:700,fontSize:'0.85rem',cursor:'pointer',display:'flex',alignItems:'center',gap:'0.4rem'}}
+                        >
+                          📈 Live Prices
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  {/* 3 Large Action Cards */}
-                  <div>
-                    <div className="section-title" style={{fontSize:'1rem',color:'#86efac'}}>
-                      ⚡ {t.quickActions}
-                    </div>
-                    <div className="grid3">
-                      {/* Card 1: Find Best Crop */}
-                      <div className="card" style={{
-                        background: 'linear-gradient(145deg, #132a13 0%, #0d1b12 100%)',
-                        border: '1px solid #22c55e',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                        transition: 'all 0.2s ease'
-                      }} onClick={() => setActiveTab('advisor')}>
-                        <div>
-                          <div style={{fontSize:'2.2rem',marginBottom:'.4rem'}}>🌱</div>
-                          <h3 style={{fontSize:'1.15rem',fontWeight:800,color:'#fff'}}>{t.btnCropAdvisor}</h3>
-                          <p style={{fontSize:'.82rem',color:'#cbd5e1',marginTop:'.4rem',lineHeight:1.5}}>
-                            {t.btnCropDesc}
-                          </p>
-                        </div>
-                        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',borderTop:'1px solid rgba(255,255,255,0.08)',paddingTop:'.75rem'}}>
-                          <span style={{fontSize:'.75rem',color:'#86efac',fontWeight:700}}>5-Step Farm Setup</span>
-                          <span style={{color:'#4ade80',fontWeight:800,fontSize:'.9rem'}}>Launch Advisor →</span>
-                        </div>
+                  {/* ── STAT PILL ROW ───────────────────────────────── */}
+                  <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.75rem'}}>
+                    {[
+                      { icon:'🌡️', label:'Temp', val: weather.temp || '--', sub: weather.feelsLike ? `Feels ${weather.feelsLike}` : 'Live', color:'#f97316' },
+                      { icon:'💧', label:'Humidity', val: weather.humidity || '--', sub: weather.cloudCover ? `Cloud ${weather.cloudCover}` : 'Live', color:'#38bdf8' },
+                      { icon:'🌧', label:'Rain', val: weather.rain || '--', sub: weather.precipitation ? `${weather.precipitation}` : 'Forecast', color:'#818cf8' },
+                      { icon:'💨', label:'Wind', val: weather.wind || '--', sub: weather.windGusts ? `Gusts ${weather.windGusts}` : 'Live', color:'#34d399' },
+                    ].map(s => (
+                      <div key={s.label} style={{background:'#111',border:'1px solid #1f1f1f',borderRadius:14,padding:'0.9rem 0.75rem',textAlign:'center',transition:'transform 0.15s',cursor:'default'}}>
+                        <div style={{fontSize:'1.4rem',marginBottom:'0.2rem'}}>{s.icon}</div>
+                        <div style={{fontSize:'1.1rem',fontWeight:800,color:s.color,lineHeight:1}}>{s.val}</div>
+                        <div style={{fontSize:'0.65rem',color:'#9ca3af',marginTop:'0.2rem',fontWeight:600}}>{s.label}</div>
+                        <div style={{fontSize:'0.6rem',color:'#4b5563',marginTop:'0.1rem'}}>{s.sub}</div>
                       </div>
-
-                      {/* Card 2: Plant Health Scanner */}
-                      <div className="card" style={{
-                        background: 'linear-gradient(145deg, #1f1b2e 0%, #13111c 100%)',
-                        border: '1px solid #8b5cf6',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                        transition: 'all 0.2s ease'
-                      }} onClick={() => setActiveTab('scanner')}>
-                        <div>
-                          <div style={{fontSize:'2.2rem',marginBottom:'.4rem'}}>🔬</div>
-                          <h3 style={{fontSize:'1.15rem',fontWeight:800,color:'#fff'}}>{t.btnDiseaseScanner}</h3>
-                          <p style={{fontSize:'.82rem',color:'#cbd5e1',marginTop:'.4rem',lineHeight:1.5}}>
-                            {t.btnDiseaseDesc}
-                          </p>
-                        </div>
-                        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',borderTop:'1px solid rgba(255,255,255,0.08)',paddingTop:'.75rem'}}>
-                          <span style={{fontSize:'.75rem',color:'#c4b5fd',fontWeight:700}}>Camera & Photo Upload</span>
-                          <span style={{color:'#a78bfa',fontWeight:800,fontSize:'.9rem'}}>Scan Leaf Now →</span>
-                        </div>
-                      </div>
-
-                      {/* Card 3: AI Farmer Assistant */}
-                      <div className="card" style={{
-                        background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
-                        border: '1px solid #3b82f6',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        gap: '1rem',
-                        transition: 'all 0.2s ease'
-                      }} onClick={() => setActiveTab('chat')}>
-                        <div>
-                          <div style={{fontSize:'2.2rem',marginBottom:'.4rem'}}>🤖</div>
-                          <h3 style={{fontSize:'1.15rem',fontWeight:800,color:'#fff'}}>{t.btnAiAssistant}</h3>
-                          <p style={{fontSize:'.82rem',color:'#cbd5e1',marginTop:'.4rem',lineHeight:1.5}}>
-                            {t.btnAiDesc}
-                          </p>
-                        </div>
-                        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',borderTop:'1px solid rgba(255,255,255,0.08)',paddingTop:'.75rem'}}>
-                          <span style={{fontSize:'.75rem',color:'#93c5fd',fontWeight:700}}>Voice & Chat (TE/HI/EN)</span>
-                          <span style={{color:'#60a5fa',fontWeight:800,fontSize:'.9rem'}}>Open Assistant →</span>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
 
-                  {/* 🌾 AGRICULTURAL WEATHER DECISIONS WIDGET */}
-                  <div>
-                    <div className="section-title" style={{justifyContent:'space-between'}}>
-                      <span style={{display:'flex',alignItems:'center',gap:'.5rem'}}>
-                        🌤️ {t.weatherInsights} — {selMandal}, {selDistrict}, {selState}
+                  {/* ── LIVE PRICE TICKER ────────────────────────────── */}
+                  <div style={{background:'#0d1f0d',border:'1px solid rgba(34,197,94,0.2)',borderRadius:16,padding:'1rem 1.25rem'}}>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
+                      <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                        <span style={{width:7,height:7,borderRadius:'50%',background:'#22c55e',display:'inline-block',boxShadow:'0 0 6px #22c55e'}}></span>
+                        Live Mandi Rates
                       </span>
-                      {liveWeather?.isLive && <span style={{fontSize:'.7rem',background:'#16a34a',color:'#fff',padding:'.15rem .5rem',borderRadius:4,fontWeight:700}}>● LIVE OPEN-METEO</span>}
+                      <button onClick={() => setActiveTab('market')} style={{background:'transparent',border:'1px solid #22c55e',color:'#22c55e',borderRadius:8,padding:'0.2rem 0.6rem',fontSize:'0.68rem',fontWeight:700,cursor:'pointer'}}>
+                        View All →
+                      </button>
                     </div>
-
-                    {/* 3 Actionable Decision Cards */}
-                    <div className="grid3" style={{marginBottom:'1rem'}}>
-                      {/* Irrigation Decision */}
-                      <div className="card" style={{borderLeft:`4px solid ${weatherDecisions.irrigation.color}`,padding:'1.1rem'}}>
-                        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'.4rem'}}>
-                          <span style={{fontSize:'.75rem',fontWeight:700,color:'#888',textTransform:'uppercase'}}>{t.irrigationInsight}</span>
-                          <span style={{fontSize:'.7rem',fontWeight:800,background:'rgba(255,255,255,0.06)',color:weatherDecisions.irrigation.color,padding:'.15rem .5rem',borderRadius:4}}>
-                            {weatherDecisions.irrigation.badge}
-                          </span>
-                        </div>
-                        <div style={{fontSize:'1rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.3rem'}}>
-                          <span>{weatherDecisions.irrigation.icon}</span> {weatherDecisions.irrigation.action}
-                        </div>
-                        <div style={{fontSize:'.78rem',color:'#aaa',lineHeight:1.45}}>
-                          {weatherDecisions.irrigation.detail}
-                        </div>
-                      </div>
-
-                      {/* Field Work & Spraying */}
-                      <div className="card" style={{borderLeft:`4px solid ${weatherDecisions.fieldWork.color}`,padding:'1.1rem'}}>
-                        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'.4rem'}}>
-                          <span style={{fontSize:'.75rem',fontWeight:700,color:'#888',textTransform:'uppercase'}}>{t.fieldWorkInsight}</span>
-                          <span style={{fontSize:'.7rem',fontWeight:800,background:'rgba(255,255,255,0.06)',color:weatherDecisions.fieldWork.color,padding:'.15rem .5rem',borderRadius:4}}>
-                            {weatherDecisions.fieldWork.badge}
-                          </span>
-                        </div>
-                        <div style={{fontSize:'1rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.3rem'}}>
-                          <span>{weatherDecisions.fieldWork.icon}</span> {weatherDecisions.fieldWork.action}
-                        </div>
-                        <div style={{fontSize:'.78rem',color:'#aaa',lineHeight:1.45}}>
-                          {weatherDecisions.fieldWork.detail}
-                        </div>
-                      </div>
-
-                      {/* Disease & Pest Risk */}
-                      <div className="card" style={{borderLeft:`4px solid ${weatherDecisions.diseaseRisk.color}`,padding:'1.1rem'}}>
-                        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'.4rem'}}>
-                          <span style={{fontSize:'.75rem',fontWeight:700,color:'#888',textTransform:'uppercase'}}>{t.diseaseRiskAlert}</span>
-                          <span style={{fontSize:'.7rem',fontWeight:800,background:'rgba(255,255,255,0.06)',color:weatherDecisions.diseaseRisk.color,padding:'.15rem .5rem',borderRadius:4}}>
-                            {weatherDecisions.diseaseRisk.badge}
-                          </span>
-                        </div>
-                        <div style={{fontSize:'1rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.3rem'}}>
-                          <span>{weatherDecisions.diseaseRisk.icon}</span> {weatherDecisions.diseaseRisk.action}
-                        </div>
-                        <div style={{fontSize:'.78rem',color:'#aaa',lineHeight:1.45}}>
-                          {weatherDecisions.diseaseRisk.detail}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Meteorological Numbers */}
-                    <div className="grid4">
-                      {[
-                        { icon:'🌡️', label:'Temperature', val:weather.temp, sub:weather.feelsLike ? `Feels ${weather.feelsLike}` : 'Normal range', color:'#f97316' },
-                        { icon:'💧', label:'Humidity', val:weather.humidity, sub:weather.cloudCover ? `Cloud ${weather.cloudCover}` : 'Vegetative zone', color:'#60a5fa' },
-                        { icon:'🌧️', label:'Rain Probability', val:weather.rain, sub:weather.precipitation ? `Precip ${weather.precipitation}` : 'Forecast index', color:'#818cf8' },
-                        { icon:'💨', label:'Wind Speed', val:weather.wind, sub:weather.windGusts ? `Gusts ${weather.windGusts}` : 'Safe for spray', color:'#34d399' },
-                      ].map(s=>(
-                        <div key={s.label} className="stat-card">
-                          <div style={{fontSize:'1.3rem'}}>{s.icon}</div>
-                          <div style={{fontSize:'1.3rem',fontWeight:800,color:s.color}}>{s.val}</div>
-                          <div style={{fontSize:'.72rem',color:'#888',fontWeight:600}}>{s.label}</div>
-                          <div style={{fontSize:'.68rem',color:'#555'}}>{s.sub}</div>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'0.5rem'}}>
+                      {topCrops.map(c => (
+                        <div key={c.name} style={{background:'rgba(0,0,0,0.3)',borderRadius:10,padding:'0.6rem 0.75rem',border:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',gap:'0.5rem'}}>
+                          <span style={{fontSize:'1.3rem',flexShrink:0}}>{c.emoji}</span>
+                          <div style={{minWidth:0}}>
+                            <div style={{fontSize:'0.72rem',color:'#9ca3af',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{c.name}</div>
+                            <div style={{display:'flex',alignItems:'center',gap:'0.3rem',marginTop:'0.1rem'}}>
+                              <span style={{fontSize:'0.88rem',fontWeight:800,color:'#fff'}}>₹{c.price}</span>
+                              <span style={{fontSize:'0.6rem',fontWeight:700,color: c.trend==='up'?'#22c55e':'#ef4444'}}>
+                                {c.trend==='up'?'▲':'▼'}{c.pct}%
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>
+                  </div>
 
-                    {/* 7-Day Forecast */}
-                    <div className="card" style={{marginTop:'1rem'}}>
-                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'.75rem'}}>
-                        <span style={{fontSize:'.85rem',fontWeight:700,color:'#f1f1f1'}}>📅 7-Day Agricultural Forecast</span>
-                        <span style={{fontSize:'.72rem',color:'#888'}}>Updated {weather.lastUpdated || 'Just now'}</span>
-                      </div>
-                      <div style={{display:'grid',gridTemplateColumns:'repeat(7,1fr)',gap:'.4rem'}}>
-                        {(weather.forecast||[]).map((f,i)=>(
-                          <div key={i} style={{textAlign:'center',background:'#1f1f1f',borderRadius:8,padding:'.6rem .2rem',border:i===0?'1px solid #22c55e':'1px solid #2a2a2a'}}>
-                            <div style={{fontSize:'.65rem',color:i===0?'#22c55e':'#888',fontWeight:700}}>{i===0?'Today':f.day}</div>
-                            {f.date && <div style={{fontSize:'.55rem',color:'#555'}}>{f.date}</div>}
-                            <div style={{fontSize:'1.2rem',margin:'.25rem 0'}}>{f.icon}</div>
-                            <div style={{fontSize:'.72rem',fontWeight:700,color:'#f87171'}}>{f.high}°</div>
-                            <div style={{fontSize:'.65rem',color:'#60a5fa'}}>{f.low}°</div>
-                            {f.rainChance !== undefined && <div style={{fontSize:'.55rem',color:'#818cf8',marginTop:'.2rem'}}>🌧️{f.rainChance}%</div>}
-                          </div>
-                        ))}
-                      </div>
+                  {/* ── QUICK ACTION CARDS ───────────────────────────── */}
+                  <div>
+                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>⚡ Quick Actions</div>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.65rem'}}>
+                      {[
+                        { icon:'🌱', label:'AI Crop\nAdvisor', tab:'advisor', bg:'linear-gradient(145deg,#132a13,#0d1b12)', border:'#22c55e', glow:'rgba(34,197,94,0.2)' },
+                        { icon:'🛒', label:'Buy &\nSell', tab:'marketplace', bg:'linear-gradient(145deg,#1e1b2e,#13111c)', border:'#8b5cf6', glow:'rgba(139,92,246,0.2)' },
+                        { icon:'🔬', label:'Disease\nScanner', tab:'scanner', bg:'linear-gradient(145deg,#1a1f1e,#0f1917)', border:'#06b6d4', glow:'rgba(6,182,212,0.2)' },
+                        { icon:'🤖', label:'Kisan\nAssistant', tab:'chat', bg:'linear-gradient(145deg,#1e1a2e,#0f0d1a)', border:'#3b82f6', glow:'rgba(59,130,246,0.2)' },
+                        { icon:'📈', label:'Market\nPrices', tab:'market', bg:'linear-gradient(145deg,#1f1a0d,#120f06)', border:'#f59e0b', glow:'rgba(245,158,11,0.2)' },
+                        { icon:'🏛️', label:'Gov\nSchemes', tab:'schemes', bg:'linear-gradient(145deg,#1a1414,#110d0d)', border:'#ef4444', glow:'rgba(239,68,68,0.2)' },
+                        { icon:'💰', label:'Farm\nLedger', tab:'expenses', bg:'linear-gradient(145deg,#131a1f,#0c1117)', border:'#06b6d4', glow:'rgba(6,182,212,0.2)' },
+                        { icon:'👥', label:'Farmer\nDirectory', tab:'directory', bg:'linear-gradient(145deg,#161316,#0d0b0d)', border:'#ec4899', glow:'rgba(236,72,153,0.2)' },
+                      ].map(a => (
+                        <button key={a.tab} onClick={() => setActiveTab(a.tab)} style={{
+                          background: a.bg,
+                          border: `1px solid ${a.border}`,
+                          borderRadius: 14,
+                          padding: '0.9rem 0.5rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          boxShadow: `0 0 20px ${a.glow}`,
+                          transition: 'transform 0.15s, box-shadow 0.15s',
+                          textAlign: 'center',
+                        }}>
+                          <span style={{fontSize:'1.6rem'}}>{a.icon}</span>
+                          <span style={{fontSize:'0.65rem',fontWeight:700,color:'#e2e8f0',whiteSpace:'pre-line',lineHeight:1.3}}>{a.label}</span>
+                        </button>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Soil Health & Mandi Rates Side by Side */}
-                  <div className="grid2">
+                  {/* ── FARM ADVISORY CARDS ───────────────────────────── */}
+                  <div>
+                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>🌾 Today's Farm Advisory</div>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'0.75rem'}}>
+                      {[
+                        { label:'Irrigation', icon: weatherDecisions.irrigation.icon, action: weatherDecisions.irrigation.action, badge: weatherDecisions.irrigation.badge, detail: weatherDecisions.irrigation.detail, color: weatherDecisions.irrigation.color },
+                        { label:'Field Work', icon: weatherDecisions.fieldWork.icon, action: weatherDecisions.fieldWork.action, badge: weatherDecisions.fieldWork.badge, detail: weatherDecisions.fieldWork.detail, color: weatherDecisions.fieldWork.color },
+                        { label:'Disease Risk', icon: weatherDecisions.diseaseRisk.icon, action: weatherDecisions.diseaseRisk.action, badge: weatherDecisions.diseaseRisk.badge, detail: weatherDecisions.diseaseRisk.detail, color: weatherDecisions.diseaseRisk.color },
+                      ].map(d => (
+                        <div key={d.label} style={{background:'#111',border:`1px solid #1f1f1f`,borderLeft:`3px solid ${d.color}`,borderRadius:14,padding:'0.9rem 1rem'}}>
+                          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.4rem'}}>
+                            <span style={{fontSize:'0.65rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.06em'}}>{d.label}</span>
+                            <span style={{fontSize:'0.6rem',fontWeight:700,color:d.color,background:'rgba(255,255,255,0.05)',padding:'0.1rem 0.4rem',borderRadius:4}}>{d.badge}</span>
+                          </div>
+                          <div style={{fontSize:'0.9rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.35rem',marginBottom:'0.3rem'}}>
+                            {d.icon} {d.action}
+                          </div>
+                          <div style={{fontSize:'0.72rem',color:'#6b7280',lineHeight:1.4}}>{d.detail}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* ── 7-DAY FORECAST ───────────────────────────────── */}
+                  <div style={{background:'#0a0a0a',border:'1px solid #1f1f1f',borderRadius:16,padding:'1rem 1.25rem'}}>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
+                      <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff'}}>📅 7-Day Forecast</span>
+                      <span style={{fontSize:'0.65rem',color:'#4b5563'}}>Updated {weather.lastUpdated || 'just now'}</span>
+                    </div>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(7,1fr)',gap:'0.35rem'}}>
+                      {(weather.forecast||[]).map((f,i) => (
+                        <div key={i} style={{
+                          textAlign:'center',
+                          background: i===0 ? 'rgba(34,197,94,0.1)' : 'rgba(255,255,255,0.03)',
+                          border: `1px solid ${i===0?'rgba(34,197,94,0.3)':'rgba(255,255,255,0.05)'}`,
+                          borderRadius:10,
+                          padding:'0.5rem 0.2rem'
+                        }}>
+                          <div style={{fontSize:'0.6rem',fontWeight:700,color: i===0?'#22c55e':'#9ca3af'}}>{i===0?'Today':f.day}</div>
+                          {f.date && <div style={{fontSize:'0.5rem',color:'#374151'}}>{f.date}</div>}
+                          <div style={{fontSize:'1.1rem',margin:'0.3rem 0'}}>{f.icon}</div>
+                          <div style={{fontSize:'0.68rem',fontWeight:700,color:'#f87171'}}>{f.high}°</div>
+                          <div style={{fontSize:'0.6rem',color:'#60a5fa'}}>{f.low}°</div>
+                          {f.rainChance !== undefined && (
+                            <div style={{fontSize:'0.5rem',color:'#818cf8',marginTop:'0.15rem'}}>🌧{f.rainChance}%</div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* ── SOIL + MANDI GRID ─────────────────────────────── */}
+                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1rem'}}>
+
                     {/* Soil Health */}
-                    <div className="card">
-                      <div className="section-title">🧪 {t.soilHealth}</div>
-                      <div style={{display:'flex',flexDirection:'column',gap:'.75rem'}}>
+                    <div style={{background:'#0a0a0a',border:'1px solid #1f1f1f',borderRadius:16,padding:'1rem 1.25rem'}}>
+                      <div style={{fontSize:'0.82rem',fontWeight:800,color:'#fff',marginBottom:'0.75rem',display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                        🧪 Soil Health Status
+                      </div>
+                      <div style={{display:'flex',flexDirection:'column',gap:'0.5rem'}}>
                         {[
-                          { name:'Nitrogen (N)', val:'75 kg/ha', status:'Optimal', color:'#22c55e', note:'Good for tillering' },
-                          { name:'Phosphorus (P)', val:'35 kg/ha', status:'Medium', color:'#f59e0b', note:'Add DAP at basal stage' },
-                          { name:'Potassium (K)', val:'45 kg/ha', status:'Balanced', color:'#22c55e', note:'Supports grain filling' },
-                          { name:'Soil Reaction (pH)', val:'6.8 pH', status:'Ideal (6.5-7.5)', color:'#3b82f6', note:'High nutrient uptake' },
-                        ].map(s=>(
-                          <div key={s.name} style={{background:'#1f1f1f',borderRadius:8,padding:'.65rem .85rem',border:'1px solid #2a2a2a',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                            <div>
-                              <div style={{fontSize:'.82rem',fontWeight:700,color:'#fff'}}>{s.name}</div>
-                              <div style={{fontSize:'.7rem',color:'#888'}}>{s.note}</div>
+                          { name:'Nitrogen (N)', val:'75 kg/ha', pct:75, color:'#22c55e' },
+                          { name:'Phosphorus (P)', val:'35 kg/ha', pct:45, color:'#f59e0b' },
+                          { name:'Potassium (K)', val:'45 kg/ha', pct:60, color:'#22c55e' },
+                          { name:'Soil pH', val:'6.8 pH', pct:80, color:'#3b82f6' },
+                        ].map(s => (
+                          <div key={s.name}>
+                            <div style={{display:'flex',justifyContent:'space-between',marginBottom:'0.2rem'}}>
+                              <span style={{fontSize:'0.72rem',color:'#9ca3af'}}>{s.name}</span>
+                              <span style={{fontSize:'0.72rem',fontWeight:700,color:s.color}}>{s.val}</span>
                             </div>
-                            <div style={{textAlign:'right'}}>
-                              <div style={{fontSize:'.9rem',fontWeight:800,color:s.color}}>{s.val}</div>
-                              <div style={{fontSize:'.68rem',color:s.color,fontWeight:600}}>{s.status}</div>
+                            <div style={{height:5,background:'rgba(255,255,255,0.07)',borderRadius:999}}>
+                              <div style={{height:'100%',width:`${s.pct}%`,background:s.color,borderRadius:999,transition:'width 1s ease'}} />
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Live Mandi Rate Highlights */}
-                    <div className="card">
-                      <div className="section-title" style={{justifyContent:'space-between'}}>
-                        <span>⚡ {t.mandiPrices}</span>
-                        <span style={{fontSize:'.68rem',color:'#888'}}>e-NAM / Agmarknet</span>
+                    {/* Trending Mandi */}
+                    <div style={{background:'#0a0a0a',border:'1px solid #1f1f1f',borderRadius:16,padding:'1rem 1.25rem'}}>
+                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
+                        <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff'}}>📊 Mandi Highlights</span>
+                        <span style={{fontSize:'0.6rem',color:'#4b5563'}}>e-NAM</span>
                       </div>
-                      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'.6rem'}}>
-                        {['Paddy (Rice)','Cotton (Long Staple)','Tomato','Onion','Red Chilli (Dry)','Turmeric (Haldi)'].map(crop=>{
-                          const price=livePrices[crop]||BASE_PRICES[crop]||20;
-                          const base=BASE_PRICES[crop]||20;
-                          const pct=(((price-base)/base)*100).toFixed(1);
-                          const isUp=priceTrend[crop]!=='down';
+                      <div style={{display:'flex',flexDirection:'column',gap:'0.45rem'}}>
+                        {['Paddy (Rice)','Cotton (Long Staple)','Tomato','Onion','Red Chilli (Dry)','Turmeric (Haldi)'].map(crop => {
+                          const price = livePrices[crop]||BASE_PRICES[crop]||20;
+                          const base = BASE_PRICES[crop]||20;
+                          const pct = (((price-base)/base)*100).toFixed(1);
+                          const isUp = priceTrend[crop]!=='down';
                           return (
-                            <div key={crop} style={{background:'#1f1f1f',borderRadius:8,padding:'.65rem .75rem',border:'1px solid #2a2a2a',display:'flex',flexDirection:'column',gap:'.2rem'}}>
-                              <div style={{fontSize:'.72rem',color:'#888',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{crop}</div>
-                              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                                <span style={{fontSize:'1rem',fontWeight:800,color:isUp?'#22c55e':'#ef4444'}}>₹{price.toFixed(0)}</span>
-                                <span style={{fontSize:'.68rem',fontWeight:700,color:isUp?'#22c55e':'#ef4444'}}>{isUp?'▲':'▼'}{Math.abs(pct)}%</span>
+                            <div key={crop} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'0.3rem 0',borderBottom:'1px solid rgba(255,255,255,0.04)'}}>
+                              <span style={{fontSize:'0.72rem',color:'#9ca3af',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:'60%'}}>{crop}</span>
+                              <div style={{display:'flex',alignItems:'center',gap:'0.4rem',flexShrink:0}}>
+                                <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff'}}>₹{price.toFixed(0)}</span>
+                                <span style={{fontSize:'0.62rem',fontWeight:700,color:isUp?'#22c55e':'#ef4444'}}>{isUp?'▲':'▼'}{Math.abs(pct)}%</span>
                               </div>
                             </div>
                           );
@@ -3403,9 +3412,62 @@ export default function App() {
                       </div>
                     </div>
                   </div>
+
+                  {/* ── FEATURED PRODUCTS STRIP ──────────────────────── */}
+                  <div>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.6rem'}}>
+                      <span style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em'}}>🛒 Hot Deals</span>
+                      <button onClick={() => setActiveTab('marketplace')} style={{background:'transparent',border:'none',color:'#22c55e',fontSize:'0.72rem',fontWeight:700,cursor:'pointer'}}>View All →</button>
+                    </div>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.65rem'}}>
+                      {[...STARTER_LISTINGS].slice(0,4).map(p => {
+                        const disc = p.mrp ? Math.round(((p.mrp - p.price)/p.mrp)*100) : 0;
+                        return (
+                          <div key={p.id} onClick={() => setActiveTab('marketplace')} style={{background:'#111',border:'1px solid #1f1f1f',borderRadius:14,overflow:'hidden',cursor:'pointer',transition:'transform 0.15s'}}>
+                            <div style={{height:100,overflow:'hidden',position:'relative'}}>
+                              <img src={p.image} alt={p.title} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={e=>{e.target.style.display='none'}} />
+                              {disc > 0 && <span style={{position:'absolute',top:6,left:6,background:'#dc2626',color:'#fff',fontSize:'0.58rem',fontWeight:800,borderRadius:4,padding:'0.1rem 0.3rem'}}>{disc}% OFF</span>}
+                            </div>
+                            <div style={{padding:'0.6rem 0.65rem'}}>
+                              <div style={{fontSize:'0.72rem',color:'#e2e8f0',fontWeight:600,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{p.title}</div>
+                              <div style={{display:'flex',alignItems:'center',gap:'0.3rem',marginTop:'0.25rem'}}>
+                                <span style={{fontSize:'0.82rem',fontWeight:800,color:'#22c55e'}}>₹{p.price}</span>
+                                {p.mrp && <span style={{fontSize:'0.62rem',color:'#6b7280',textDecoration:'line-through'}}>₹{p.mrp}</span>}
+                              </div>
+                              <div style={{fontSize:'0.6rem',color:'#f59e0b',marginTop:'0.15rem'}}>{'⭐'.repeat(Math.floor(p.rating||4))} {p.rating||4.5}</div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* ── FARMER PROFILE CARD ──────────────────────────── */}
+                  <div style={{background:'linear-gradient(135deg,#0a1628,#0d1f0d)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:16,padding:'1.1rem 1.25rem',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'1rem'}}>
+                    <div style={{display:'flex',alignItems:'center',gap:'1rem'}}>
+                      <div style={{width:50,height:50,borderRadius:'50%',background:'linear-gradient(135deg,#16a34a,#2563eb)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1.4rem',fontWeight:900,color:'#fff',flexShrink:0}}>
+                        {(user?.name||'F').charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <div style={{fontSize:'1rem',fontWeight:800,color:'#fff'}}>{user?.name||'Farmer'}</div>
+                        <div style={{fontSize:'0.72rem',color:'#60a5fa',marginTop:'0.1rem'}}>📍 {selMandal}, {selDistrict}, {selState}</div>
+                        <div style={{fontSize:'0.65rem',color:'#9ca3af',marginTop:'0.1rem'}}>Member since {user?.joinedAt ? new Date(user.joinedAt).getFullYear() : '2026'}</div>
+                      </div>
+                    </div>
+                    <div style={{display:'flex',gap:'0.5rem'}}>
+                      <button onClick={() => setActiveTab('marketplace')} style={{background:'rgba(34,197,94,0.15)',border:'1px solid rgba(34,197,94,0.3)',color:'#4ade80',borderRadius:10,padding:'0.4rem 0.75rem',fontSize:'0.72rem',fontWeight:700,cursor:'pointer'}}>
+                        🛒 Buy
+                      </button>
+                      <button onClick={() => setActiveTab('marketplace')} style={{background:'rgba(37,99,235,0.15)',border:'1px solid rgba(37,99,235,0.3)',color:'#60a5fa',borderRadius:10,padding:'0.4rem 0.75rem',fontSize:'0.72rem',fontWeight:700,cursor:'pointer'}}>
+                        💼 Sell
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
               );
             })()}
+
 
             {/* ════ AI CROP ADVISOR (5-STEP AGRI DECISION PLATFORM) ════ */}
             {activeTab==='advisor' && (() => {
