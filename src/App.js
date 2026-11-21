@@ -1507,7 +1507,7 @@ export default function App() {
   ];
 
   return (
-    <div style={{ display:'flex', flexDirection:'column', minHeight:'100vh', background:'#101010', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif", color:'#f1f1f1' }}>
+    <div style={{ display:'flex', flexDirection:'column', minHeight:'100vh', background:'#F4F6FA', fontFamily:"'Plus Jakarta Sans','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif", color:'#0F172A' }}>
 
       {/* ═══ Global Styles — Amazon/Flipkart/Myntra Theme ═══ */}
       <style>{`
@@ -1549,8 +1549,8 @@ export default function App() {
         
         .up { color:#15803D; font-weight:700; } .down { color:#DC2626; font-weight:700; } .flat { color:#64748B; }
         
-        .nav-btn { display:flex; align-items:center; gap:.85rem; padding:.75rem 1rem; border-radius:10px; border:none; cursor:pointer; font-size:.9rem; font-weight:500; background:transparent; color:#94A3B8; transition:all .18s; width:100%; text-align:left; font-family:'Plus Jakarta Sans',sans-serif; }
-        .nav-btn:hover { background:#1E293B; color:#F8FAFC; }
+        .nav-btn { display:flex; align-items:center; gap:.85rem; padding:.75rem 1rem; border-radius:10px; border:none; cursor:pointer; font-size:.9rem; font-weight:500; background:transparent; color:#475569; transition:all .18s; width:100%; text-align:left; font-family:'Plus Jakarta Sans',sans-serif; }
+        .nav-btn:hover { background:#F0FDF4; color:#166534; }
         .nav-btn.active { background:#166534; color:#FFFFFF; font-weight:700; box-shadow:0 4px 14px rgba(22,101,52,0.3); }
         .nav-icon { font-size:1.15rem; width:24px; text-align:center; }
         
@@ -1579,7 +1579,7 @@ export default function App() {
         .ledger-item { display:flex; justify-content:space-between; align-items:center; padding:.75rem 1rem; border-radius:10px; font-size:.85rem; background:#FFFFFF; border:1px solid #E2E8F0; box-shadow:0 1px 3px rgba(0,0,0,0.02); }
         .section-title { font-size:1.05rem; font-weight:800; color:#0F172A; display:flex; align-items:center; gap:.5rem; margin-bottom:1.1rem; }
         
-        .mcx-ticker-wrap { background:#0F172A; border-bottom:1px solid #1E293B; padding:.45rem 0; overflow:hidden; flex-shrink:0; }
+        .mcx-ticker-wrap { background:#0D4F28; border-bottom:1px solid #14532D; padding:.45rem 0; overflow:hidden; flex-shrink:0; }
         .mcx-ticker { display:inline-flex; gap:2.5rem; animation:ticker 85s linear infinite; white-space:nowrap; }
         .mcx-item { display:inline-flex; align-items:center; gap:.45rem; font-size:.76rem; font-weight:600; font-family:'Plus Jakarta Sans',sans-serif; }
         
@@ -1933,7 +1933,7 @@ export default function App() {
         }
               /* Responsive Sidebar Drawer for Mobile */
         .responsive-sidebar {
-          width: 240px; background: #111; border-right: 1px solid #222;
+          width: 240px; background: #FFFFFF; border-right: 1px solid #E2E8F0;
           display: flex; flex-direction: column; flex-shrink: 0;
           height: calc(100vh - 36px); position: sticky; top: 36px;
           overflow-y: auto; padding: 1.25rem 1rem; z-index: 1000;
@@ -1970,7 +1970,7 @@ export default function App() {
             left: 0;
             height: 100vh;
             transform: translateX(-100%);
-            box-shadow: 20px 0 50px rgba(0,0,0,0.8);
+            box-shadow: 20px 0 50px rgba(0,0,0,0.15);
             z-index: 2000;
           }
           .responsive-sidebar.open {
@@ -2285,10 +2285,10 @@ export default function App() {
               const isUp = pct >= 0 && mcxTrend[m.name] !== 'down';
               return (
                 <span key={i} className="mcx-item">
-                  <span style={{color:'#888'}}>{m.name}</span>
+                  <span style={{color:'#86EFAC'}}>{m.name}</span>
                   <span style={{color:isUp?'#22c55e':'#ef4444',fontWeight:700}}>&#x20B9;{lp.toFixed(m.name.includes('Petrol')||m.name.includes('Diesel')?2:0)}</span>
                   <span style={{color:isUp?'#22c55e':'#ef4444',fontSize:'.7rem'}}>{isUp?'▲':'▼'}</span>
-                  <span style={{color:'#333',margin:'0 .5rem'}}>|</span>
+                  <span style={{color:'rgba(255,255,255,0.3)',margin:'0 .5rem'}}>|</span>
                 </span>
               );
             });
@@ -2307,8 +2307,8 @@ export default function App() {
           <div style={{ display:'flex', alignItems:'center', gap:'.7rem', marginBottom:'2rem', padding:'0 .25rem' }}>
             <span style={{ fontSize:'1.6rem' }}>🌾</span>
             <div>
-              <div style={{ fontWeight:800, fontSize:'1rem', color:'#fff', letterSpacing:'-.01em' }}>Smart Crop AI</div>
-              <div style={{ fontSize:'.7rem', color:'#666', fontWeight:500 }}>Farm Assistant</div>
+              <div style={{ fontWeight:800, fontSize:'1rem', color:'#0F172A', letterSpacing:'-.01em' }}>Smart Crop AI</div>
+              <div style={{ fontSize:'.7rem', color:'#64748B', fontWeight:500 }}>Farm Assistant</div>
             </div>
           </div>
 
@@ -2321,7 +2321,7 @@ export default function App() {
             ))}
           </nav>
 
-          <div style={{ marginTop:'auto', paddingTop:'1.25rem', borderTop:'1px solid #222' }}>
+          <div style={{ marginTop:'auto', paddingTop:'1.25rem', borderTop:'1px solid #E2E8F0' }}>
             {/* Live user stats */}
             <div style={{ display:'flex', gap:'.4rem', marginBottom:'.75rem' }}>
               <div style={{ flex:1, background:'#1a1a1a', borderRadius:6, padding:'.35rem .5rem', textAlign:'center' }}>
@@ -2338,7 +2338,7 @@ export default function App() {
                 {(user?.name || user?.email || 'F').charAt(0).toUpperCase()}
               </div>
               <div style={{ minWidth:0 }}>
-                <div style={{ fontSize:'.88rem', fontWeight:600, color:'#f1f1f1', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{user?.name || 'Farmer'}</div>
+                <div style={{ fontSize:'.88rem', fontWeight:600, color:'#0F172A', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{user?.name || 'Farmer'}</div>
                 <div style={{ fontSize:'.72rem', color:'#666', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{user?.email || user?.phone || ''}</div>
               </div>
             </div>
@@ -2350,12 +2350,12 @@ export default function App() {
         </aside>
 
         {/* ── Right Content ── */}
-        <div style={{ flex:1, display:'flex', flexDirection:'column', minWidth:0, height:'calc(100vh - 36px)', overflowY:'auto' }}>
+        <div style={{ flex:1, display:'flex', flexDirection:'column', minWidth:0, height:'calc(100vh - 36px)', overflowY:'auto', background:'#F4F6FA' }}>
 
           {/* Top Header Bar — Amazon / Flipkart Style */}
-          <header style={{ background:'#0F172A', borderBottom:'1px solid #1E293B', padding:'.7rem 1.5rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'.75rem', position:'sticky', top:0, zIndex:20, boxShadow:'0 2px 10px rgba(0,0,0,0.1)' }}>
+          <header style={{ background:'linear-gradient(135deg,#0D4F28 0%,#166534 100%)', borderBottom:'1px solid #14532D', padding:'.7rem 1.5rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'.75rem', position:'sticky', top:0, zIndex:20, boxShadow:'0 2px 12px rgba(13,79,40,0.3)' }}>
             <div style={{ display:'flex', alignItems:'center', gap:'.75rem' }}>
-              <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)} style={{color:'#fff'}}>☰</button>
+              <button className="hamburger-btn" onClick={() => setIsSidebarOpen(!isSidebarOpen)} style={{color:'#FFFFFF', background:'rgba(255,255,255,0.1)', border:'none', borderRadius:8, padding:'0.4rem 0.6rem', cursor:'pointer', fontSize:'1.3rem'}}>☰</button>
               <div style={{ display:'flex', alignItems:'center', gap:'.4rem', fontWeight:800, fontSize:'1.05rem', color:'#FFFFFF' }}>
                 <span style={{ fontSize:'1.3rem' }}>{TABS.find(t => t.id === activeTab)?.icon}</span>
                 <span>{TABS.find(t => t.id === activeTab)?.label}</span>
@@ -2372,12 +2372,12 @@ export default function App() {
               </div>
 
               {/* State & District Selectors */}
-              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'#1E293B',color:'#fff',borderColor:'#334155'}} value={selState} onChange={e=>handleStateChange(e.target.value)}>
+              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'rgba(255,255,255,0.15)',color:'#fff',borderColor:'rgba(255,255,255,0.3)',borderRadius:8}} value={selState} onChange={e=>handleStateChange(e.target.value)}>
                 {ALL_STATES && ALL_STATES.map(s=><option key={s} value={s}>{s}</option>)}
               </select>
 
               {/* Language Switch */}
-              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'#1E293B',color:'#fff',borderColor:'#334155'}} value={lang} onChange={e=>setLang(e.target.value)}>
+              <select className="input" style={{width:'auto',padding:'.35rem .6rem',fontSize:'.78rem',background:'rgba(255,255,255,0.15)',color:'#fff',borderColor:'rgba(255,255,255,0.3)',borderRadius:8}} value={lang} onChange={e=>setLang(e.target.value)}>
                 <option value="en">English (EN)</option>
                 <option value="hi">हिन्दी (HI)</option>
                 <option value="te">తెలుగు (TE)</option>
@@ -3152,7 +3152,7 @@ export default function App() {
 
                   {/* ── HERO BANNER ─────────────────────────────────── */}
                   <div style={{
-                    background:'linear-gradient(135deg,#0a1f0a 0%,#0d2b1a 40%,#111827 100%)',
+                    background:'linear-gradient(135deg,#0D4F28 0%,#166534 45%,#1E3A5F 100%)',
                     borderRadius:20,
                     padding:'0',
                     overflow:'hidden',
@@ -3236,19 +3236,19 @@ export default function App() {
                       { icon:'🌧', label:'Rain', val: weather.rain || '--', sub: weather.precipitation ? `${weather.precipitation}` : 'Forecast', color:'#818cf8' },
                       { icon:'💨', label:'Wind', val: weather.wind || '--', sub: weather.windGusts ? `Gusts ${weather.windGusts}` : 'Live', color:'#34d399' },
                     ].map(s => (
-                      <div key={s.label} style={{background:'#111',border:'1px solid #1f1f1f',borderRadius:14,padding:'0.9rem 0.75rem',textAlign:'center',transition:'transform 0.15s',cursor:'default'}}>
+                      <div key={s.label} style={{background:'#FFFFFF',border:'1px solid #E2E8F0',borderRadius:14,padding:'0.9rem 0.75rem',textAlign:'center',transition:'transform 0.15s',cursor:'default',boxShadow:'0 2px 8px rgba(0,0,0,0.05)'}}>
                         <div style={{fontSize:'1.4rem',marginBottom:'0.2rem'}}>{s.icon}</div>
                         <div style={{fontSize:'1.1rem',fontWeight:800,color:s.color,lineHeight:1}}>{s.val}</div>
-                        <div style={{fontSize:'0.65rem',color:'#9ca3af',marginTop:'0.2rem',fontWeight:600}}>{s.label}</div>
-                        <div style={{fontSize:'0.6rem',color:'#4b5563',marginTop:'0.1rem'}}>{s.sub}</div>
+                        <div style={{fontSize:'0.65rem',color:'#64748B',marginTop:'0.2rem',fontWeight:600}}>{s.label}</div>
+                        <div style={{fontSize:'0.6rem',color:'#94A3B8',marginTop:'0.1rem'}}>{s.sub}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* ── LIVE PRICE TICKER ────────────────────────────── */}
-                  <div style={{background:'#0d1f0d',border:'1px solid rgba(34,197,94,0.2)',borderRadius:16,padding:'1rem 1.25rem'}}>
+                  <div style={{background:'#FFFFFF',border:'1px solid #E2E8F0',borderRadius:16,padding:'1rem 1.25rem',boxShadow:'0 2px 8px rgba(0,0,0,0.04)'}}>
                     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
-                      <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                      <span style={{fontSize:'0.82rem',fontWeight:800,color:'#0F172A',display:'flex',alignItems:'center',gap:'0.4rem'}}>
                         <span style={{width:7,height:7,borderRadius:'50%',background:'#22c55e',display:'inline-block',boxShadow:'0 0 6px #22c55e'}}></span>
                         Live Mandi Rates
                       </span>
@@ -3258,12 +3258,12 @@ export default function App() {
                     </div>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'0.5rem'}}>
                       {topCrops.map(c => (
-                        <div key={c.name} style={{background:'rgba(0,0,0,0.3)',borderRadius:10,padding:'0.6rem 0.75rem',border:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',gap:'0.5rem'}}>
+                        <div key={c.name} style={{background:'#F8FAFC',borderRadius:10,padding:'0.6rem 0.75rem',border:'1px solid #E2E8F0',display:'flex',alignItems:'center',gap:'0.5rem'}}>
                           <span style={{fontSize:'1.3rem',flexShrink:0}}>{c.emoji}</span>
                           <div style={{minWidth:0}}>
-                            <div style={{fontSize:'0.72rem',color:'#9ca3af',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{c.name}</div>
+                            <div style={{fontSize:'0.72rem',color:'#64748B',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{c.name}</div>
                             <div style={{display:'flex',alignItems:'center',gap:'0.3rem',marginTop:'0.1rem'}}>
-                              <span style={{fontSize:'0.88rem',fontWeight:800,color:'#fff'}}>₹{c.price}</span>
+                              <span style={{fontSize:'0.88rem',fontWeight:800,color:'#0F172A'}}>₹{c.price}</span>
                               <span style={{fontSize:'0.6rem',fontWeight:700,color: c.trend==='up'?'#22c55e':'#ef4444'}}>
                                 {c.trend==='up'?'▲':'▼'}{c.pct}%
                               </span>
@@ -3276,17 +3276,17 @@ export default function App() {
 
                   {/* ── QUICK ACTION CARDS ───────────────────────────── */}
                   <div>
-                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>⚡ Quick Actions</div>
+                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#64748B',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>⚡ Quick Actions</div>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0.65rem'}}>
                       {[
-                        { icon:'🌱', label:'AI Crop\nAdvisor', tab:'advisor', bg:'linear-gradient(145deg,#132a13,#0d1b12)', border:'#22c55e', glow:'rgba(34,197,94,0.2)' },
-                        { icon:'🛒', label:'Buy &\nSell', tab:'marketplace', bg:'linear-gradient(145deg,#1e1b2e,#13111c)', border:'#8b5cf6', glow:'rgba(139,92,246,0.2)' },
-                        { icon:'🔬', label:'Disease\nScanner', tab:'scanner', bg:'linear-gradient(145deg,#1a1f1e,#0f1917)', border:'#06b6d4', glow:'rgba(6,182,212,0.2)' },
-                        { icon:'🤖', label:'Kisan\nAssistant', tab:'chat', bg:'linear-gradient(145deg,#1e1a2e,#0f0d1a)', border:'#3b82f6', glow:'rgba(59,130,246,0.2)' },
-                        { icon:'📈', label:'Market\nPrices', tab:'market', bg:'linear-gradient(145deg,#1f1a0d,#120f06)', border:'#f59e0b', glow:'rgba(245,158,11,0.2)' },
-                        { icon:'🏛️', label:'Gov\nSchemes', tab:'schemes', bg:'linear-gradient(145deg,#1a1414,#110d0d)', border:'#ef4444', glow:'rgba(239,68,68,0.2)' },
-                        { icon:'💰', label:'Farm\nLedger', tab:'expenses', bg:'linear-gradient(145deg,#131a1f,#0c1117)', border:'#06b6d4', glow:'rgba(6,182,212,0.2)' },
-                        { icon:'👥', label:'Farmer\nDirectory', tab:'directory', bg:'linear-gradient(145deg,#161316,#0d0b0d)', border:'#ec4899', glow:'rgba(236,72,153,0.2)' },
+                        { icon:'🌱', label:'AI Crop\nAdvisor', tab:'advisor', bg:'linear-gradient(145deg,#F0FDF4,#DCFCE7)', border:'#22C55E', glow:'rgba(34,197,94,0.15)', textColor:'#166534' },
+                        { icon:'🛒', label:'Buy &\nSell', tab:'marketplace', bg:'linear-gradient(145deg,#F5F3FF,#EDE9FE)', border:'#8B5CF6', glow:'rgba(139,92,246,0.15)', textColor:'#6D28D9' },
+                        { icon:'🔬', label:'Disease\nScanner', tab:'scanner', bg:'linear-gradient(145deg,#ECFEFF,#CFFAFE)', border:'#06B6D4', glow:'rgba(6,182,212,0.15)', textColor:'#0E7490' },
+                        { icon:'🤖', label:'Kisan\nAssistant', tab:'chat', bg:'linear-gradient(145deg,#EFF6FF,#DBEAFE)', border:'#3B82F6', glow:'rgba(59,130,246,0.15)', textColor:'#1D4ED8' },
+                        { icon:'📈', label:'Market\nPrices', tab:'market', bg:'linear-gradient(145deg,#FFFBEB,#FEF3C7)', border:'#F59E0B', glow:'rgba(245,158,11,0.15)', textColor:'#B45309' },
+                        { icon:'🏛️', label:'Gov\nSchemes', tab:'schemes', bg:'linear-gradient(145deg,#FFF1F2,#FFE4E6)', border:'#EF4444', glow:'rgba(239,68,68,0.15)', textColor:'#B91C1C' },
+                        { icon:'💰', label:'Farm\nLedger', tab:'expenses', bg:'linear-gradient(145deg,#F0F9FF,#E0F2FE)', border:'#06B6D4', glow:'rgba(6,182,212,0.15)', textColor:'#0369A1' },
+                        { icon:'👥', label:'Farmer\nDirectory', tab:'directory', bg:'linear-gradient(145deg,#FDF2F8,#FCE7F3)', border:'#EC4899', glow:'rgba(236,72,153,0.15)', textColor:'#9D174D' },
                       ].map(a => (
                         <button key={a.tab} onClick={() => setActiveTab(a.tab)} style={{
                           background: a.bg,
@@ -3303,7 +3303,7 @@ export default function App() {
                           textAlign: 'center',
                         }}>
                           <span style={{fontSize:'1.6rem'}}>{a.icon}</span>
-                          <span style={{fontSize:'0.65rem',fontWeight:700,color:'#e2e8f0',whiteSpace:'pre-line',lineHeight:1.3}}>{a.label}</span>
+                          <span style={{fontSize:'0.65rem',fontWeight:700,color: a.textColor || '#334155',whiteSpace:'pre-line',lineHeight:1.3}}>{a.label}</span>
                         </button>
                       ))}
                     </div>
@@ -3311,22 +3311,22 @@ export default function App() {
 
                   {/* ── FARM ADVISORY CARDS ───────────────────────────── */}
                   <div>
-                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>🌾 Today's Farm Advisory</div>
+                    <div style={{fontSize:'0.78rem',fontWeight:700,color:'#64748B',textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'0.6rem'}}>🌾 Today's Farm Advisory</div>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'0.75rem'}}>
                       {[
                         { label:'Irrigation', icon: weatherDecisions.irrigation.icon, action: weatherDecisions.irrigation.action, badge: weatherDecisions.irrigation.badge, detail: weatherDecisions.irrigation.detail, color: weatherDecisions.irrigation.color },
                         { label:'Field Work', icon: weatherDecisions.fieldWork.icon, action: weatherDecisions.fieldWork.action, badge: weatherDecisions.fieldWork.badge, detail: weatherDecisions.fieldWork.detail, color: weatherDecisions.fieldWork.color },
                         { label:'Disease Risk', icon: weatherDecisions.diseaseRisk.icon, action: weatherDecisions.diseaseRisk.action, badge: weatherDecisions.diseaseRisk.badge, detail: weatherDecisions.diseaseRisk.detail, color: weatherDecisions.diseaseRisk.color },
                       ].map(d => (
-                        <div key={d.label} style={{background:'#111',border:`1px solid #1f1f1f`,borderLeft:`3px solid ${d.color}`,borderRadius:14,padding:'0.9rem 1rem'}}>
+                        <div key={d.label} style={{background:'#FFFFFF',border:'1px solid #E2E8F0',borderLeft:`3px solid ${d.color}`,borderRadius:14,padding:'0.9rem 1rem',boxShadow:'0 2px 6px rgba(0,0,0,0.04)'}}>
                           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.4rem'}}>
-                            <span style={{fontSize:'0.65rem',fontWeight:700,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.06em'}}>{d.label}</span>
-                            <span style={{fontSize:'0.6rem',fontWeight:700,color:d.color,background:'rgba(255,255,255,0.05)',padding:'0.1rem 0.4rem',borderRadius:4}}>{d.badge}</span>
+                            <span style={{fontSize:'0.65rem',fontWeight:700,color:'#64748B',textTransform:'uppercase',letterSpacing:'0.06em'}}>{d.label}</span>
+                            <span style={{fontSize:'0.6rem',fontWeight:700,color:d.color,background:'rgba(0,0,0,0.05)',padding:'0.1rem 0.4rem',borderRadius:4}}>{d.badge}</span>
                           </div>
-                          <div style={{fontSize:'0.9rem',fontWeight:800,color:'#fff',display:'flex',alignItems:'center',gap:'0.35rem',marginBottom:'0.3rem'}}>
+                          <div style={{fontSize:'0.9rem',fontWeight:800,color:'#0F172A',display:'flex',alignItems:'center',gap:'0.35rem',marginBottom:'0.3rem'}}>
                             {d.icon} {d.action}
                           </div>
-                          <div style={{fontSize:'0.72rem',color:'#6b7280',lineHeight:1.4}}>{d.detail}</div>
+                          <div style={{fontSize:'0.72rem',color:'#475569',lineHeight:1.4}}>{d.detail}</div>
                         </div>
                       ))}
                     </div>
@@ -3336,7 +3336,7 @@ export default function App() {
                   <div style={{background:'#0a0a0a',border:'1px solid #1f1f1f',borderRadius:16,padding:'1rem 1.25rem'}}>
                     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
                       <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff'}}>📅 7-Day Forecast</span>
-                      <span style={{fontSize:'0.65rem',color:'#4b5563'}}>Updated {weather.lastUpdated || 'just now'}</span>
+                      <span style={{fontSize:'0.65rem',color:'#94A3B8'}}>Updated {weather.lastUpdated || 'just now'}</span>
                     </div>
                     <div style={{display:'grid',gridTemplateColumns:'repeat(7,1fr)',gap:'0.35rem'}}>
                       {(weather.forecast||[]).map((f,i) => (
@@ -3347,8 +3347,8 @@ export default function App() {
                           borderRadius:10,
                           padding:'0.5rem 0.2rem'
                         }}>
-                          <div style={{fontSize:'0.6rem',fontWeight:700,color: i===0?'#22c55e':'#9ca3af'}}>{i===0?'Today':f.day}</div>
-                          {f.date && <div style={{fontSize:'0.5rem',color:'#374151'}}>{f.date}</div>}
+                          <div style={{fontSize:'0.6rem',fontWeight:700,color: i===0?'#16A34A':'#64748B'}}>{i===0?'Today':f.day}</div>
+                          {f.date && <div style={{fontSize:'0.5rem',color:'#94A3B8'}}>{f.date}</div>}
                           <div style={{fontSize:'1.1rem',margin:'0.3rem 0'}}>{f.icon}</div>
                           <div style={{fontSize:'0.68rem',fontWeight:700,color:'#f87171'}}>{f.high}°</div>
                           <div style={{fontSize:'0.6rem',color:'#60a5fa'}}>{f.low}°</div>
@@ -3377,10 +3377,10 @@ export default function App() {
                         ].map(s => (
                           <div key={s.name}>
                             <div style={{display:'flex',justifyContent:'space-between',marginBottom:'0.2rem'}}>
-                              <span style={{fontSize:'0.72rem',color:'#9ca3af'}}>{s.name}</span>
+                              <span style={{fontSize:'0.72rem',color:'#64748B'}}>{s.name}</span>
                               <span style={{fontSize:'0.72rem',fontWeight:700,color:s.color}}>{s.val}</span>
                             </div>
-                            <div style={{height:5,background:'rgba(255,255,255,0.07)',borderRadius:999}}>
+                            <div style={{height:5,background:'#E2E8F0',borderRadius:999}}>
                               <div style={{height:'100%',width:`${s.pct}%`,background:s.color,borderRadius:999,transition:'width 1s ease'}} />
                             </div>
                           </div>
@@ -3392,7 +3392,7 @@ export default function App() {
                     <div style={{background:'#0a0a0a',border:'1px solid #1f1f1f',borderRadius:16,padding:'1rem 1.25rem'}}>
                       <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
                         <span style={{fontSize:'0.82rem',fontWeight:800,color:'#fff'}}>📊 Mandi Highlights</span>
-                        <span style={{fontSize:'0.6rem',color:'#4b5563'}}>e-NAM</span>
+                        <span style={{fontSize:'0.6rem',color:'#94A3B8',fontWeight:600}}>e-NAM</span>
                       </div>
                       <div style={{display:'flex',flexDirection:'column',gap:'0.45rem'}}>
                         {['Paddy (Rice)','Cotton (Long Staple)','Tomato','Onion','Red Chilli (Dry)','Turmeric (Haldi)'].map(crop => {
