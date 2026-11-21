@@ -516,10 +516,10 @@ export default function Auth({ onLogin }) {
                 {loading ? <span className="spin" /> : '🔑 Sign In'}
               </button>
             </form>
-            <div style={{ margin: '1.5rem 0', textAlign: 'center', color: '#8855bb', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(255,0,255,0.2)' }} />
+            <div style={{ margin: '1.5rem 0', textAlign: 'center', color: '#64748B', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: 1, height: '1px', background: '#E2E8F0' }} />
                 <span>OR</span>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(255,0,255,0.2)' }} />
+                <div style={{ flex: 1, height: '1px', background: '#E2E8F0' }} />
             </div>
             <button type="button" className="auth-google-btn" onClick={handleGoogleSignIn} disabled={loading} style={{
                 width: '100%', padding: '0.8rem', background: '#fff', color: '#333', border: '1px solid #ccc', borderRadius: '8px',
@@ -615,10 +615,10 @@ export default function Auth({ onLogin }) {
 
               <button type="submit" className="auth-primary">📲 Send OTP & Verify</button>
             </form>
-            <div style={{ margin: '1.5rem 0', textAlign: 'center', color: '#8855bb', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(255,0,255,0.2)' }} />
+            <div style={{ margin: '1.5rem 0', textAlign: 'center', color: '#64748B', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ flex: 1, height: '1px', background: '#E2E8F0' }} />
                 <span>OR</span>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(255,0,255,0.2)' }} />
+                <div style={{ flex: 1, height: '1px', background: '#E2E8F0' }} />
             </div>
             <button type="button" className="auth-google-btn" onClick={handleGoogleSignIn} disabled={loading} style={{
                 width: '100%', padding: '0.8rem', background: '#fff', color: '#333', border: '1px solid #ccc', borderRadius: '8px',
@@ -733,20 +733,20 @@ export default function Auth({ onLogin }) {
       {/* Permissions Request Modal Overlay */}
       {showPermissionsModal && (
         <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)',
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           zIndex: 10000, padding: '1rem', backdropFilter: 'blur(8px)'
         }}>
           <div style={{
-            background: '#1a1a1a', border: '1px solid #333',
+            background: '#FFFFFF', border: '1px solid #E2E8F0',
             borderRadius: 16, padding: '2rem', maxWidth: 460, width: '100%',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.5)', display: 'flex',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.12)', display: 'flex',
             flexDirection: 'column', gap: '1.25rem'
           }}>
             <div style={{ textAlign: 'center' }}>
               <span style={{ fontSize: '2.5rem' }}>⚙️</span>
-              <h3 style={{ fontSize: '1.25rem', color: '#fff', marginTop: '0.5rem', fontWeight: 800 }}>Permissions Access Required</h3>
-              <p style={{ fontSize: '0.82rem', color: '#888', marginTop: '0.25rem' }}>
+              <h3 style={{ fontSize: '1.25rem', color: '#0F172A', marginTop: '0.5rem', fontWeight: 800 }}>Permissions Access Required</h3>
+              <p style={{ fontSize: '0.82rem', color: '#64748B', marginTop: '0.25rem' }}>
                 We need these permissions to configure your workspace for agricultural monitoring.
               </p>
             </div>
@@ -754,14 +754,14 @@ export default function Auth({ onLogin }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {/* Geolocation permission */}
               <div style={{
-                background: '#222', border: '1px solid #333', borderRadius: 10,
+                background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 10,
                 padding: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <span style={{ fontSize: '1.5rem' }}>📍</span>
                   <div>
-                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f1f1f1' }}>Location Geolocation</div>
-                    <div style={{ fontSize: '0.7rem', color: '#888' }}>Detects your district/mandal for weather</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0F172A' }}>Location Geolocation</div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748B' }}>Detects your district/mandal for weather</div>
                   </div>
                 </div>
                 {locPermission === 'granted' ? (
@@ -777,14 +777,14 @@ export default function Auth({ onLogin }) {
 
               {/* Notification / SMS permission */}
               <div style={{
-                background: '#222', border: '1px solid #333', borderRadius: 10,
+                background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 10,
                 padding: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <span style={{ fontSize: '1.5rem' }}>💬</span>
                   <div>
-                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f1f1f1' }}>SMS Alerts & Notify</div>
-                    <div style={{ fontSize: '0.7rem', color: '#888' }}>Receive daily rate warnings & OTP autofill</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0F172A' }}>SMS Alerts & Notify</div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748B' }}>Receive daily rate warnings & OTP autofill</div>
                   </div>
                 </div>
                 {smsPermission === 'granted' ? (
