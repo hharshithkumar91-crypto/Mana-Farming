@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const basePath = '/Mana-Farming/';
+const basePath = '/Smart-Crop-Advisor-AI/';
 
 export default defineConfig({
   base: basePath,
