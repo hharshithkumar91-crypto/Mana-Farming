@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 const basePath = '/Smart-Crop-Advisor-AI/';
 
 export default defineConfig({
+  css: { postcss: {} }, 
   base: basePath,
   plugins: [react()],
   esbuild: {
