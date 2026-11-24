@@ -6,7 +6,7 @@
 # 3️⃣ Adds the remote GitHub repository (replace USER/REPO below)
 # 4️⃣ Sets the homepage field in package.json for GitHub Pages
 # 5️⃣ Installs dependencies (npm ci)
-# 6️⃣ Builds the Vite app (npm run build) – output goes to `dist/`
+# 6️⃣ Builds the Vite app (npx vite build) – output goes to `dist/`
 # 7️⃣ Publishes `dist/` to the `gh-pages` branch using gh-pages
 # -------------------------------------------------
 
@@ -68,7 +68,7 @@ if (Test-Path $packageJson) {
 npm ci
 
 # 8️⃣ Build the Vite app (output folder is `dist`)
-npm run build
+npx vite build
 
 # 9️⃣ Publish to GitHub Pages using gh-pages (install if missing)
 if (-not (Get-Command gh-pages -ErrorAction SilentlyContinue)) {
