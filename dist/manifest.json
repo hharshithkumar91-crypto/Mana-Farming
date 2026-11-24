@@ -1,0 +1,27 @@
+{
+  "short_name": "Smart Crop AI",
+  "name": "Smart Crop Advisor AI — Farm Smarter, Earn Better",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#166534",
+  "background_color": "#F4F6FA",
+  "categories": ["agriculture", "shopping", "business"],
+  "description": "India's AI-powered agriculture platform. Live mandi prices, crop advisory, P2P farm marketplace, disease scanner, and government schemes — built for Indian farmers."
+}
