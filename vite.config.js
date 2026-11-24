@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const basePath = '/Smart-Crop-Advisor-AI/';
+const basePath = '/Mana-Farming/';
 
 export default defineConfig({
   css: { postcss: {} }, 
