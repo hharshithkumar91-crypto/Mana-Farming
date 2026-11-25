@@ -9,6 +9,9 @@ const Market = lazy(() => import("./pages/Market.jsx"));
 const Advisor = lazy(() => import("./pages/Advisor.jsx"));
 const Schemes = lazy(() => import("./pages/Schemes.jsx"));
 const Profile = lazy(() => import("./pages/Profile.jsx"));
+const ManaAI = lazy(() => import("./pages/ManaAI.jsx"));
+const Profit = lazy(() => import("./pages/Profit.jsx"));
+const Farm = lazy(() => import("./pages/Farm.jsx"));
 
 function Loading() {
   return (
@@ -34,6 +37,9 @@ export default function App() {
             <Route path="/advisor" element={<Advisor />} />
             <Route path="/schemes" element={<Schemes />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/ai" element={<ManaAI />} />
+            <Route path="/profit" element={<Profit />} />
+            <Route path="/farm" element={<Farm />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>

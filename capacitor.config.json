@@ -1,0 +1,8 @@
+{
+  "appId": "com.manafarming.app",
+  "appName": "Mana Farming",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
