@@ -60,7 +60,8 @@ $packageJson = Join-Path $PSScriptRoot "package.json"
 if (Test-Path $packageJson) {
     $pkg = Get-Content $packageJson -Raw | ConvertFrom-Json
     $pkg.homepage = "https://$GitHubUser.github.io/$RepoName/"
-    $pkg | ConvertTo-Json -Depth 10 | Set-Content $packageJson -Encoding UTF8
+    $json = $pkg | ConvertTo-Json -Depth 10
+    [System.IO.File]::WriteAllText($packageJson, $json, (New-Object System.Text.UTF8Encoding $false))
     Write-Host "Updated package.json homepage"
 }
 
