@@ -54,7 +54,7 @@ export default function Farm() {
   const deleteFarm = (farmId) => saveFarms(farms.filter((f) => f.id !== farmId));
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-6 rounded-b-3xl">
         <h1 className="text-xl font-bold">🚜 Personal Farm Manager</h1>
         <p className="text-xs opacity-80 mt-1">Track plots, sowing schedules & crop tasks</p>

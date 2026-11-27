@@ -125,7 +125,7 @@ export default function ManaAI() {
       : ["Paddy cultivation tips", "Cotton pest control", "How to save fertilizer cost?", "Government schemes"];
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24 flex flex-col">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24 flex flex-col">
       <div className="bg-primary text-white px-4 pt-10 pb-5 rounded-b-3xl flex justify-between items-center">
         <div>
           <h1 className="text-xl font-bold">🤖 Mana AI Assistant</h1>
@@ -191,7 +191,7 @@ export default function ManaAI() {
             onClick={toggleVoice}
             title="Voice input"
             className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg transition ${
-              listening ? "bg-red-500 text-white animate-pulse" : "bg-green-50 text-primary"
+              listening ? "bg-red-500 text-white animate-pulse" : "bg-[#FAF6EE] text-primary"
             }`}
           >
             🎤

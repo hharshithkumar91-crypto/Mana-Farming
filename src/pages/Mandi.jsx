@@ -49,7 +49,7 @@ export default function Mandi() {
   };
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-6 rounded-b-3xl">
         <h1 className="text-xl font-bold">📊 Mandi Prices</h1>
         <p className="text-xs opacity-70 mt-1">

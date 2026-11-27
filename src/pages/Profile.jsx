@@ -24,7 +24,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-6 rounded-b-3xl">
         <h1 className="text-xl font-bold">👤 My Profile</h1>
         <p className="text-sm opacity-80 mt-1">

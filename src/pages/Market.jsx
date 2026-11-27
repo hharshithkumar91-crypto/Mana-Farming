@@ -87,7 +87,7 @@ export default function Market() {
   );
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-5 rounded-b-3xl">
         <div className="flex items-center justify-between">
           <div>
@@ -153,7 +153,7 @@ export default function Market() {
                 key={p}
                 onClick={() => setPayment(p)}
                 className={`flex-1 py-1.5 rounded-xl text-xs font-semibold border ${
-                  payment === p ? "border-primary bg-green-50 text-primary" : "border-gray-200 text-gray-500"
+                  payment === p ? "border-primary bg-[#FAF6EE] text-primary" : "border-gray-200 text-gray-500"
                 }`}
               >
                 {p === "upi" ? "📱 UPI" : "💵 Cash on Delivery"}

@@ -80,7 +80,7 @@ function SchemeCard({ scheme }) {
       </button>
 
       {checked && (
-        <div className={`mt-3 p-3 rounded-xl text-xs ${eligible ? "bg-green-50 border border-green-200 text-green-800" : "bg-gray-50 border border-gray-200 text-gray-700"}`}>
+        <div className={`mt-3 p-3 rounded-xl text-xs ${eligible ? "bg-[#FAF6EE] border border-green-200 text-green-800" : "bg-gray-50 border border-gray-200 text-gray-700"}`}>
           {eligible
             ? `✅ You may qualify for ${scheme.name}. Visit the official portal to apply.`
             : `ℹ️ You may not meet the basic criteria. Check the official portal for full eligibility details.`}
@@ -98,7 +98,7 @@ function SchemeCard({ scheme }) {
 
 export default function Schemes() {
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-6 rounded-b-3xl">
         <h1 className="text-xl font-bold">🏛️ Government Schemes</h1>
         <p className="text-sm opacity-80 mt-1">Check eligibility and apply via official portals</p>

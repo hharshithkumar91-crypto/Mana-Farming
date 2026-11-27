@@ -1,76 +1,114 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { t, getLang, setLang } from "../i18n";
+import { getLang, setLang } from "../i18n";
+import {
+  SproutIcon,
+  MicIcon,
+  ChartIcon,
+  ScanIcon,
+  CoinIcon,
+  CalendarIcon,
+  ShieldIcon,
+  SearchIcon,
+  SunIcon,
+} from "../components/Icons.jsx";
+import { ScrollReveal, TaglineReveal } from "../components/Reveal.jsx";
 
-const CATEGORIES = [
-  { labelEn: "Advisor",   labelTe: "సలహా",      emoji: "🌾", path: "/advisor", bg: "bg-emerald-50" },
-  { labelEn: "AI Voice",  labelTe: "AI వాయిస్", emoji: "🎙️", path: "/ai",      bg: "bg-orange-50" },
-  { labelEn: "Mandi",     labelTe: "మండి",      emoji: "📊", path: "/mandi",   bg: "bg-amber-50" },
-  { labelEn: "Doctor",    labelTe: "స్కాన్",    emoji: "🔬", path: "/scan",    bg: "bg-rose-50" },
-  { labelEn: "Profit",    labelTe: "లాభాలు",    emoji: "💰", path: "/profit",  bg: "bg-lime-50" },
-  { labelEn: "My Farm",   labelTe: "నా పొలం",   emoji: "🚜", path: "/farm",    bg: "bg-teal-50" },
-  { labelEn: "Schemes",   labelTe: "పథకాలు",    emoji: "🏛️", path: "/schemes", bg: "bg-sky-50" },
+const TOOLS = [
+  { labelEn: "Advisor", labelTe: "సలహా", path: "/advisor", icon: <SproutIcon className="w-6 h-6 text-[#166534]" /> },
+  { labelEn: "Voice AI", labelTe: "వాయిస్", path: "/ai", icon: <MicIcon className="w-6 h-6 text-[#D97706]" /> },
+  { labelEn: "Mandi", labelTe: "మండి", path: "/mandi", icon: <ChartIcon className="w-6 h-6 text-[#166534]" /> },
+  { labelEn: "Doctor", labelTe: "డాక్టర్", path: "/scan", icon: <ScanIcon className="w-6 h-6 text-[#166534]" /> },
+  { labelEn: "Profit", labelTe: "లాభాలు", path: "/profit", icon: <CoinIcon className="w-6 h-6 text-[#D97706]" /> },
+  { labelEn: "My Farm", labelTe: "నా పొలం", path: "/farm", icon: <CalendarIcon className="w-6 h-6 text-[#166534]" /> },
+  { labelEn: "Schemes", labelTe: "పథకాలు", path: "/schemes", icon: <ShieldIcon className="w-6 h-6 text-[#166534]" /> },
 ];
 
 const FEATURED_PRODUCTS = [
-  { id: 1, title: "Fresh Tomatoes",   weight: "1 kg",    seller: "Guntur Farm",   price: 25,  mrp: 35,  emoji: "🍅" },
-  { id: 2, title: "Basmati Rice",     weight: "5 kg",    seller: "Kurnool Mill",  price: 325, mrp: 380, emoji: "🌾" },
-  { id: 4, title: "Cotton Hybrid Seed", weight: "450 g", seller: "Warangal Agro", price: 450, mrp: 520, emoji: "🌱" },
-  { id: 5, title: "Guntur Red Chilli", weight: "1 kg",   seller: "Spice Hub",     price: 220, mrp: 260, emoji: "🌶️" },
+  { id: 1, title: "Fresh Tomatoes", weight: "1 kg", seller: "Raju Farms, Guntur", price: 25, mrp: 34 },
+  { id: 2, title: "Basmati Rice", weight: "5 kg", seller: "Kumar Exports, Kurnool", price: 325, mrp: 380 },
+  { id: 4, title: "Cotton Seed Pack", weight: "450 g", seller: "Green Agro, Warangal", price: 450, mrp: 515 },
+  { id: 5, title: "Guntur Red Chilli", weight: "1 kg", seller: "Spice Hub, Guntur", price: 220, mrp: 265 },
+];
+
+const MANDI_SNAPSHOT = [
+  { crop: "Chilli", market: "Guntur", price: "12,000", change: "+2.1%", up: true },
+  { crop: "Cotton", market: "Kurnool", price: "6,800", change: "+1.4%", up: true },
+  { crop: "Paddy", market: "Warangal", price: "2,100", change: "0.5% down", up: false },
 ];
 
 export default function Home() {
   const navigate = useNavigate();
   const [weather, setWeather] = useState(null);
   const [lang, setLangState] = useState(getLang());
-  const [added, setAdded] = useState({});
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("mf_cart")) || {};
+    } catch {
+      return {};
+    }
+  });
+  const [infoNote, setInfoNote] = useState("");
 
-  const handleLang = (l) => {
-    setLang(l);
-    setLangState(l);
+  const handleLang = (next) => {
+    setLang(next);
+    setLangState(next);
   };
 
   useEffect(() => {
-    const loc = (lat, lon) =>
+    const fetchWeather = (lat, lon) =>
       fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
         .then((r) => r.json())
         .then((d) => setWeather(d.current_weather))
         .catch(() => {});
-    navigator.geolocation?.getCurrentPosition(
-      ({ coords }) => loc(coords.latitude, coords.longitude),
-      () => loc(17.38, 78.47)
-    );
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => fetchWeather(coords.latitude, coords.longitude),
+        () => fetchWeather(17.38, 78.47)
+      );
+    } else {
+      fetchWeather(17.38, 78.47);
+    }
   }, []);
 
-  const toggleAdd = (id) => {
-    setAdded((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  const addItem = (id) => {
+    const next = { ...cart, [id]: (cart[id] || 0) + 1 };
+    setCart(next);
+    localStorage.setItem("mf_cart", JSON.stringify(next));
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pb-24">
-      {/* Sticky Zepto / Amazon Header + Search */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 px-4 pt-3 pb-3">
-        <div className="flex items-center justify-between mb-2.5">
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block" />
-              <h1 className="text-lg font-extrabold tracking-tight text-stone-900">
-                {t("appName")}
-              </h1>
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
+      {/* Floating compact top bar */}
+      <header className="sticky top-0 z-40 px-4 pt-3 pb-2 bg-[#FAF6EE]/90 backdrop-blur-md">
+        <div className="bg-white/90 border border-[#E6DFD1] rounded-2xl px-3 py-2 flex items-center justify-between shadow-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-[#E9F2EC] flex items-center justify-center">
+              <SproutIcon className="w-5 h-5 text-[#166534]" />
             </div>
-            <p className="text-[11px] text-stone-500 font-medium">
-              {weather ? `${weather.temperature}°C · Wind ${weather.windspeed} km/h` : "Hyderabad · Live Weather"}
-            </p>
+            <div>
+              <p className="title-4 text-[#1C241B]">
+                {lang === "te" ? "మన ఫార్మింగ్" : "Mana Farming"}
+              </p>
+              {weather ? (
+                <p className="caption-5 text-[#5C665A] flex items-center gap-1">
+                  <SunIcon className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>{weather.temperature}°C · {weather.windspeed} km/h</span>
+                </p>
+              ) : (
+                <div className="h-3 w-24 bg-[#F3EDE0] rounded skeleton-pulse mt-1" />
+              )}
+            </div>
           </div>
-          <div className="flex items-center gap-1.5">
+
+          <div className="flex items-center gap-1 bg-[#FAF6EE] p-1 rounded-xl border border-[#E6DFD1]">
             {["en", "te"].map((l) => (
               <button
                 key={l}
                 onClick={() => handleLang(l)}
-                className={`text-xs px-2.5 py-1 rounded-full font-bold transition active:scale-95 ${
-                  lang === l
-                    ? "bg-primary text-white shadow-sm"
-                    : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                className={`button-sm px-2.5 py-1 rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534] ${
+                  lang === l ? "bg-[#166534] text-white" : "text-[#5C665A] hover:text-[#1C241B]"
                 }`}
               >
                 {l === "en" ? "EN" : "తెలుగు"}
@@ -79,161 +117,214 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Sticky Search */}
-        <div
-          onClick={() => navigate("/market")}
-          className="flex items-center bg-[#FAF7F2] border border-stone-200 rounded-xl px-3.5 py-2.5 cursor-pointer hover:border-primary/40 transition"
-        >
-          <svg className="w-4 h-4 text-stone-400 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M21 21l-4.35-4.35m0 0A7 7 0 104.65 4.65a7 7 0 0012 12z" />
-          </svg>
-          <span className="text-sm text-stone-400 flex-1 truncate">{t("searchPlaceholder")}</span>
+        {/* Search bar */}
+        <div className="mt-2 flex items-center bg-white border border-[#E6DFD1] rounded-xl px-3 py-2">
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); navigate("/ai"); }}
-            className="text-xs font-bold text-harvest pl-2 border-l border-stone-200"
+            onClick={() => navigate("/market")}
+            className="flex items-center flex-1 text-left focus-visible:outline-none"
           >
-            🎙️ Voice
+            <SearchIcon className="w-4 h-4 text-[#5C665A] mr-2" />
+            <span className="body-6 text-[#5C665A] truncate">
+              {lang === "te"
+                ? "పంటలు, విత్తనాలు, మండి ధరలు వెతకండి"
+                : "Search seeds, crops, and mandi prices"}
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/ai")}
+            aria-label="Open voice assistant"
+            className="p-1.5 rounded-lg bg-[#FAF6EE] text-[#166534] hover:bg-[#E9F2EC] transition-colors duration-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534]"
+          >
+            <MicIcon className="w-4 h-4" />
           </button>
         </div>
       </header>
 
-      {/* Round Category Icons Row (Zepto-style) */}
-      <section className="px-4 pt-4 pb-2 flex gap-3.5 overflow-x-auto no-scrollbar animate-rise">
-        {CATEGORIES.map((c) => (
-          <button
-            key={c.path}
-            onClick={() => navigate(c.path)}
-            className="flex flex-col items-center shrink-0 group active:scale-95 transition-transform"
-          >
-            <div className={`w-14 h-14 rounded-full ${c.bg} border border-stone-200/70 flex items-center justify-center text-2xl shadow-sm group-hover:-translate-y-0.5 transition-transform`}>
-              {c.emoji}
-            </div>
-            <span className="text-[11px] font-semibold text-stone-700 mt-1.5">
-              {lang === "te" ? c.labelTe : c.labelEn}
-            </span>
-          </button>
-        ))}
-      </section>
-
-      {/* Hero Editorial Banner */}
-      <section className="px-4 mt-3 animate-rise">
-        <div className="bg-primary text-white rounded-2xl p-5 shadow-md relative overflow-hidden">
-          <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-200">
-            {lang === "te" ? "రైతు నేస్తం" : "FARMER COMPANION"}
+      {/* Hero Section (flat cream surface, text gradient on heading, single primary CTA) */}
+      <section className="px-4 pt-4 pb-2">
+        <div className="bg-white border border-[#E6DFD1] rounded-2xl p-6">
+          <p className="caption-3 uppercase tracking-wider text-[#166534]">
+            {lang === "te" ? "రైతు సహాయకుడు" : "FARMER WORKSPACE"}
           </p>
-          <h2 className="text-xl font-extrabold mt-1 leading-snug">
-            {lang === "te" ? "మీ పంటకు సరైన సలహా & మార్కెట్ ధరలు" : "Better crop decisions, fair mandi prices."}
-          </h2>
-          <p className="text-xs text-emerald-100 mt-1.5 max-w-[85%]">
+          <h1 className="heading-4 max-w-[680px] mt-2 bg-gradient-to-r from-[#000000] to-[#666666] bg-clip-text text-transparent">
+            {lang === "te" ? (
+              <>
+                మెరుగైన పంట నిర్ణయాలు
+                <br />
+                సరైన మండి ధరలతో
+              </>
+            ) : (
+              <>
+                Clear crop decisions
+                <br />
+                without guesswork
+              </>
+            )}
+          </h1>
+          <p className="body-6 text-[#5C665A] max-w-[680px] mt-3">
             {lang === "te"
-              ? "విత్తనాలు, మండి రేట్లు, వ్యాధి నిర్ధారణ మరియు లాభాల లెక్కలు ఒకే చోట."
-              : "Check live rates, compare crop profit, and buy farm inputs directly."}
+              ? "ఈ సీజన్ పంట సలహా, మండి ధరలు మరియు పొలం ఖర్చుల లెక్కలు ఒకే చోట."
+              : "Check local mandi rates, compare season crops, and buy verified inputs in one place."}
           </p>
-          <div className="flex gap-2.5 mt-4">
+          <div className="mt-4 flex items-center gap-3">
             <button
               onClick={() => navigate("/advisor")}
-              className="bg-[#EA580C] hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition active:scale-95"
+              className="button-md bg-[#166534] hover:bg-[#14532D] text-white py-2 px-3 rounded-xl transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534] focus-visible:ring-offset-2"
             >
-              {lang === "te" ? "పంట సలహా పొందండి" : "Crop Advisor →"}
+              {lang === "te" ? "పంట సలహా చూడండి" : "Open crop advisor"}
             </button>
-            <button
-              onClick={() => navigate("/ai")}
-              className="bg-white/15 hover:bg-white/25 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition active:scale-95"
-            >
-              🎙️ {lang === "te" ? "తెలుగు AI" : "Ask Mana AI"}
-            </button>
+            <span className="caption-4 text-[#5C665A]">
+              {lang === "te" ? "ఉచిత రైతు సేవ" : "Free for farmers"}
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Live Mandi Price Card with Pulsing Dot */}
-      <section className="px-4 mt-4 animate-rise">
-        <div
+      {/* Quick Tools Strip */}
+      <ScrollReveal className="px-4 pt-4">
+        <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+          {TOOLS.map((tool) => (
+            <button
+              key={tool.path}
+              onClick={() => navigate(tool.path)}
+              className="flex flex-col items-center shrink-0 group active:scale-95 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534] rounded-xl p-1"
+            >
+              <div className="w-12 h-12 rounded-full bg-white border border-[#E6DFD1] flex items-center justify-center group-hover:border-[#166534] transition-colors duration-300">
+                {tool.icon}
+              </div>
+              <span className="caption-4 text-[#1C241B] mt-1.5">
+                {lang === "te" ? tool.labelTe : tool.labelEn}
+              </span>
+            </button>
+          ))}
+        </div>
+      </ScrollReveal>
+
+      {/* Live Mandi Card */}
+      <ScrollReveal className="px-4 pt-4" delay={60}>
+        <article
           onClick={() => navigate("/mandi")}
-          className="bg-white rounded-2xl p-4 border border-stone-200/80 shadow-sm hover:shadow-md transition cursor-pointer active:scale-[0.99]"
+          className="bg-white border border-[#E6DFD1] rounded-2xl p-4 cursor-pointer hover:border-[#166534] transition-colors duration-300"
         >
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#166534] opacity-60" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#166534]" />
               </span>
-              <span className="text-xs font-extrabold uppercase tracking-wide text-stone-800">
-                {lang === "te" ? "లైవ్ మండి ధరలు" : "Live Mandi Snapshot"}
-              </span>
+              <h2 className="title-4 text-[#1C241B]">
+                {lang === "te" ? "మండి ధరల సారాంశం" : "Mandi price snapshot"}
+              </h2>
             </div>
-            <span className="text-xs font-bold text-primary">View all →</span>
+            <span className="button-sm text-[#166534]">See all</span>
           </div>
-          <div className="grid grid-cols-3 gap-2 text-center">
-            {[
-              { crop: "Chilli", mkt: "Guntur", price: "₹12,000", trend: "▲ 2.1%", up: true },
-              { crop: "Cotton", mkt: "Kurnool", price: "₹6,800", trend: "▲ 1.4%", up: true },
-              { crop: "Paddy",  mkt: "Warangal", price: "₹2,100", trend: "▼ 0.5%", up: false },
-            ].map((r) => (
-              <div key={r.crop} className="bg-[#FAF7F2] rounded-xl p-2.5">
-                <p className="text-xs font-bold text-stone-800">{r.crop}</p>
-                <p className="text-[10px] text-stone-400">{r.mkt}</p>
-                <p className="text-sm font-extrabold text-primary mt-1">{r.price}</p>
-                <p className={`text-[10px] font-bold ${r.up ? "text-emerald-600" : "text-rose-500"}`}>{r.trend}</p>
+
+          <div className="grid grid-cols-3 gap-2">
+            {MANDI_SNAPSHOT.map((row) => (
+              <div key={row.crop} className="bg-[#FAF6EE] border border-[#EDE6D6] rounded p-2">
+                <p className="body-4 text-[#1C241B]">{row.crop}</p>
+                <p className="caption-5 text-[#5C665A]">{row.market}</p>
+                <p className="body-4 text-[#166534] mt-1">₹{row.price}</p>
+                <p className={`caption-4 ${row.up ? "text-[#166534]" : "text-[#D97706]"}`}>
+                  {row.change}
+                </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </article>
+      </ScrollReveal>
 
-      {/* Zepto-style 2-Column Featured Products */}
-      <section className="px-4 mt-5 animate-rise">
+      {/* Mandatory Tagline Reveal Section (B11) */}
+      <TaglineReveal
+        text={
+          lang === "te"
+            ? "ప్రతి రైతుకు స్పష్టమైన సమాచారం, సరైన విత్తనాలు మరియు న్యాయమైన మార్కెట్ ధరలు అందాలి."
+            : "Every farmer deserves clear local advice, honest market rates, and direct buyer access."
+        }
+      />
+
+      {/* Marketplace Preview Grid */}
+      <ScrollReveal className="px-4 pt-2" delay={80}>
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-base font-extrabold text-stone-900">
-            {lang === "te" ? "రైతు మార్కెట్" : "Fresh from Farms & Stores"}
+          <h2 className="heading-6 text-[#1C241B]">
+            {lang === "te" ? "రైతు మార్కెట్" : "Farm store and produce"}
           </h2>
-          <button onClick={() => navigate("/market")} className="text-xs font-bold text-primary">
-            See all →
+          <button
+            onClick={() => navigate("/market")}
+            className="button-sm text-[#166534] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534] rounded-lg px-2 py-1"
+          >
+            Open market
           </button>
         </div>
+
         <div className="grid grid-cols-2 gap-3">
           {FEATURED_PRODUCTS.map((p) => {
-            const qty = added[p.id] || 0;
+            const qty = cart[p.id] || 0;
             return (
-              <div
+              <article
                 key={p.id}
-                className="bg-white rounded-2xl p-3 border border-stone-200/80 shadow-sm hover:shadow-md transition flex flex-col"
+                className="bg-white border border-[#E6DFD1] rounded-2xl p-3 flex flex-col justify-between"
               >
-                <div className="bg-[#FAF7F2] rounded-xl h-24 flex items-center justify-center text-4xl mb-2.5">
-                  {p.emoji}
+                <div>
+                  <div className="bg-[#FAF6EE] border border-[#EDE6D6] rounded h-20 flex items-center justify-center mb-3">
+                    <SproutIcon className="w-8 h-8 text-[#166534]" />
+                  </div>
+                  <p className="caption-5 text-[#5C665A] truncate">{p.seller}</p>
+                  <h3 className="title-4 text-[#1C241B] mt-0.5">{p.title}</h3>
+                  <p className="caption-5 text-[#5C665A]">{p.weight}</p>
                 </div>
-                <p className="text-[10px] font-semibold text-stone-400">{p.seller}</p>
-                <h3 className="text-sm font-bold text-stone-900 leading-tight mt-0.5">{p.title}</h3>
-                <p className="text-xs text-stone-500 mt-0.5">{p.weight}</p>
-                <div className="flex items-center justify-between mt-3 pt-2 border-t border-stone-100">
+
+                <div className="flex items-center justify-between mt-3 pt-2 border-t border-[#F3EDE0]">
                   <div>
-                    <span className="text-sm font-extrabold text-stone-900">₹{p.price}</span>
-                    <span className="text-[11px] text-stone-400 line-through ml-1">₹{p.mrp}</span>
+                    <span className="body-4 text-[#1C241B]">₹{p.price}</span>
+                    <span className="caption-5 text-[#5C665A] line-through ml-1">₹{p.mrp}</span>
                   </div>
                   <button
-                    onClick={() => toggleAdd(p.id)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-extrabold transition active:scale-95 ${
+                    onClick={() => addItem(p.id)}
+                    className={`button-sm py-2 px-3 rounded-lg transition-all duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#166534] ${
                       qty > 0
-                        ? "bg-primary text-white"
-                        : "border border-primary text-primary bg-emerald-50/50 hover:bg-primary hover:text-white"
+                        ? "bg-[#166534] text-white"
+                        : "bg-[#E9F2EC] text-[#166534] hover:bg-[#166534] hover:text-white"
                     }`}
                   >
-                    {qty > 0 ? `ADDED (${qty})` : "ADD"}
+                    {qty > 0 ? `Added ${qty}` : "Add"}
                   </button>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
-      </section>
+      </ScrollReveal>
 
-      {/* Honest Disclaimer */}
-      <div className="mx-4 mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-3.5">
-        <p className="text-xs text-amber-900 leading-relaxed">
-          <strong>📢 {t("notice")}:</strong> {t("noticeText")}
+      {/* Footer with Privacy & Terms (B10) */}
+      <footer className="px-4 pt-8 pb-4 text-center">
+        <p className="caption-5 text-[#5C665A]">
+          Guidance only. Confirm crop and treatment choices with your local agriculture officer.
         </p>
-      </div>
+        <div className="flex justify-center gap-4 mt-3">
+          <button
+            type="button"
+            onClick={() => setInfoNote("Mana Farming stores farm preferences locally and follows India DPDP privacy principles.")}
+            className="caption-4 text-[#166534] hover:underline focus-visible:outline-none"
+          >
+            Privacy policy
+          </button>
+          <button
+            type="button"
+            onClick={() => setInfoNote("Indicative prices and AI advice are for informational support only.")}
+            className="caption-4 text-[#166534] hover:underline focus-visible:outline-none"
+          >
+            Terms of use
+          </button>
+        </div>
+        {infoNote && (
+          <p className="caption-5 text-[#1C241B] bg-white border border-[#E6DFD1] rounded-xl p-3 mt-3">
+            {infoNote}
+          </p>
+        )}
+      </footer>
     </div>
   );
 }

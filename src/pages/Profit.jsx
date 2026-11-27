@@ -25,7 +25,7 @@ export default function Profit() {
   const roi = totalCost > 0 ? Math.round((netProfit / totalCost) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-green-50 pb-24">
+    <div className="min-h-screen bg-[#FAF6EE] pb-24">
       <div className="bg-primary text-white px-4 pt-10 pb-6 rounded-b-3xl">
         <h1 className="text-xl font-bold">💰 Crop Profit Calculator</h1>
         <p className="text-xs opacity-80 mt-1">Estimate costs, revenue, and compare crops</p>
@@ -42,7 +42,7 @@ export default function Profit() {
                   key={name}
                   onClick={() => selectCrop(name)}
                   className={`text-xs px-3 py-1.5 rounded-full font-semibold transition ${
-                    crop === name ? "bg-primary text-white" : "bg-green-50 text-primary"
+                    crop === name ? "bg-primary text-white" : "bg-[#FAF6EE] text-primary"
                   }`}
                 >
                   {name}
@@ -97,7 +97,7 @@ export default function Profit() {
               <p className="text-xs text-gray-500">Est. Revenue</p>
               <p className="text-base font-bold text-primary">₹{totalRevenue.toLocaleString("en-IN")}</p>
             </div>
-            <div className={`rounded-xl p-3 col-span-2 ${netProfit >= 0 ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
+            <div className={`rounded-xl p-3 col-span-2 ${netProfit >= 0 ? "bg-[#FAF6EE] border border-green-200" : "bg-red-50 border border-red-200"}`}>
               <div className="flex justify-between items-center">
                 <div>
                   <p className="text-xs text-gray-600">{netProfit >= 0 ? "Estimated Net Profit" : "Estimated Loss"}</p>
