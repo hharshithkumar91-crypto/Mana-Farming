@@ -7,10 +7,12 @@ module.exports = {
     extend: {
       colors: {
         primary: "#166534",
-        accent: "#F59E0B",
+        harvest: "#EA580C",
+        cream: "#FAF7F2",
+        leafSoft: "#ECFDF5",
       },
       fontFamily: {
-        sans: ["Manrope", "Inter", "sans-serif"]
+        sans: ['"Plus Jakarta Sans"', '"Noto Sans Telugu"', "system-ui", "sans-serif"]
       }
     }
   },
