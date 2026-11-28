@@ -1,7 +1,7 @@
 {
     "name":  "mana-farming",
     "version":  "1.0.0",
-    "description":  "Mana Farming ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Smart Agriculture \u0026 Farmer Marketplace (React + Vite PWA)",
+    "description":  "Mana Farming ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Smart Agriculture \u0026 Farmer Marketplace (React + Vite PWA)",
     "homepage":  "https://hharshithkumar91-crypto.github.io/Mana-Farming/",
     "private":  true,
     "author":  "hharshithkumar91-crypto",
@@ -24,7 +24,7 @@
                  ],
     "scripts":  {
                     "dev":  "vite",
-                    "build":  "vite build",
+                    "build":  "vite build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
                     "preview":  "vite preview",
                     "predeploy":  "npm run build",
                     "deploy":  "gh-pages -d dist"
