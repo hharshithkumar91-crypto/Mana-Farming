@@ -68,8 +68,8 @@ if (Test-Path $packageJson) {
 # 7️⃣ Install exact dependencies (clean install)
 npm ci
 
-# 8️⃣ Build the Vite app (output folder is `dist`)
-npx vite build
+# 8️⃣ Build the Vite app (output folder is `dist`, with SPA 404 fallback)
+npm run build
 
 # 9️⃣ Publish to GitHub Pages using gh-pages (install if missing)
 if (-not (Get-Command gh-pages -ErrorAction SilentlyContinue)) {
